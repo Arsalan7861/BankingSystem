@@ -81,13 +81,13 @@ public partial class BankingDbContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("Customer_pkey");
+            entity.HasKey(e => e.CustomerTc).HasName("Customer_pkey");
 
             entity.ToTable("Customer");
 
-            entity.Property(e => e.CustomerId)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("customerID");
+            entity.Property(e => e.CustomerTc)
+                .ValueGeneratedNever()
+                .HasColumnName("customerTc");
             entity.Property(e => e.CustomerAddress)
                 .HasColumnType("char")
                 .HasColumnName("customerAddress");
@@ -104,13 +104,13 @@ public partial class BankingDbContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffId).HasName("Staff_pkey");
+            entity.HasKey(e => e.StaffTc).HasName("Staff_pkey");
 
-            entity.Property(e => e.StaffId)
-                .UseIdentityAlwaysColumn()
-                .HasColumnName("staffId");
+            entity.Property(e => e.StaffTc)
+                .ValueGeneratedNever()
+                .HasColumnName("staffTc");
             entity.Property(e => e.BranchId).HasColumnName("branchId");
-            entity.Property(e => e.CustomerId).HasColumnName("customerId");
+            entity.Property(e => e.CustomerTc).HasColumnName("customerTc");
             entity.Property(e => e.StaffAddress)
                 .HasColumnType("char")
                 .HasColumnName("staffAddress");
@@ -132,8 +132,8 @@ public partial class BankingDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("branchId");
 
-            entity.HasOne(d => d.Customer).WithMany(p => p.Staff)
-                .HasForeignKey(d => d.CustomerId)
+            entity.HasOne(d => d.CustomerTcNavigation).WithMany(p => p.Staff)
+                .HasForeignKey(d => d.CustomerTc)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("customerId");
         });

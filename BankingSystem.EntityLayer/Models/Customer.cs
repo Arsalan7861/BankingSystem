@@ -5,7 +5,7 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Customer
 {
-    public int CustomerId { get; set; }
+    public int CustomerTc { get; set; }
 
     public char CustomerFname { get; set; }
 
