@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace BankingSystem.EntityLayer.Models;
 
 public partial class BankingDbContext : DbContext
 {
-    public BankingDbContext()
+    private readonly IConfiguration _configuration;
+    public BankingDbContext(IConfiguration configuration)
     {
+        _configuration = configuration;
     }
 
-    public BankingDbContext(DbContextOptions<BankingDbContext> options)
+    public BankingDbContext(DbContextOptions<BankingDbContext> options, IConfiguration configuration)
         : base(options)
     {
+        _configuration = configuration;
     }
 
     public virtual DbSet<Account> Accounts { get; set; }
@@ -27,7 +31,13 @@ public partial class BankingDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseNpgsql("Host=localhost;Database=BankingDb;Username=postgres;Password=root");
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            var connectionString = _configuration.GetConnectionString("BankingDb");
+            optionsBuilder.UseNpgsql(connectionString);
+        }
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -81,13 +91,13 @@ public partial class BankingDbContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerTc).HasName("Customer_pkey");
+            entity.HasKey(e => e.CustomerId).HasName("Customer_pkey");
 
             entity.ToTable("Customer");
 
-            entity.Property(e => e.CustomerTc)
-                .ValueGeneratedNever()
-                .HasColumnName("customerTc");
+            entity.Property(e => e.CustomerId)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("customerID");
             entity.Property(e => e.CustomerAddress)
                 .HasColumnType("char")
                 .HasColumnName("customerAddress");
@@ -104,13 +114,13 @@ public partial class BankingDbContext : DbContext
 
         modelBuilder.Entity<Staff>(entity =>
         {
-            entity.HasKey(e => e.StaffTc).HasName("Staff_pkey");
+            entity.HasKey(e => e.StaffId).HasName("Staff_pkey");
 
-            entity.Property(e => e.StaffTc)
-                .ValueGeneratedNever()
-                .HasColumnName("staffTc");
+            entity.Property(e => e.StaffId)
+                .UseIdentityAlwaysColumn()
+                .HasColumnName("staffId");
             entity.Property(e => e.BranchId).HasColumnName("branchId");
-            entity.Property(e => e.CustomerTc).HasColumnName("customerTc");
+            entity.Property(e => e.CustomerId).HasColumnName("customerId");
             entity.Property(e => e.StaffAddress)
                 .HasColumnType("char")
                 .HasColumnName("staffAddress");
@@ -132,8 +142,8 @@ public partial class BankingDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("branchId");
 
-            entity.HasOne(d => d.CustomerTcNavigation).WithMany(p => p.Staff)
-                .HasForeignKey(d => d.CustomerTc)
+            entity.HasOne(d => d.Customer).WithMany(p => p.Staff)
+                .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("customerId");
         });

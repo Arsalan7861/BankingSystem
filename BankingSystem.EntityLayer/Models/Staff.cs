@@ -5,7 +5,7 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Staff
 {
-    public int StaffTc { get; set; }
+    public int StaffId { get; set; }
 
     public char StaffFname { get; set; }
 
@@ -19,9 +19,9 @@ public partial class Staff
 
     public int BranchId { get; set; }
 
-    public int CustomerTc { get; set; }
+    public int CustomerId { get; set; }
 
     public virtual Branch Branch { get; set; } = null!;
 
-    public virtual Customer CustomerTcNavigation { get; set; } = null!;
+    public virtual Customer Customer { get; set; } = null!;
 }
