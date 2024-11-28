@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BankingSystem.DataAccessLayer.Concrete
 {
-    public class AccountDal : GenericRepository<Account>, IAccountDal
+    public class StaffDal : GenericRepository<Staff>, IStaffDal
     {
-        public AccountDal(string connectionString) : base(connectionString)
+        public StaffDal(string connectionString) : base(connectionString)
         {
         }
     }

@@ -1,40 +1,51 @@
-﻿//using BankingSystem.BusinessLayer.Abstract;
-//using BankingSystem.DataAccessLayer.Concrete;
-//using BankingSystem.EntityLayer.Models;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using BankingSystem.BusinessLayer.Abstract;
+using BankingSystem.DataAccessLayer.Concrete;
+using BankingSystem.EntityLayer.Models;
+using System;
+using System.Threading.Tasks;
 
-//namespace BankingSystem.BusinessLayer.Concrete
-//{
-//    internal class AccountManager : IAccountService
-//    {
-//        AccountDal AccountDal = new AccountDal();
-//        public void Add(Account entity)
-//        {
-//            AccountDal.Add(entity);
-//        }
+namespace BankingSystem.BusinessLayer.Concrete
+{
+    public class AccountManager : IAccountService
+    {
+        private readonly AccountDal _accountDal;
 
-//        public void Delete(int id)
-//        {
-//            throw new NotImplementedException();
-//        }
+        public AccountManager(string connectionString)
+        {
+            _accountDal = new AccountDal(connectionString);
+        }
 
-//        public List<Account> GetAll()
-//        {
-//            throw new NotImplementedException();
-//        }
+        public void Add(Account entity)
+        {
+            _accountDal.Add(entity);
+        }
 
-//        public Account GetById(int id)
-//        {
-//            throw new NotImplementedException();
-//        }
+        public void Delete(int id)
+        {
+            var account = _accountDal.GetById(id);
+            if (account != null)
+            {
+                _accountDal.Delete(account);
+            }
+        }
 
-//        public void Update(Account entity)
-//        {
-//            throw new NotImplementedException();
-//        }
-//    }
-//}
+        public List<Account> GetAll()
+        {
+            return _accountDal.GetAll();
+        }
+
+        public Account GetById(int id)
+        {
+            return _accountDal.GetById(id);
+        }
+
+        public void Update(Account entity)
+        {
+            _accountDal.Update(entity);
+        }
+    }
+}
+
+
+
+

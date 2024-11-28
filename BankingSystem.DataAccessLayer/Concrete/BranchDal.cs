@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 
 namespace BankingSystem.DataAccessLayer.Concrete
 {
-    public class BranchDal: GenericRepository<Branch>, IBranchDal
+    public class BranchDal : GenericRepository<Branch>, IBranchDal
     {
+        public BranchDal(string connectionString) : base(connectionString)
+        {
+        }
     }
 }

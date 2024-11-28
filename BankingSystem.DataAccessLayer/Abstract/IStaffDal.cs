@@ -1,13 +1,13 @@
-﻿//using BankingSystem.EntityLayer.Models;
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using BankingSystem.EntityLayer.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace BankingSystem.DataAccessLayer.Abstract
-//{
-//    internal interface IStaffDal : IGenericDal<Staff>
-//    {
-//    }
-//}
+namespace BankingSystem.DataAccessLayer.Abstract
+{
+    public interface IStaffDal : IGenericDal<Staff>
+    {
+    }
+}
