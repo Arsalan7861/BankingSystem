@@ -17,10 +17,7 @@ namespace BankingSystem.PresentationLayer
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Example usage of the account service
             var accounts = _accountService.GetAll();
-            // Do something with the accounts
-
             dataGridView1.DataSource = accounts;
         }
     }

@@ -69,7 +69,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
         }
 
         // Placeholder methods for generating queries
-        private string GenerateInsertQuery(T entity)
+        private static string GenerateInsertQuery(T entity)
         {
             var type = typeof(T);
             var tableName = $"\"{type.Name}\"";
@@ -82,7 +82,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
             return query;
         }
 
-        private string GenerateDeleteQuery(T entity)
+        private static string GenerateDeleteQuery(T entity)
         {
             var type = typeof(T);
             var tableName = $"\"{type.Name}\"";
@@ -97,7 +97,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
             return query;
         }
 
-        private string GenerateUpdateQuery(T entity)
+        private static string GenerateUpdateQuery(T entity)
         {
             var type = typeof(T);
             var tableName = $"\"{type.Name}\"";
