@@ -5,23 +5,27 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Staff
 {
-    public int StaffId { get; set; }
+    public string Stafftc { get; set; } = null!;
 
-    public char StaffFname { get; set; }
+    public string Stafffname { get; set; } = null!;
 
-    public char StaffLname { get; set; }
+    public string Stafflname { get; set; } = null!;
 
-    public char StaffPosition { get; set; }
+    public string Staffposition { get; set; } = null!;
 
-    public char StaffPhonNo { get; set; }
+    public string Staffphone { get; set; } = null!;
 
-    public char StaffAddress { get; set; }
+    public int Branchid { get; set; }
 
-    public int BranchId { get; set; }
+    public string Staffaddress { get; set; } = null!;
 
-    public int CustomerId { get; set; }
+    public string Customertc { get; set; } = null!;
+
+    public string Staffemail { get; set; } = null!;
 
     public virtual Branch Branch { get; set; } = null!;
 
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual Customer CustomertcNavigation { get; set; } = null!;
+
+    public virtual ICollection<Log> Log { get; set; } = new List<Log>();
 }

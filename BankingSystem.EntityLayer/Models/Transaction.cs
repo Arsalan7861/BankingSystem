@@ -5,17 +5,19 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Transaction
 {
-    public int TransactionId { get; set; }
+    public int Transactionid { get; set; }
 
-    public int TransactionFromId { get; set; }
+    public string Transactionfromtc { get; set; } = null!;
 
-    public int TransactionToId { get; set; }
+    public string Transactiontotc { get; set; } = null!;
 
-    public int TransactionAmount { get; set; }
+    public decimal Transactionamount { get; set; }
 
-    public DateOnly TransactionDate { get; set; }
+    public DateTime Transactiondate { get; set; }
 
-    public virtual Customer TransactionFrom { get; set; } = null!;
+    public string Transactiondescription { get; set; } = null!;
 
-    public virtual Customer TransactionTo { get; set; } = null!;
+    public virtual Customer TransactionfromtcNavigation { get; set; } = null!;
+
+    public virtual Customer TransactiontotcNavigation { get; set; } = null!;
 }

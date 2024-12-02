@@ -43,7 +43,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = $"SELECT * FROM \"{typeof(T).Name}\"";
+                var query = $"SELECT * FROM {typeof(T).Name}";
                 return connection.Query<T>(query).ToList();
             }
         }
@@ -53,7 +53,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
-                var query = $"SELECT * FROM \"{typeof(T).Name}\" WHERE Id = @Id";
+                var query = $"SELECT * FROM {typeof(T).Name} WHERE Id = @Id";
                 return connection.QuerySingleOrDefault<T>(query, new { Id = id });
             }
         }
@@ -72,7 +72,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
         private static string GenerateInsertQuery(T entity)
         {
             var type = typeof(T);
-            var tableName = $"\"{type.Name}\"";
+            var tableName = $"{type.Name}";
             var properties = type.GetProperties();
 
             var columnNames = string.Join(", ", properties.Select(p => p.Name));
@@ -85,7 +85,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
         private static string GenerateDeleteQuery(T entity)
         {
             var type = typeof(T);
-            var tableName = $"\"{type.Name}\"";
+            var tableName = $"{type.Name}";
             var keyProperty = type.GetProperties().FirstOrDefault(p => p.Name == "Id" || p.Name == $"{type.Name}Id");
 
             if (keyProperty == null)
@@ -100,7 +100,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
         private static string GenerateUpdateQuery(T entity)
         {
             var type = typeof(T);
-            var tableName = $"\"{type.Name}\"";
+            var tableName = $"{type.Name}";
             var properties = type.GetProperties();
 
             var setClause = string.Join(", ", properties.Select(p => $"{p.Name} = @{p.Name}"));

@@ -5,15 +5,15 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Branch
 {
-    public int BranchId { get; set; }
+    public int Branchid { get; set; }
 
-    public char BranchCity { get; set; }
+    public string Branchcity { get; set; } = null!;
 
-    public char BranchStreet { get; set; }
+    public string Branchstreet { get; set; } = null!;
 
-    public char BranchPostCode { get; set; }
+    public string Branchpostcode { get; set; } = null!;
 
-    public char BranchName { get; set; }
+    public string Branchname { get; set; } = null!;
 
     public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
 }

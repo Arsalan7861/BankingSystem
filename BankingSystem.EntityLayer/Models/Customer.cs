@@ -5,21 +5,23 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Customer
 {
-    public int CustomerId { get; set; }
+    public string Customertc { get; set; } = null!;
 
-    public char CustomerFname { get; set; }
+    public string Customerfname { get; set; } = null!;
 
-    public char CustomerLname { get; set; }
+    public string Customerlname { get; set; } = null!;
 
-    public char CustomerPhonNo { get; set; }
+    public string Customerphone { get; set; } = null!;
 
-    public char CustomerAddress { get; set; }
+    public string Customeraddress { get; set; } = null!;
 
-    public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
+    public virtual ICollection<Account> Account { get; set; } = new List<Account>();
+
+    public virtual ICollection<Log> Log { get; set; } = new List<Log>();
 
     public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
 
-    public virtual ICollection<Transaction> TransactionTransactionFroms { get; set; } = new List<Transaction>();
+    public virtual ICollection<Transaction> TransactionTransactionfromtcNavigation { get; set; } = new List<Transaction>();
 
-    public virtual ICollection<Transaction> TransactionTransactionTos { get; set; } = new List<Transaction>();
+    public virtual ICollection<Transaction> TransactionTransactiontotcNavigation { get; set; } = new List<Transaction>();
 }

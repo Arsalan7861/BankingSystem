@@ -5,17 +5,17 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class Account
 {
-    public int AccountId { get; set; }
+    public int Accountid { get; set; }
 
-    public char AccountType { get; set; }
+    public string Customertc { get; set; } = null!;
 
-    public int AccountBalance { get; set; }
+    public string Accounttype { get; set; } = null!;
 
-    public char AccountIban { get; set; }
+    public decimal Accountbalance { get; set; }
 
-    public int AccountCurrency { get; set; }
+    public string Accountiban { get; set; } = null!;
 
-    public int CustomerId { get; set; }
+    public string Accountcurrency { get; set; } = null!;
 
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual Customer CustomertcNavigation { get; set; } = null!;
 }
