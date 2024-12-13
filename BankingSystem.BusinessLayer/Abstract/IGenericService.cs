@@ -8,10 +8,10 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface IGenericService<T> where T : class
     {
-        List<T> GetAll();
-        T GetById(int id);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(int id);
+        List<T> TGetAll();
+        T TGetById(int id);
+        void TAdd(T entity);
+        void TUpdate(T entity);
+        void TDelete(int id);
     }
 }

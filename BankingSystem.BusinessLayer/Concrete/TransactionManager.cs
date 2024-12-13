@@ -1,24 +1,24 @@
 ﻿using BankingSystem.BusinessLayer.Abstract;
 using BankingSystem.DataAccessLayer.Abstract;
-using BankingSystem.EntityLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BankingSystem.BusinessLayer.Concrete
 {
-    public class StaffManager : IStaffService
+    public class TransactionManager : ITransactionService
     {
-        private readonly IStaffDal _staffDal;
+        private readonly ITransactionDal _transactionDal;
 
-        public StaffManager(IStaffDal staffDal)
+        public TransactionManager(ITransactionDal transactionDal)
         {
-            _staffDal = staffDal;
+            _transactionDal = transactionDal;
         }
 
-        public void TAdd(Staff entity)
+        public void TAdd(Transaction entity)
         {
             throw new NotImplementedException();
         }
@@ -28,17 +28,17 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Staff> TGetAll()
+        public List<Transaction> TGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Staff TGetById(int id)
+        public Transaction TGetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void TUpdate(Staff entity)
+        public void TUpdate(Transaction entity)
         {
             throw new NotImplementedException();
         }

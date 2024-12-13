@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace BankingSystem.BusinessLayer.Concrete
 {
-    public class StaffManager : IStaffService
+    public class CustomerManager : ICustomerService
     {
-        private readonly IStaffDal _staffDal;
+        private readonly ICustomerDal _customerService;
 
-        public StaffManager(IStaffDal staffDal)
+        public CustomerManager(ICustomerDal customerService)
         {
-            _staffDal = staffDal;
+            _customerService = customerService;
         }
 
-        public void TAdd(Staff entity)
+        public void TAdd(Customer entity)
         {
             throw new NotImplementedException();
         }
@@ -28,17 +28,17 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public List<Staff> TGetAll()
+        public List<Customer> TGetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Staff TGetById(int id)
+        public Customer TGetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void TUpdate(Staff entity)
+        public void TUpdate(Customer entity)
         {
             throw new NotImplementedException();
         }

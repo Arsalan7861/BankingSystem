@@ -29,17 +29,20 @@ namespace BankingSystem.PresentationLayer
                 {
                     services.AddDbContext<BankingDbContext>(options =>
                         options.UseNpgsql(configuration.GetConnectionString("BankingDb")));
+                    services.AddSingleton(configuration.GetConnectionString("BankingDb")); // Register connection string
                     services.AddTransient<Form1>(); // Register Form1
                 })
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("BankingDb");
-
-            var accountService = new AccountManager(connectionString);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(accountService));
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var form1 = services.GetRequiredService<Form1>();
+                Application.Run(form1);
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using BankingSystem.BusinessLayer.Abstract;
-using BankingSystem.DataAccessLayer.Concrete;
+using BankingSystem.DataAccessLayer.Abstract;
 using BankingSystem.EntityLayer.Models;
 using System;
 using System.Threading.Tasks;
@@ -8,19 +8,19 @@ namespace BankingSystem.BusinessLayer.Concrete
 {
     public class AccountManager : IAccountService
     {
-        private readonly AccountDal _accountDal;
+        private readonly IAccountDal _accountDal;
 
-        public AccountManager(string connectionString)
+        public AccountManager(IAccountDal accountDal)
         {
-            _accountDal = new AccountDal(connectionString);
+            _accountDal = accountDal;
         }
 
-        public void Add(Account entity)
+        public void TAdd(Account entity)
         {
             _accountDal.Add(entity);
         }
 
-        public void Delete(int id)
+        public void TDelete(int id)
         {
             var account = _accountDal.GetById(id);
             if (account != null)
@@ -29,17 +29,17 @@ namespace BankingSystem.BusinessLayer.Concrete
             }
         }
 
-        public List<Account> GetAll()
+        public List<Account> TGetAll()
         {
             return _accountDal.GetAll();
         }
 
-        public Account GetById(int id)
+        public Account TGetById(int id)
         {
             return _accountDal.GetById(id);
         }
 
-        public void Update(Account entity)
+        public void TUpdate(Account entity)
         {
             _accountDal.Update(entity);
         }
