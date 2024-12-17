@@ -11,7 +11,7 @@ public partial class Log
 
     public DateTime Logdatetime { get; set; }
 
-    public string Stafftc { get; set; } = null!;
+    public string? Stafftc { get; set; }
 
     public string Customertc { get; set; } = null!;
 
@@ -21,5 +21,5 @@ public partial class Log
 
     public virtual Customer CustomertcNavigation { get; set; } = null!;
 
-    public virtual Staff StafftcNavigation { get; set; } = null!;
+    public virtual Staff? StafftcNavigation { get; set; }
 }

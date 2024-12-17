@@ -9,5 +9,7 @@ namespace BankingSystem.DataAccessLayer.Abstract
 {
     public interface IAccountDal : IGenericDal<Account>
     {
+        void depositMoney(string customerTc, decimal amount);
+        void withdrawMoney(string customerTc, decimal amount);
     }
 }

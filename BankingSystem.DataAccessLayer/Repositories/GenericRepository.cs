@@ -12,7 +12,7 @@ namespace BankingSystem.DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        private readonly string _connectionString;
+        public readonly string _connectionString;
 
         public GenericRepository(string connectionString)
         {

@@ -11,17 +11,21 @@ public partial class Customer
 
     public string Customerlname { get; set; } = null!;
 
+    public string Customerpassword { get; set; } = null!;
+
     public string Customerphone { get; set; } = null!;
 
     public string Customeraddress { get; set; } = null!;
 
-    public virtual ICollection<Account> Account { get; set; } = new List<Account>();
+    public string? Stafftc { get; set; }
 
-    public virtual ICollection<Log> Log { get; set; } = new List<Log>();
+    public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
 
-    public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
+    public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 
-    public virtual ICollection<Transaction> TransactionTransactionfromtcNavigation { get; set; } = new List<Transaction>();
+    public virtual Staff? StafftcNavigation { get; set; }
 
-    public virtual ICollection<Transaction> TransactionTransactiontotcNavigation { get; set; } = new List<Transaction>();
+    public virtual ICollection<Transaction> TransactionTransactionfromtcNavigations { get; set; } = new List<Transaction>();
+
+    public virtual ICollection<Transaction> TransactionTransactiontotcNavigations { get; set; } = new List<Transaction>();
 }

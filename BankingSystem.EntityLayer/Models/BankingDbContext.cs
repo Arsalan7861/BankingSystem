@@ -6,22 +6,42 @@ namespace BankingSystem.EntityLayer.Models;
 
 public partial class BankingDbContext : DbContext
 {
+    public BankingDbContext()
+    {
+    }
+
     public BankingDbContext(DbContextOptions<BankingDbContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Account> Account { get; set; }
+    public virtual DbSet<Account> Accounts { get; set; }
 
-    public virtual DbSet<Branch> Branch { get; set; }
+    public virtual DbSet<Branch> Branches { get; set; }
 
-    public virtual DbSet<Customer> Customer { get; set; }
+    public virtual DbSet<Customer> Customers { get; set; }
 
-    public virtual DbSet<Log> Log { get; set; }
+    public virtual DbSet<Log> Logs { get; set; }
+
+    public virtual DbSet<PboViewAccount> PboViewAccounts { get; set; }
+
+    public virtual DbSet<PboViewCustomer> PboViewCustomers { get; set; }
+
+    public virtual DbSet<PboViewTransaction> PboViewTransactions { get; set; }
 
     public virtual DbSet<Staff> Staff { get; set; }
 
-    public virtual DbSet<Transaction> Transaction { get; set; }
+    public virtual DbSet<TellerViewAccount> TellerViewAccounts { get; set; }
+
+    public virtual DbSet<TellerViewCustomer> TellerViewCustomers { get; set; }
+
+    public virtual DbSet<TellerViewTransaction> TellerViewTransactions { get; set; }
+
+    public virtual DbSet<Transaction> Transactions { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseNpgsql("Host=localhost;Database=BankingDb;Username=postgres;Password=root");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -30,6 +50,8 @@ public partial class BankingDbContext : DbContext
             entity.HasKey(e => e.Accountid).HasName("account_pkey");
 
             entity.ToTable("account");
+
+            entity.HasIndex(e => e.Accountiban, "account_accountiban_key").IsUnique();
 
             entity.Property(e => e.Accountid).HasColumnName("accountid");
             entity.Property(e => e.Accountbalance)
@@ -40,7 +62,7 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(10)
                 .HasColumnName("accountcurrency");
             entity.Property(e => e.Accountiban)
-                .HasMaxLength(34)
+                .HasMaxLength(26)
                 .HasColumnName("accountiban");
             entity.Property(e => e.Accounttype)
                 .HasMaxLength(50)
@@ -49,9 +71,8 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("customertc");
 
-            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Account)
+            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Accounts)
                 .HasForeignKey(d => d.Customertc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("account_customertc_fkey");
         });
 
@@ -92,9 +113,20 @@ public partial class BankingDbContext : DbContext
             entity.Property(e => e.Customerlname)
                 .HasMaxLength(50)
                 .HasColumnName("customerlname");
+            entity.Property(e => e.Customerpassword)
+                .HasMaxLength(30)
+                .HasColumnName("customerpassword");
             entity.Property(e => e.Customerphone)
                 .HasMaxLength(15)
                 .HasColumnName("customerphone");
+            entity.Property(e => e.Stafftc)
+                .HasMaxLength(11)
+                .HasColumnName("stafftc");
+
+            entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Customers)
+                .HasForeignKey(d => d.Stafftc)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("customer_staffTc_fkey");
         });
 
         modelBuilder.Entity<Log>(entity =>
@@ -125,15 +157,87 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("stafftc");
 
-            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Log)
+            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Logs)
                 .HasForeignKey(d => d.Customertc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("log_customertc_fkey");
 
-            entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Log)
+            entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Logs)
                 .HasForeignKey(d => d.Stafftc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("log_stafftc_fkey");
+        });
+
+        modelBuilder.Entity<PboViewAccount>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("pbo_view_account");
+
+            entity.Property(e => e.Accountbalance)
+                .HasPrecision(15, 2)
+                .HasColumnName("accountbalance");
+            entity.Property(e => e.Accountcurrency)
+                .HasMaxLength(10)
+                .HasColumnName("accountcurrency");
+            entity.Property(e => e.Accountiban)
+                .HasMaxLength(26)
+                .HasColumnName("accountiban");
+            entity.Property(e => e.Accountid).HasColumnName("accountid");
+            entity.Property(e => e.Accounttype)
+                .HasMaxLength(50)
+                .HasColumnName("accounttype");
+            entity.Property(e => e.Customertc)
+                .HasMaxLength(11)
+                .HasColumnName("customertc");
+        });
+
+        modelBuilder.Entity<PboViewCustomer>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("pbo_view_customer");
+
+            entity.Property(e => e.Customeraddress).HasColumnName("customeraddress");
+            entity.Property(e => e.Customerfname)
+                .HasMaxLength(50)
+                .HasColumnName("customerfname");
+            entity.Property(e => e.Customerlname)
+                .HasMaxLength(50)
+                .HasColumnName("customerlname");
+            entity.Property(e => e.Customerpassword)
+                .HasMaxLength(30)
+                .HasColumnName("customerpassword");
+            entity.Property(e => e.Customerphone)
+                .HasMaxLength(15)
+                .HasColumnName("customerphone");
+            entity.Property(e => e.Customertc)
+                .HasMaxLength(11)
+                .HasColumnName("customertc");
+            entity.Property(e => e.Stafftc)
+                .HasMaxLength(11)
+                .HasColumnName("stafftc");
+        });
+
+        modelBuilder.Entity<PboViewTransaction>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("pbo_view_transaction");
+
+            entity.Property(e => e.Transactionamount)
+                .HasPrecision(10, 2)
+                .HasColumnName("transactionamount");
+            entity.Property(e => e.Transactiondate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("transactiondate");
+            entity.Property(e => e.Transactiondescription).HasColumnName("transactiondescription");
+            entity.Property(e => e.Transactionfromtc)
+                .HasMaxLength(11)
+                .HasColumnName("transactionfromtc");
+            entity.Property(e => e.Transactionid).HasColumnName("transactionid");
+            entity.Property(e => e.Transactiontotc)
+                .HasMaxLength(11)
+                .HasColumnName("transactiontotc");
         });
 
         modelBuilder.Entity<Staff>(entity =>
@@ -146,9 +250,6 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("stafftc");
             entity.Property(e => e.Branchid).HasColumnName("branchid");
-            entity.Property(e => e.Customertc)
-                .HasMaxLength(11)
-                .HasColumnName("customertc");
             entity.Property(e => e.Staffaddress).HasColumnName("staffaddress");
             entity.Property(e => e.Staffemail)
                 .HasMaxLength(100)
@@ -159,6 +260,9 @@ public partial class BankingDbContext : DbContext
             entity.Property(e => e.Stafflname)
                 .HasMaxLength(50)
                 .HasColumnName("stafflname");
+            entity.Property(e => e.Staffpassword)
+                .HasMaxLength(30)
+                .HasColumnName("staffpassword");
             entity.Property(e => e.Staffphone)
                 .HasMaxLength(15)
                 .HasColumnName("staffphone");
@@ -168,13 +272,81 @@ public partial class BankingDbContext : DbContext
 
             entity.HasOne(d => d.Branch).WithMany(p => p.Staff)
                 .HasForeignKey(d => d.Branchid)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+                .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("staff_branchid_fkey");
+        });
 
-            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Staff)
-                .HasForeignKey(d => d.Customertc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("staff_customertc_fkey");
+        modelBuilder.Entity<TellerViewAccount>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("teller_view_account");
+
+            entity.Property(e => e.Accountbalance)
+                .HasPrecision(15, 2)
+                .HasColumnName("accountbalance");
+            entity.Property(e => e.Accountcurrency)
+                .HasMaxLength(10)
+                .HasColumnName("accountcurrency");
+            entity.Property(e => e.Accountiban)
+                .HasMaxLength(26)
+                .HasColumnName("accountiban");
+            entity.Property(e => e.Accountid).HasColumnName("accountid");
+            entity.Property(e => e.Accounttype)
+                .HasMaxLength(50)
+                .HasColumnName("accounttype");
+            entity.Property(e => e.Customertc)
+                .HasMaxLength(11)
+                .HasColumnName("customertc");
+        });
+
+        modelBuilder.Entity<TellerViewCustomer>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("teller_view_customer");
+
+            entity.Property(e => e.Customeraddress).HasColumnName("customeraddress");
+            entity.Property(e => e.Customerfname)
+                .HasMaxLength(50)
+                .HasColumnName("customerfname");
+            entity.Property(e => e.Customerlname)
+                .HasMaxLength(50)
+                .HasColumnName("customerlname");
+            entity.Property(e => e.Customerpassword)
+                .HasMaxLength(30)
+                .HasColumnName("customerpassword");
+            entity.Property(e => e.Customerphone)
+                .HasMaxLength(15)
+                .HasColumnName("customerphone");
+            entity.Property(e => e.Customertc)
+                .HasMaxLength(11)
+                .HasColumnName("customertc");
+            entity.Property(e => e.Stafftc)
+                .HasMaxLength(11)
+                .HasColumnName("stafftc");
+        });
+
+        modelBuilder.Entity<TellerViewTransaction>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("teller_view_transaction");
+
+            entity.Property(e => e.Transactionamount)
+                .HasPrecision(10, 2)
+                .HasColumnName("transactionamount");
+            entity.Property(e => e.Transactiondate)
+                .HasColumnType("timestamp without time zone")
+                .HasColumnName("transactiondate");
+            entity.Property(e => e.Transactiondescription).HasColumnName("transactiondescription");
+            entity.Property(e => e.Transactionfromtc)
+                .HasMaxLength(11)
+                .HasColumnName("transactionfromtc");
+            entity.Property(e => e.Transactionid).HasColumnName("transactionid");
+            entity.Property(e => e.Transactiontotc)
+                .HasMaxLength(11)
+                .HasColumnName("transactiontotc");
         });
 
         modelBuilder.Entity<Transaction>(entity =>
@@ -199,14 +371,12 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("transactiontotc");
 
-            entity.HasOne(d => d.TransactionfromtcNavigation).WithMany(p => p.TransactionTransactionfromtcNavigation)
+            entity.HasOne(d => d.TransactionfromtcNavigation).WithMany(p => p.TransactionTransactionfromtcNavigations)
                 .HasForeignKey(d => d.Transactionfromtc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("transaction_transactionfromtc_fkey");
 
-            entity.HasOne(d => d.TransactiontotcNavigation).WithMany(p => p.TransactionTransactiontotcNavigation)
+            entity.HasOne(d => d.TransactiontotcNavigation).WithMany(p => p.TransactionTransactiontotcNavigations)
                 .HasForeignKey(d => d.Transactiontotc)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("transaction_transactiontotc_fkey");
         });
 

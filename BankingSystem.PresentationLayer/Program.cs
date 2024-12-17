@@ -30,7 +30,7 @@ namespace BankingSystem.PresentationLayer
                     services.AddDbContext<BankingDbContext>(options =>
                         options.UseNpgsql(configuration.GetConnectionString("BankingDb")));
                     services.AddSingleton(configuration.GetConnectionString("BankingDb")); // Register connection string
-                    services.AddTransient<Form1>(); // Register Form1
+                    services.AddTransient<Form>(); // Register Form1
                 })
                 .Build();
 
@@ -40,7 +40,7 @@ namespace BankingSystem.PresentationLayer
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var form1 = services.GetRequiredService<Form1>();
+                var form1 = services.GetRequiredService<Form>();
                 Application.Run(form1);
             }
         }

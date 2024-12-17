@@ -29,6 +29,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             }
         }
 
+        public void TdepositMoney(string customerTc, decimal amount)
+        {
+            _accountDal.depositMoney(customerTc, amount);
+        }
+
         public List<Account> TGetAll()
         {
             return _accountDal.GetAll();
@@ -42,6 +47,11 @@ namespace BankingSystem.BusinessLayer.Concrete
         public void TUpdate(Account entity)
         {
             _accountDal.Update(entity);
+        }
+
+        public void TwithdrawMoney(string customerTc, decimal amount)
+        {
+            _accountDal.withdrawMoney(customerTc, amount);
         }
     }
 }

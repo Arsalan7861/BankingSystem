@@ -9,5 +9,7 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface IAccountService : IGenericService<Account>
     {
+        void TdepositMoney(string customerTc, decimal amount);
+        void TwithdrawMoney(string customerTc, decimal amount);
     }
 }
