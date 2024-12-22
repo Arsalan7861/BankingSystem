@@ -15,5 +15,5 @@ public partial class Branch
 
     public string Branchname { get; set; } = null!;
 
-    public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
+    //public virtual ICollection<Staff> Staff { get; set; } = new List<Staff>();
 }

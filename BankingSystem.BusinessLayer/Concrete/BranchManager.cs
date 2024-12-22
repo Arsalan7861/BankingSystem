@@ -23,9 +23,9 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void TcreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName)
+        public void TCreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName)
         {
-            throw new NotImplementedException();
+            _branchDal.CreateBranch(branchCity, branchStreet, branchPostCode, branchName);
         }
 
         public void TDelete(int id)
@@ -33,14 +33,14 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void TdeleteBranch(int branchId)
+        public void TDeleteBranch(int branchId)
         {
-            throw new NotImplementedException();
+            _branchDal.DeleteBranch(branchId);
         }
 
         public List<Branch> TGetAll()
         {
-            throw new NotImplementedException();
+            return _branchDal.GetAll();
         }
 
         public Branch TGetById(int id)
@@ -53,9 +53,9 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void TupdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName)
+        public void TUpdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName)
         {
-            throw new NotImplementedException();
+            _branchDal.UpdateBranch(branchId, branchCity, branchStreet, branchPostCode, branchName);
         }
     }
 }

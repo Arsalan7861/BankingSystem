@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             panel1 = new Panel();
             bLogOut = new Button();
             bSupport = new Button();
@@ -61,7 +61,7 @@
             dOverViewTransac = new DataGridView();
             lTransactions = new Label();
             pOverview_Main = new Panel();
-            label2 = new Label();
+            lblWelcome = new Label();
             pCreateAccount_Main = new Panel();
             pCreate_second = new Panel();
             bCredit = new Button();
@@ -289,23 +289,23 @@
             dTransaction.AllowUserToDeleteRows = false;
             dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dTransaction.BackgroundColor = Color.White;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dTransaction.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dTransaction.DefaultCellStyle = dataGridViewCellStyle8;
             dTransaction.Location = new Point(122, 275);
             dTransaction.Name = "dTransaction";
             dTransaction.ReadOnly = true;
@@ -469,23 +469,23 @@
             dOverViewTransac.AllowUserToDeleteRows = false;
             dOverViewTransac.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dOverViewTransac.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dOverViewTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dOverViewTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dOverViewTransac.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dOverViewTransac.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dOverViewTransac.DefaultCellStyle = dataGridViewCellStyle10;
             dOverViewTransac.GridColor = SystemColors.ControlDark;
             dOverViewTransac.Location = new Point(87, 74);
             dOverViewTransac.Name = "dOverViewTransac";
@@ -506,7 +506,7 @@
             // 
             // pOverview_Main
             // 
-            pOverview_Main.Controls.Add(label2);
+            pOverview_Main.Controls.Add(lblWelcome);
             pOverview_Main.Controls.Add(pOverview4);
             pOverview_Main.Controls.Add(pOverview1);
             pOverview_Main.Location = new Point(256, 0);
@@ -514,16 +514,16 @@
             pOverview_Main.Size = new Size(1634, 1021);
             pOverview_Main.TabIndex = 5;
             // 
-            // label2
+            // lblWelcome
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Century", 25F);
-            label2.Location = new Point(150, 125);
-            label2.Name = "label2";
-            label2.Size = new Size(1327, 50);
-            label2.TabIndex = 7;
-            label2.Text = "Welcome to Bankacılık! Yunus Emre, how can we assist you today?";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Century", 25F);
+            lblWelcome.Location = new Point(150, 125);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(1327, 50);
+            lblWelcome.TabIndex = 7;
+            lblWelcome.Text = "Welcome to Bankacılık! Yunus Emre, how can we assist you today?";
+            lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pCreateAccount_Main
             // 
@@ -1273,23 +1273,23 @@
             dataSetAccount.AllowUserToDeleteRows = false;
             dataSetAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataSetAccount.BackgroundColor = Color.White;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataSetAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Control;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.True;
+            dataSetAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             dataSetAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataSetAccount.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = SystemColors.Window;
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.False;
+            dataSetAccount.DefaultCellStyle = dataGridViewCellStyle12;
             dataSetAccount.Location = new Point(176, 280);
             dataSetAccount.Name = "dataSetAccount";
             dataSetAccount.ReadOnly = true;
@@ -1465,8 +1465,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pSettings);
             Controls.Add(pOverview_Main);
+            Controls.Add(pSettings);
             Controls.Add(pCreateAccount_Main);
             Controls.Add(pTransactions);
             Controls.Add(pSupport);
@@ -1610,7 +1610,7 @@
         private Button bCloseAcc;
         private ComboBox cmbAccCloseReqAccountType;
         private Label label41;
-        private Label label2;
+        private Label lblWelcome;
         private DataGridView dOverViewTransac;
         private Panel pSeeAccount;
         private DataGridView dataSetAccount;

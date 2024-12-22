@@ -16,7 +16,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
         public BranchDal(string connectionString) : base(connectionString)
         {
         }
-        public void createBranch(string branchCity, string branchStreet, string branchPostCode, string branchName)
+        public void CreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -26,7 +26,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void updateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName)
+        public void UpdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -36,7 +36,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void deleteBranch(int branchId)
+        public void DeleteBranch(int branchId)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {

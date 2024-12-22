@@ -17,7 +17,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
         {
         }
 
-        public void createBankAccount(string customerTc, string accountType, decimal balance, string iban, string currency)
+        public void CreateBankAccount(string customerTc, string accountType, decimal balance, string iban, string currency)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -45,7 +45,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void deleteBankAccount(int accountId)
+        public void DeleteBankAccount(int accountId)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -63,7 +63,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void depositMoney(string customerTc, decimal amount)
+        public void DepositMoney(string customerTc, decimal amount)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -83,7 +83,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void sendMoney(string senderTc, string receiverTc, decimal amount)
+        public void SendMoney(string senderTc, string receiverTc, decimal amount)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
@@ -93,7 +93,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void withdrawMoney(string customerTc, decimal amount)
+        public void WithdrawMoney(string customerTc, decimal amount)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {

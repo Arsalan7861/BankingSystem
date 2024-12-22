@@ -9,9 +9,9 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface ICustomerService : IGenericService<Customer>
     {
-        void TcreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
+        void TCreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
         void TUpdateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
-        void TdeleteCustomer(string customerTc);
+        void TDeleteCustomer(string customerTc);
         Customer TGetCustomerByTc(string customerTc);
     }
 }

@@ -81,6 +81,8 @@ namespace bankaprojesiform
             tInformationSurname.Text = customer.Customerlname;
             tInformationAddress.Text = customer.Customeraddress;
             tInformationPhone.Text = customer.Customerphone;
+
+            lblWelcome.Text = $"Welcome to Bankacılık! {customer.Customerfname} {customer.Customerlname}, how can we assist you today?";
         }
 
         private void bLogOut_Click(object sender, EventArgs e)

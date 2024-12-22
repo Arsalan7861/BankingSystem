@@ -47,38 +47,42 @@ namespace bankaprojesiform
         {
             var tc = txtLoginTc.Text;// sending tc to anaekran
 
+            // checking if the fields are empty
             if (txtLoginTc.Text == "" || txtLoginPass.Text == "")
             {
                 MessageBox.Show("Please fill in all fields");
                 return;
             }
 
+            var counter = 0;
+            // checking if the customer is in the database
             var customers = _customerService.TGetAll();
-
             foreach (var customer in customers)
             {
                 if (customer.Customertc == txtLoginTc.Text && customer.Customerpassword == txtLoginPass.Text)
                 {
+                    counter++;
                     MessageBox.Show("Login Successful");
                     AnaEkran anaEkran = new AnaEkran(_connectionString, tc);
                     this.Hide();
-                    anaEkran.Show();
-                    break;                    
+                    anaEkran.Show();                    
+                    break;                   
                 }
             }
+
             if (txtLoginTc.Text.Equals("admin") && txtLoginPass.Text.Equals("123"))
             {
-                Admin_Form admin = new Admin_Form(_connectionString);
+                Admin_Form admin = new Admin_Form(_connectionString, tc);
                 this.Hide();
                 admin.Show();
-
-
+                counter++;
             }
             else if (txtLoginTc.Text.Equals("manager") && txtLoginPass.Text.Equals("123"))
             {
                 Manager_Form manager = new Manager_Form(_connectionString);
                 this.Hide();
                 manager.Show();
+                counter++;
 
             }
             else if (txtLoginTc.Text.Equals("pbo") && txtLoginPass.Text.Equals("123"))
@@ -86,9 +90,11 @@ namespace bankaprojesiform
                 Pbo_form pbo = new Pbo_form(_connectionString);
                 this.Hide();
                 pbo.Show();
+                counter++;
 
             }
-            else
+
+            if(counter == 0)
             {
                 MessageBox.Show("Invalid TC or Password!");
                 txtLoginTc.Text = "";
@@ -109,7 +115,7 @@ namespace bankaprojesiform
                 MessageBox.Show("Please fill in all fields");
                 return;
             }
-            _customerService.TcreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "3452");
+            _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "3452");
             MessageBox.Show("Account Created Successfully");
 
             pRegister.Hide();
@@ -124,6 +130,7 @@ namespace bankaprojesiform
 
         private void checkBoxShowPass_CheckedChanged(object sender, EventArgs e)
         {
+            // changing the password visibility
             if (checkBoxShowPass.Checked)
             {
                 txtLoginPass.UseSystemPasswordChar = false;

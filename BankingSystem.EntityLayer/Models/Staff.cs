@@ -23,9 +23,9 @@ public partial class Staff
 
     public string Staffemail { get; set; } = null!;
 
-    public virtual Branch? Branch { get; set; }
+    //public virtual Branch? Branch { get; set; }
 
-    public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
+    //public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
-    public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
+    //public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 }

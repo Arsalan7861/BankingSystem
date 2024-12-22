@@ -23,7 +23,7 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void TcreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc)
+        public void TCreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc)
         {
             _customerService.CreateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
         }
@@ -33,7 +33,7 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public void TdeleteCustomer(string customerTc)
+        public void TDeleteCustomer(string customerTc)
         {
             throw new NotImplementedException();
         }

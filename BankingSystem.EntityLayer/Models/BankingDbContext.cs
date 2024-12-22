@@ -270,10 +270,10 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(20)
                 .HasColumnName("staffposition");
 
-            entity.HasOne(d => d.Branch).WithMany(p => p.Staff)
-                .HasForeignKey(d => d.Branchid)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("staff_branchid_fkey");
+            //entity.HasOne(d => d.Branch).WithMany(p => p.Staff)
+            //    .HasForeignKey(d => d.Branchid)
+            //    .OnDelete(DeleteBehavior.SetNull)
+            //    .HasConstraintName("staff_branchid_fkey");
         });
 
         modelBuilder.Entity<TellerViewAccount>(entity =>

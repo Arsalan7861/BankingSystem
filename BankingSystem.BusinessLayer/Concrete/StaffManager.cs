@@ -25,7 +25,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TCreateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
         {
-            throw new NotImplementedException();
+            _staffDal.CreateStaff(staffTc, fname, lname, password, position, phone, branchId, address, email);
         }
 
         public void TDelete(int id)
@@ -35,12 +35,12 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TDeleteStaff(string staffTc)
         {
-            throw new NotImplementedException();
+            _staffDal.DeleteStaff(staffTc);
         }
 
         public List<Staff> TGetAll()
         {
-            throw new NotImplementedException();
+            return _staffDal.GetAll();
         }
 
         public Staff TGetById(int id)
@@ -55,7 +55,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TUpdateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
         {
-            throw new NotImplementedException();
+            _staffDal.UpdateStaff(staffTc, fname, lname, password, position, phone, branchId, address, email);
         }
     }
 }

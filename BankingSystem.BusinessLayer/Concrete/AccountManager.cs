@@ -22,7 +22,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TcreateBankAccount(string customerTc, string accountType, decimal balance, string iban, string currency)
         {
-            _accountDal.createBankAccount(customerTc, accountType, balance, iban, currency);
+            _accountDal.CreateBankAccount(customerTc, accountType, balance, iban, currency);
         }
 
         public void TDelete(int id)
@@ -41,12 +41,12 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TdeleteBankAccount(int accountId)
         {
-            _accountDal.deleteBankAccount(accountId);
+            _accountDal.DeleteBankAccount(accountId);
         }
 
         public void TdepositMoney(string customerTc, decimal amount)
         {
-            _accountDal.depositMoney(customerTc, amount);
+            _accountDal.DepositMoney(customerTc, amount);
         }
 
         public List<Account> TGetAccountByTc(string customerTc)
@@ -66,7 +66,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TsendMoney(string senderTc, string receiverTc, decimal amount)
         {
-            _accountDal.sendMoney(senderTc, receiverTc, amount);
+            _accountDal.SendMoney(senderTc, receiverTc, amount);
         }
 
         public void TUpdate(Account entity)
@@ -76,7 +76,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TwithdrawMoney(string customerTc, decimal amount)
         {
-            _accountDal.withdrawMoney(customerTc, amount);
+            _accountDal.WithdrawMoney(customerTc, amount);
         }
     }
 }
