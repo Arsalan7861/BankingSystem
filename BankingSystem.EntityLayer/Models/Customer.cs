@@ -19,9 +19,9 @@ public partial class Customer
 
     public string? Stafftc { get; set; }
 
-    public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
+    //public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
 
-    public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
+    //public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 
     //public virtual Staff? StafftcNavigation { get; set; }
 

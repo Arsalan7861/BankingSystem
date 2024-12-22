@@ -1335,9 +1335,9 @@
             // 
             // pClient
             // 
+            pClient.Controls.Add(pCreateCustomer);
             pClient.Controls.Add(pDeleteCustomer);
             pClient.Controls.Add(pUpdateCustomer);
-            pClient.Controls.Add(pCreateCustomer);
             pClient.Controls.Add(pSeeAllCustomer);
             pClient.Controls.Add(pClientBar);
             pClient.Location = new Point(188, 0);

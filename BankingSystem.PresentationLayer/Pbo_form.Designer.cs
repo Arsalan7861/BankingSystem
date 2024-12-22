@@ -29,14 +29,31 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            bLogOut = new Button();
             bCustomer = new Button();
             label2 = new Label();
             label1 = new Label();
             pCustomer = new Panel();
-            pSeeAllCustomer = new Panel();
-            dCustomer = new DataGridView();
-            label48 = new Label();
+            pCreateCustomer = new Panel();
+            cmbCreateStaffTc = new ComboBox();
+            label4 = new Label();
+            tCreatePassword = new TextBox();
+            label3 = new Label();
+            tCreateAddress = new TextBox();
+            tCreatePhoneNo = new TextBox();
+            tCreateTc = new TextBox();
+            tCreateLName = new TextBox();
+            tCreateFName = new TextBox();
+            bCreateAccount = new Button();
+            label11 = new Label();
+            label10 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
+            label5 = new Label();
             pUpdateCustomer = new Panel();
+            label6 = new Label();
+            cmbUpdateCusStaffTc = new ComboBox();
             label42 = new Label();
             tUpdateCusPass = new TextBox();
             label43 = new Label();
@@ -49,32 +66,21 @@
             label46 = new Label();
             tUpdateCusFirstName = new TextBox();
             label47 = new Label();
-            cUpdateCustomer = new ComboBox();
+            cUpdateCustomerTc = new ComboBox();
             label36 = new Label();
-            pCreateCustomer = new Panel();
-            tCreateAddress = new TextBox();
-            tCreatePhoneNo = new TextBox();
-            tCreateID = new TextBox();
-            tCreateSurname = new TextBox();
-            tCreateName = new TextBox();
-            bCreateAccount = new Button();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
-            label5 = new Label();
+            pSeeAllCustomer = new Panel();
+            dCustomer = new DataGridView();
+            label48 = new Label();
             pCustomerSolBar = new Panel();
             button2 = new Button();
             button1 = new Button();
             bCreateCustomer = new Button();
-            bLogOut = new Button();
             panel1.SuspendLayout();
             pCustomer.SuspendLayout();
+            pCreateCustomer.SuspendLayout();
+            pUpdateCustomer.SuspendLayout();
             pSeeAllCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
-            pUpdateCustomer.SuspendLayout();
-            pCreateCustomer.SuspendLayout();
             pCustomerSolBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -89,6 +95,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(161, 1029);
             panel1.TabIndex = 0;
+            // 
+            // bLogOut
+            // 
+            bLogOut.FlatAppearance.BorderSize = 0;
+            bLogOut.FlatStyle = FlatStyle.Flat;
+            bLogOut.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bLogOut.Location = new Point(0, 979);
+            bLogOut.Name = "bLogOut";
+            bLogOut.Size = new Size(161, 50);
+            bLogOut.TabIndex = 5;
+            bLogOut.Text = "Log Out";
+            bLogOut.UseVisualStyleBackColor = true;
+            bLogOut.Click += bLogOut_Click;
             // 
             // bCustomer
             // 
@@ -126,48 +145,188 @@
             // pCustomer
             // 
             pCustomer.Controls.Add(pSeeAllCustomer);
-            pCustomer.Controls.Add(pUpdateCustomer);
             pCustomer.Controls.Add(pCreateCustomer);
+            pCustomer.Controls.Add(pUpdateCustomer);
             pCustomer.Controls.Add(pCustomerSolBar);
             pCustomer.Location = new Point(160, 0);
             pCustomer.Name = "pCustomer";
             pCustomer.Size = new Size(1738, 1029);
             pCustomer.TabIndex = 1;
             // 
-            // pSeeAllCustomer
+            // pCreateCustomer
             // 
-            pSeeAllCustomer.Controls.Add(dCustomer);
-            pSeeAllCustomer.Controls.Add(label48);
-            pSeeAllCustomer.Location = new Point(164, 0);
-            pSeeAllCustomer.Name = "pSeeAllCustomer";
-            pSeeAllCustomer.Size = new Size(1574, 1025);
-            pSeeAllCustomer.TabIndex = 61;
+            pCreateCustomer.Controls.Add(cmbCreateStaffTc);
+            pCreateCustomer.Controls.Add(label4);
+            pCreateCustomer.Controls.Add(tCreatePassword);
+            pCreateCustomer.Controls.Add(label3);
+            pCreateCustomer.Controls.Add(tCreateAddress);
+            pCreateCustomer.Controls.Add(tCreatePhoneNo);
+            pCreateCustomer.Controls.Add(tCreateTc);
+            pCreateCustomer.Controls.Add(tCreateLName);
+            pCreateCustomer.Controls.Add(tCreateFName);
+            pCreateCustomer.Controls.Add(bCreateAccount);
+            pCreateCustomer.Controls.Add(label11);
+            pCreateCustomer.Controls.Add(label10);
+            pCreateCustomer.Controls.Add(label9);
+            pCreateCustomer.Controls.Add(label8);
+            pCreateCustomer.Controls.Add(label7);
+            pCreateCustomer.Controls.Add(label5);
+            pCreateCustomer.Location = new Point(167, 3);
+            pCreateCustomer.Name = "pCreateCustomer";
+            pCreateCustomer.Size = new Size(1574, 1023);
+            pCreateCustomer.TabIndex = 4;
             // 
-            // dCustomer
+            // cmbCreateStaffTc
             // 
-            dCustomer.AllowUserToAddRows = false;
-            dCustomer.AllowUserToDeleteRows = false;
-            dCustomer.BackgroundColor = Color.White;
-            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Location = new Point(191, 377);
-            dCustomer.Name = "dCustomer";
-            dCustomer.ReadOnly = true;
-            dCustomer.RowHeadersWidth = 51;
-            dCustomer.Size = new Size(1144, 580);
-            dCustomer.TabIndex = 39;
+            cmbCreateStaffTc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCreateStaffTc.FormattingEnabled = true;
+            cmbCreateStaffTc.Location = new Point(756, 636);
+            cmbCreateStaffTc.Name = "cmbCreateStaffTc";
+            cmbCreateStaffTc.Size = new Size(213, 28);
+            cmbCreateStaffTc.TabIndex = 28;
             // 
-            // label48
+            // label4
             // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(566, 264);
-            label48.Name = "label48";
-            label48.Size = new Size(382, 40);
-            label48.TabIndex = 38;
-            label48.Text = "SEE ALL CUSTOMER";
+            label4.AutoSize = true;
+            label4.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label4.Location = new Point(596, 637);
+            label4.Name = "label4";
+            label4.Size = new Size(111, 29);
+            label4.TabIndex = 27;
+            label4.Text = "Staff TC";
+            // 
+            // tCreatePassword
+            // 
+            tCreatePassword.Location = new Point(756, 578);
+            tCreatePassword.Name = "tCreatePassword";
+            tCreatePassword.Size = new Size(213, 27);
+            tCreatePassword.TabIndex = 26;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label3.Location = new Point(583, 579);
+            label3.Name = "label3";
+            label3.Size = new Size(124, 29);
+            label3.TabIndex = 25;
+            label3.Text = "Password";
+            // 
+            // tCreateAddress
+            // 
+            tCreateAddress.Location = new Point(756, 520);
+            tCreateAddress.Name = "tCreateAddress";
+            tCreateAddress.Size = new Size(213, 27);
+            tCreateAddress.TabIndex = 24;
+            // 
+            // tCreatePhoneNo
+            // 
+            tCreatePhoneNo.Location = new Point(756, 462);
+            tCreatePhoneNo.Name = "tCreatePhoneNo";
+            tCreatePhoneNo.Size = new Size(213, 27);
+            tCreatePhoneNo.TabIndex = 23;
+            // 
+            // tCreateTc
+            // 
+            tCreateTc.Location = new Point(756, 404);
+            tCreateTc.Name = "tCreateTc";
+            tCreateTc.Size = new Size(213, 27);
+            tCreateTc.TabIndex = 22;
+            // 
+            // tCreateLName
+            // 
+            tCreateLName.Location = new Point(756, 346);
+            tCreateLName.Name = "tCreateLName";
+            tCreateLName.Size = new Size(213, 27);
+            tCreateLName.TabIndex = 21;
+            // 
+            // tCreateFName
+            // 
+            tCreateFName.Location = new Point(756, 288);
+            tCreateFName.Name = "tCreateFName";
+            tCreateFName.Size = new Size(213, 27);
+            tCreateFName.TabIndex = 20;
+            // 
+            // bCreateAccount
+            // 
+            bCreateAccount.Anchor = AnchorStyles.Top;
+            bCreateAccount.BackColor = Color.FromArgb(76, 175, 80);
+            bCreateAccount.FlatAppearance.BorderSize = 0;
+            bCreateAccount.FlatStyle = FlatStyle.Flat;
+            bCreateAccount.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bCreateAccount.ForeColor = Color.White;
+            bCreateAccount.Location = new Point(694, 758);
+            bCreateAccount.Name = "bCreateAccount";
+            bCreateAccount.Size = new Size(216, 44);
+            bCreateAccount.TabIndex = 19;
+            bCreateAccount.Text = "Create Account";
+            bCreateAccount.UseVisualStyleBackColor = false;
+            bCreateAccount.Click += bCreateAccount_Click;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label11.Location = new Point(620, 405);
+            label11.Name = "label11";
+            label11.Size = new Size(87, 29);
+            label11.TabIndex = 18;
+            label11.Text = "TC No";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label10.Location = new Point(600, 521);
+            label10.Name = "label10";
+            label10.Size = new Size(107, 29);
+            label10.TabIndex = 17;
+            label10.Text = "Address";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label9.Location = new Point(520, 463);
+            label9.Name = "label9";
+            label9.Size = new Size(187, 29);
+            label9.TabIndex = 16;
+            label9.Text = "Phone Number";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label8.Location = new Point(565, 346);
+            label8.Name = "label8";
+            label8.Size = new Size(142, 29);
+            label8.TabIndex = 15;
+            label8.Text = "Last Name";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label7.Location = new Point(560, 288);
+            label7.Name = "label7";
+            label7.Size = new Size(147, 29);
+            label7.TabIndex = 14;
+            label7.Text = "First Name";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century", 17F, FontStyle.Underline);
+            label5.Location = new Point(648, 182);
+            label5.Name = "label5";
+            label5.Size = new Size(321, 34);
+            label5.TabIndex = 13;
+            label5.Text = "CREATE CUSTOMER";
             // 
             // pUpdateCustomer
             // 
+            pUpdateCustomer.Controls.Add(label6);
+            pUpdateCustomer.Controls.Add(cmbUpdateCusStaffTc);
             pUpdateCustomer.Controls.Add(label42);
             pUpdateCustomer.Controls.Add(tUpdateCusPass);
             pUpdateCustomer.Controls.Add(label43);
@@ -180,12 +339,31 @@
             pUpdateCustomer.Controls.Add(label46);
             pUpdateCustomer.Controls.Add(tUpdateCusFirstName);
             pUpdateCustomer.Controls.Add(label47);
-            pUpdateCustomer.Controls.Add(cUpdateCustomer);
+            pUpdateCustomer.Controls.Add(cUpdateCustomerTc);
             pUpdateCustomer.Controls.Add(label36);
             pUpdateCustomer.Location = new Point(164, 0);
             pUpdateCustomer.Name = "pUpdateCustomer";
             pUpdateCustomer.Size = new Size(1574, 1024);
             pUpdateCustomer.TabIndex = 49;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century", 12F);
+            label6.Location = new Point(607, 691);
+            label6.Name = "label6";
+            label6.Size = new Size(89, 23);
+            label6.TabIndex = 61;
+            label6.Text = "Staff TC";
+            // 
+            // cmbUpdateCusStaffTc
+            // 
+            cmbUpdateCusStaffTc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUpdateCusStaffTc.FormattingEnabled = true;
+            cmbUpdateCusStaffTc.Location = new Point(744, 686);
+            cmbUpdateCusStaffTc.Name = "cmbUpdateCusStaffTc";
+            cmbUpdateCusStaffTc.Size = new Size(267, 28);
+            cmbUpdateCusStaffTc.TabIndex = 60;
             // 
             // label42
             // 
@@ -193,15 +371,15 @@
             label42.Font = new Font("Century", 12F);
             label42.Location = new Point(477, 317);
             label42.Name = "label42";
-            label42.Size = new Size(219, 23);
+            label42.Size = new Size(227, 23);
             label42.TabIndex = 59;
-            label42.Text = "Select Customer Id No";
+            label42.Text = "Select Customer TC No";
             // 
             // tUpdateCusPass
             // 
             tUpdateCusPass.Location = new Point(744, 629);
             tUpdateCusPass.Name = "tUpdateCusPass";
-            tUpdateCusPass.Size = new Size(271, 27);
+            tUpdateCusPass.Size = new Size(267, 27);
             tUpdateCusPass.TabIndex = 58;
             // 
             // label43
@@ -221,18 +399,19 @@
             bUpdCus.FlatStyle = FlatStyle.Flat;
             bUpdCus.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
             bUpdCus.ForeColor = Color.White;
-            bUpdCus.Location = new Point(678, 711);
+            bUpdCus.Location = new Point(676, 761);
             bUpdCus.Name = "bUpdCus";
             bUpdCus.Size = new Size(208, 49);
             bUpdCus.TabIndex = 56;
             bUpdCus.Text = "Update Customer";
             bUpdCus.UseVisualStyleBackColor = false;
+            bUpdCus.Click += bUpdCus_Click;
             // 
             // tUpdateCusAddress
             // 
-            tUpdateCusAddress.Location = new Point(741, 573);
+            tUpdateCusAddress.Location = new Point(744, 573);
             tUpdateCusAddress.Name = "tUpdateCusAddress";
-            tUpdateCusAddress.Size = new Size(271, 27);
+            tUpdateCusAddress.Size = new Size(267, 27);
             tUpdateCusAddress.TabIndex = 55;
             // 
             // label44
@@ -247,9 +426,9 @@
             // 
             // tUpdateCusPhoneNo
             // 
-            tUpdateCusPhoneNo.Location = new Point(740, 510);
+            tUpdateCusPhoneNo.Location = new Point(744, 510);
             tUpdateCusPhoneNo.Name = "tUpdateCusPhoneNo";
-            tUpdateCusPhoneNo.Size = new Size(271, 27);
+            tUpdateCusPhoneNo.Size = new Size(267, 27);
             tUpdateCusPhoneNo.TabIndex = 53;
             // 
             // label45
@@ -264,9 +443,9 @@
             // 
             // tUpdateCusLastName
             // 
-            tUpdateCusLastName.Location = new Point(741, 449);
+            tUpdateCusLastName.Location = new Point(744, 449);
             tUpdateCusLastName.Name = "tUpdateCusLastName";
-            tUpdateCusLastName.Size = new Size(271, 27);
+            tUpdateCusLastName.Size = new Size(267, 27);
             tUpdateCusLastName.TabIndex = 51;
             // 
             // label46
@@ -281,9 +460,9 @@
             // 
             // tUpdateCusFirstName
             // 
-            tUpdateCusFirstName.Location = new Point(740, 386);
+            tUpdateCusFirstName.Location = new Point(744, 386);
             tUpdateCusFirstName.Name = "tUpdateCusFirstName";
-            tUpdateCusFirstName.Size = new Size(271, 27);
+            tUpdateCusFirstName.Size = new Size(267, 27);
             tUpdateCusFirstName.TabIndex = 49;
             // 
             // label47
@@ -296,13 +475,15 @@
             label47.TabIndex = 48;
             label47.Text = "Customer First Name";
             // 
-            // cUpdateCustomer
+            // cUpdateCustomerTc
             // 
-            cUpdateCustomer.FormattingEnabled = true;
-            cUpdateCustomer.Location = new Point(738, 317);
-            cUpdateCustomer.Name = "cUpdateCustomer";
-            cUpdateCustomer.Size = new Size(274, 28);
-            cUpdateCustomer.TabIndex = 39;
+            cUpdateCustomerTc.DropDownStyle = ComboBoxStyle.DropDownList;
+            cUpdateCustomerTc.FormattingEnabled = true;
+            cUpdateCustomerTc.Location = new Point(744, 317);
+            cUpdateCustomerTc.Name = "cUpdateCustomerTc";
+            cUpdateCustomerTc.Size = new Size(267, 28);
+            cUpdateCustomerTc.TabIndex = 39;
+            cUpdateCustomerTc.SelectedValueChanged += cUpdateCustomerTc_SelectedValueChanged;
             // 
             // label36
             // 
@@ -314,134 +495,38 @@
             label36.TabIndex = 37;
             label36.Text = "UPDATE CUSTOMER";
             // 
-            // pCreateCustomer
+            // pSeeAllCustomer
             // 
-            pCreateCustomer.Controls.Add(tCreateAddress);
-            pCreateCustomer.Controls.Add(tCreatePhoneNo);
-            pCreateCustomer.Controls.Add(tCreateID);
-            pCreateCustomer.Controls.Add(tCreateSurname);
-            pCreateCustomer.Controls.Add(tCreateName);
-            pCreateCustomer.Controls.Add(bCreateAccount);
-            pCreateCustomer.Controls.Add(label11);
-            pCreateCustomer.Controls.Add(label10);
-            pCreateCustomer.Controls.Add(label9);
-            pCreateCustomer.Controls.Add(label8);
-            pCreateCustomer.Controls.Add(label7);
-            pCreateCustomer.Controls.Add(label5);
-            pCreateCustomer.Location = new Point(167, 3);
-            pCreateCustomer.Name = "pCreateCustomer";
-            pCreateCustomer.Size = new Size(1574, 1023);
-            pCreateCustomer.TabIndex = 4;
+            pSeeAllCustomer.Controls.Add(dCustomer);
+            pSeeAllCustomer.Controls.Add(label48);
+            pSeeAllCustomer.Location = new Point(164, 0);
+            pSeeAllCustomer.Name = "pSeeAllCustomer";
+            pSeeAllCustomer.Size = new Size(1574, 1025);
+            pSeeAllCustomer.TabIndex = 61;
             // 
-            // tCreateAddress
+            // dCustomer
             // 
-            tCreateAddress.Location = new Point(756, 591);
-            tCreateAddress.Name = "tCreateAddress";
-            tCreateAddress.Size = new Size(216, 27);
-            tCreateAddress.TabIndex = 24;
+            dCustomer.AllowUserToAddRows = false;
+            dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dCustomer.BackgroundColor = Color.White;
+            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Location = new Point(191, 291);
+            dCustomer.Name = "dCustomer";
+            dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersWidth = 51;
+            dCustomer.Size = new Size(1144, 580);
+            dCustomer.TabIndex = 39;
             // 
-            // tCreatePhoneNo
+            // label48
             // 
-            tCreatePhoneNo.Location = new Point(756, 512);
-            tCreatePhoneNo.Name = "tCreatePhoneNo";
-            tCreatePhoneNo.Size = new Size(216, 27);
-            tCreatePhoneNo.TabIndex = 23;
-            // 
-            // tCreateID
-            // 
-            tCreateID.Location = new Point(756, 442);
-            tCreateID.Name = "tCreateID";
-            tCreateID.Size = new Size(216, 27);
-            tCreateID.TabIndex = 22;
-            // 
-            // tCreateSurname
-            // 
-            tCreateSurname.Location = new Point(756, 377);
-            tCreateSurname.Name = "tCreateSurname";
-            tCreateSurname.Size = new Size(216, 27);
-            tCreateSurname.TabIndex = 21;
-            // 
-            // tCreateName
-            // 
-            tCreateName.Location = new Point(756, 309);
-            tCreateName.Name = "tCreateName";
-            tCreateName.Size = new Size(216, 27);
-            tCreateName.TabIndex = 20;
-            // 
-            // bCreateAccount
-            // 
-            bCreateAccount.Anchor = AnchorStyles.Top;
-            bCreateAccount.BackColor = Color.FromArgb(76, 175, 80);
-            bCreateAccount.FlatAppearance.BorderSize = 0;
-            bCreateAccount.FlatStyle = FlatStyle.Flat;
-            bCreateAccount.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bCreateAccount.ForeColor = Color.White;
-            bCreateAccount.Location = new Point(756, 782);
-            bCreateAccount.Name = "bCreateAccount";
-            bCreateAccount.Size = new Size(216, 44);
-            bCreateAccount.TabIndex = 19;
-            bCreateAccount.Text = "Create Account";
-            bCreateAccount.UseVisualStyleBackColor = false;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label11.Location = new Point(604, 437);
-            label11.Name = "label11";
-            label11.Size = new Size(81, 29);
-            label11.TabIndex = 18;
-            label11.Text = "ID No";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label10.Location = new Point(578, 586);
-            label10.Name = "label10";
-            label10.Size = new Size(107, 29);
-            label10.TabIndex = 17;
-            label10.Text = "Address";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label9.Location = new Point(498, 507);
-            label9.Name = "label9";
-            label9.Size = new Size(187, 29);
-            label9.TabIndex = 16;
-            label9.Text = "Phone Number";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label8.Location = new Point(566, 372);
-            label8.Name = "label8";
-            label8.Size = new Size(119, 29);
-            label8.TabIndex = 15;
-            label8.Text = "Surname";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label7.Location = new Point(603, 307);
-            label7.Name = "label7";
-            label7.Size = new Size(82, 29);
-            label7.TabIndex = 14;
-            label7.Text = "Name";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Century", 17F, FontStyle.Underline);
-            label5.Location = new Point(707, 187);
-            label5.Name = "label5";
-            label5.Size = new Size(321, 34);
-            label5.TabIndex = 13;
-            label5.Text = "CREATE CUSTOMER";
+            label48.AutoSize = true;
+            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label48.Location = new Point(566, 178);
+            label48.Name = "label48";
+            label48.Size = new Size(382, 40);
+            label48.TabIndex = 38;
+            label48.Text = "SEE ALL CUSTOMER";
             // 
             // pCustomerSolBar
             // 
@@ -493,19 +578,6 @@
             bCreateCustomer.UseVisualStyleBackColor = true;
             bCreateCustomer.Click += bCreateCustomer_Click;
             // 
-            // bLogOut
-            // 
-            bLogOut.FlatAppearance.BorderSize = 0;
-            bLogOut.FlatStyle = FlatStyle.Flat;
-            bLogOut.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bLogOut.Location = new Point(0, 979);
-            bLogOut.Name = "bLogOut";
-            bLogOut.Size = new Size(161, 50);
-            bLogOut.TabIndex = 5;
-            bLogOut.Text = "Log Out";
-            bLogOut.UseVisualStyleBackColor = true;
-            bLogOut.Click += bLogOut_Click;
-            // 
             // Pbo_form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -519,13 +591,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             pCustomer.ResumeLayout(false);
+            pCreateCustomer.ResumeLayout(false);
+            pCreateCustomer.PerformLayout();
+            pUpdateCustomer.ResumeLayout(false);
+            pUpdateCustomer.PerformLayout();
             pSeeAllCustomer.ResumeLayout(false);
             pSeeAllCustomer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
-            pUpdateCustomer.ResumeLayout(false);
-            pUpdateCustomer.PerformLayout();
-            pCreateCustomer.ResumeLayout(false);
-            pCreateCustomer.PerformLayout();
             pCustomerSolBar.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -544,9 +616,9 @@
         private Panel pCreateCustomer;
         private TextBox tCreateAddress;
         private TextBox tCreatePhoneNo;
-        private TextBox tCreateID;
-        private TextBox tCreateSurname;
-        private TextBox tCreateName;
+        private TextBox tCreateTc;
+        private TextBox tCreateLName;
+        private TextBox tCreateFName;
         private Button bCreateAccount;
         private Label label11;
         private Label label10;
@@ -567,11 +639,17 @@
         private Label label46;
         private TextBox tUpdateCusFirstName;
         private Label label47;
-        private ComboBox cUpdateCustomer;
+        private ComboBox cUpdateCustomerTc;
         private Label label36;
         private Panel pSeeAllCustomer;
         private DataGridView dCustomer;
         private Label label48;
         private Button bLogOut;
+        private Label label4;
+        private TextBox tCreatePassword;
+        private Label label3;
+        private ComboBox cmbCreateStaffTc;
+        private Label label6;
+        private ComboBox cmbUpdateCusStaffTc;
     }
 }

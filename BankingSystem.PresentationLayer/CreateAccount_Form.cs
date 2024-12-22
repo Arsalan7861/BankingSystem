@@ -87,7 +87,7 @@ namespace bankaprojesiform
             }
             else if (txtLoginTc.Text.Equals("pbo") && txtLoginPass.Text.Equals("123"))
             {
-                Pbo_form pbo = new Pbo_form(_connectionString);
+                Pbo_form pbo = new Pbo_form(_connectionString, tc);
                 this.Hide();
                 pbo.Show();
                 counter++;
