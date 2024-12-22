@@ -17,13 +17,79 @@ namespace BankingSystem.DataAccessLayer.Concrete
         {
         }
 
+        public void createBankAccount(string customerTc, string accountType, decimal balance, string iban, string currency)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                // Set the session staff tc
+                using (var command = new NpgsqlCommand($"SET session staff.tc = '{SessionContext.StaffTc}'", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Create the bank account
+                var query = "SELECT create_bank_account(@customerTc, @accountType, @balance, @iban, @currency)";
+                connection.Execute(query, new { customerTc, accountType, balance, iban, currency });
+            }
+        }
+
+        public void DeleteAccountByTcAndType(string customerTc, string accountType)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "DELETE FROM account WHERE customertc = @customerTc AND accounttype = @accountType";
+                connection.Execute(query, new { customerTc, accountType });
+            }
+        }
+
+        public void deleteBankAccount(int accountId)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                // Set the session staff tc
+                using(var command = new NpgsqlCommand($"SET session staff.tc = '{SessionContext.StaffTc}'", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
+                // Delete the bank account
+                var query = "SELECT delete_bank_account(@accountId)";
+                connection.Execute(query, new { accountId });
+            }
+        }
+
         public void depositMoney(string customerTc, decimal amount)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
                 var query = "SELECT deposit_money(@customerTc, @amount)";
-                connection.Execute(query, new {customerTc, amount});
+                connection.Execute(query, new { customerTc, amount });
+            }
+        }
+
+        public List<Account> GetAccountByTc(string customerTc)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT * FROM account WHERE customertc = @Customertc";
+                return connection.Query<Account>(query, new { CustomerTc = customerTc }).ToList();
+            }
+        }
+
+        public void sendMoney(string senderTc, string receiverTc, decimal amount)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT send_money(@senderTc, @receiverTc, @amount)";
+                connection.Execute(query, new { senderTc, receiverTc, amount });
             }
         }
 

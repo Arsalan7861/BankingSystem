@@ -11,5 +11,10 @@ namespace BankingSystem.DataAccessLayer.Abstract
     {
         void depositMoney(string customerTc, decimal amount);
         void withdrawMoney(string customerTc, decimal amount);
+        void sendMoney(string senderTc, string receiverTc, decimal amount);
+        void createBankAccount(string customerTc, string accountType, decimal balance, string iban, string currency);
+        void deleteBankAccount(int accountId);
+        List<Account> GetAccountByTc(string customerTc);
+        void DeleteAccountByTcAndType(string customerTc, string accountType);
     }
 }

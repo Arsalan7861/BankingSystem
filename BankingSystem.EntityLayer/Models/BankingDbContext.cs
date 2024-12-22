@@ -71,9 +71,9 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("customertc");
 
-            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Accounts)
-                .HasForeignKey(d => d.Customertc)
-                .HasConstraintName("account_customertc_fkey");
+            //entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Accounts)
+            //    .HasForeignKey(d => d.Customertc)
+            //    .HasConstraintName("account_customertc_fkey");
         });
 
         modelBuilder.Entity<Branch>(entity =>
@@ -123,10 +123,10 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("stafftc");
 
-            entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Customers)
-                .HasForeignKey(d => d.Stafftc)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("customer_staffTc_fkey");
+            //entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Customers)
+            //    .HasForeignKey(d => d.Stafftc)
+            //    .OnDelete(DeleteBehavior.SetNull)
+            //    .HasConstraintName("customer_staffTc_fkey");
         });
 
         modelBuilder.Entity<Log>(entity =>
@@ -157,14 +157,14 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("stafftc");
 
-            entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Logs)
-                .HasForeignKey(d => d.Customertc)
-                .HasConstraintName("log_customertc_fkey");
+            //entity.HasOne(d => d.CustomertcNavigation).WithMany(p => p.Logs)
+            //    .HasForeignKey(d => d.Customertc)
+            //    .HasConstraintName("log_customertc_fkey");
 
-            entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Logs)
-                .HasForeignKey(d => d.Stafftc)
-                .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("log_stafftc_fkey");
+            //entity.HasOne(d => d.StafftcNavigation).WithMany(p => p.Logs)
+            //    .HasForeignKey(d => d.Stafftc)
+            //    .OnDelete(DeleteBehavior.SetNull)
+            //    .HasConstraintName("log_stafftc_fkey");
         });
 
         modelBuilder.Entity<PboViewAccount>(entity =>
@@ -371,13 +371,13 @@ public partial class BankingDbContext : DbContext
                 .HasMaxLength(11)
                 .HasColumnName("transactiontotc");
 
-            entity.HasOne(d => d.TransactionfromtcNavigation).WithMany(p => p.TransactionTransactionfromtcNavigations)
-                .HasForeignKey(d => d.Transactionfromtc)
-                .HasConstraintName("transaction_transactionfromtc_fkey");
+            //entity.HasOne(d => d.TransactionfromtcNavigation).WithMany(p => p.TransactionTransactionfromtcNavigations)
+            //    .HasForeignKey(d => d.Transactionfromtc)
+            //    .HasConstraintName("transaction_transactionfromtc_fkey");
 
-            entity.HasOne(d => d.TransactiontotcNavigation).WithMany(p => p.TransactionTransactiontotcNavigations)
-                .HasForeignKey(d => d.Transactiontotc)
-                .HasConstraintName("transaction_transactiontotc_fkey");
+            //entity.HasOne(d => d.TransactiontotcNavigation).WithMany(p => p.TransactionTransactiontotcNavigations)
+            //    .HasForeignKey(d => d.Transactiontotc)
+            //    .HasConstraintName("transaction_transactiontotc_fkey");
         });
 
         OnModelCreatingPartial(modelBuilder);

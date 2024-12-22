@@ -19,7 +19,7 @@ public partial class Log
 
     public decimal Newbalance { get; set; }
 
-    public virtual Customer CustomertcNavigation { get; set; } = null!;
+    //public virtual Customer CustomertcNavigation { get; set; } = null!;
 
-    public virtual Staff? StafftcNavigation { get; set; }
+    //public virtual Staff? StafftcNavigation { get; set; }
 }

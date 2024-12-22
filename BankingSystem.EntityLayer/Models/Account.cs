@@ -17,5 +17,5 @@ public partial class Account
 
     public string Accountcurrency { get; set; } = null!;
 
-    public virtual Customer CustomertcNavigation { get; set; } = null!;
+    //public virtual Customer CustomertcNavigation { get; set; } = null!;
 }

@@ -23,14 +23,24 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TcreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc)
+        {
+            _customerService.CreateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
+        }
+
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TdeleteCustomer(string customerTc)
         {
             throw new NotImplementedException();
         }
 
         public List<Customer> TGetAll()
         {
-            throw new NotImplementedException();
+            return _customerService.GetAll();
         }
 
         public Customer TGetById(int id)
@@ -38,9 +48,19 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public Customer TGetCustomerByTc(string customerTc)
+        {
+            return _customerService.GetCustomerByTc(customerTc);
+        }
+
         public void TUpdate(Customer entity)
         {
-            throw new NotImplementedException();
+            _customerService.Update(entity);
+        }
+
+        public void TUpdateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc)
+        {
+            _customerService.UpdateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
         }
     }
 }

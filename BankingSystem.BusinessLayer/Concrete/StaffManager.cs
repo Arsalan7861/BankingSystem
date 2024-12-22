@@ -23,7 +23,17 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TCreateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TDeleteStaff(string staffTc)
         {
             throw new NotImplementedException();
         }
@@ -39,6 +49,11 @@ namespace BankingSystem.BusinessLayer.Concrete
         }
 
         public void TUpdate(Staff entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TUpdateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
         {
             throw new NotImplementedException();
         }

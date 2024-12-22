@@ -9,5 +9,11 @@ namespace BankingSystem.DataAccessLayer.Abstract
 {
     public interface ICustomerDal : IGenericDal<Customer>
     {
+        void CreateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
+
+        void UpdateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
+
+        void DeleteCustomer(string customerTc);
+        Customer GetCustomerByTc(string customerTc);
     }
 }

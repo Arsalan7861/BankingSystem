@@ -1,6 +1,6 @@
 ﻿namespace bankaprojesiform
 {
-    partial class Form1
+    partial class CreateAccount_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -28,20 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateAccount_Form));
             pictureBox1 = new PictureBox();
             label1 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
+            txtLoginTc = new TextBox();
+            txtLoginPass = new TextBox();
+            btnLogIn = new Button();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             pLogIn = new Panel();
+            checkBoxShowPass = new CheckBox();
             pRegister = new Panel();
+            tCreatePassword = new TextBox();
+            label12 = new Label();
+            bReturnLogIn = new Button();
             tCreateAddress = new TextBox();
             tCreatePhoneNo = new TextBox();
-            tCreateID = new TextBox();
+            tCreateTc = new TextBox();
             tCreateSurname = new TextBox();
             tCreateName = new TextBox();
             bCreateAccount = new Button();
@@ -52,7 +56,6 @@
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
-            bReturnLogIn = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             pLogIn.SuspendLayout();
             pRegister.SuspendLayout();
@@ -81,43 +84,44 @@
             label1.Text = "BANKACILIK";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // txtLoginTc
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.BackColor = SystemColors.MenuBar;
-            textBox1.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox1.Location = new Point(873, 202);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(216, 26);
-            textBox1.TabIndex = 3;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            txtLoginTc.Anchor = AnchorStyles.Top;
+            txtLoginTc.BackColor = SystemColors.MenuBar;
+            txtLoginTc.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtLoginTc.Location = new Point(873, 202);
+            txtLoginTc.Name = "txtLoginTc";
+            txtLoginTc.Size = new Size(216, 26);
+            txtLoginTc.TabIndex = 3;
+            txtLoginTc.TextAlign = HorizontalAlignment.Center;
             // 
-            // textBox2
+            // txtLoginPass
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.BackColor = SystemColors.MenuBar;
-            textBox2.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            textBox2.Location = new Point(873, 280);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(216, 26);
-            textBox2.TabIndex = 4;
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            txtLoginPass.Anchor = AnchorStyles.Top;
+            txtLoginPass.BackColor = SystemColors.MenuBar;
+            txtLoginPass.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            txtLoginPass.Location = new Point(873, 280);
+            txtLoginPass.Name = "txtLoginPass";
+            txtLoginPass.Size = new Size(216, 26);
+            txtLoginPass.TabIndex = 4;
+            txtLoginPass.TextAlign = HorizontalAlignment.Center;
+            txtLoginPass.UseSystemPasswordChar = true;
             // 
-            // button1
+            // btnLogIn
             // 
-            button1.Anchor = AnchorStyles.Top;
-            button1.BackColor = Color.FromArgb(76, 175, 80);
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(873, 389);
-            button1.Name = "button1";
-            button1.Size = new Size(216, 44);
-            button1.TabIndex = 5;
-            button1.Text = "Log In";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnLogIn.Anchor = AnchorStyles.Top;
+            btnLogIn.BackColor = Color.FromArgb(76, 175, 80);
+            btnLogIn.FlatAppearance.BorderSize = 0;
+            btnLogIn.FlatStyle = FlatStyle.Flat;
+            btnLogIn.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnLogIn.ForeColor = Color.White;
+            btnLogIn.Location = new Point(873, 389);
+            btnLogIn.Name = "btnLogIn";
+            btnLogIn.Size = new Size(216, 44);
+            btnLogIn.TabIndex = 5;
+            btnLogIn.Text = "Log In";
+            btnLogIn.UseVisualStyleBackColor = false;
+            btnLogIn.Click += btnLogIn_Click;
             // 
             // label2
             // 
@@ -152,11 +156,12 @@
             // 
             // pLogIn
             // 
+            pLogIn.Controls.Add(checkBoxShowPass);
             pLogIn.Controls.Add(pictureBox1);
             pLogIn.Controls.Add(label1);
-            pLogIn.Controls.Add(textBox1);
-            pLogIn.Controls.Add(textBox2);
-            pLogIn.Controls.Add(button1);
+            pLogIn.Controls.Add(txtLoginTc);
+            pLogIn.Controls.Add(txtLoginPass);
+            pLogIn.Controls.Add(btnLogIn);
             pLogIn.Controls.Add(label2);
             pLogIn.Controls.Add(label3);
             pLogIn.Controls.Add(label4);
@@ -166,12 +171,25 @@
             pLogIn.Size = new Size(1902, 1033);
             pLogIn.TabIndex = 9;
             // 
+            // checkBoxShowPass
+            // 
+            checkBoxShowPass.AutoSize = true;
+            checkBoxShowPass.Location = new Point(1096, 285);
+            checkBoxShowPass.Name = "checkBoxShowPass";
+            checkBoxShowPass.Size = new Size(132, 24);
+            checkBoxShowPass.TabIndex = 9;
+            checkBoxShowPass.Text = "Show Password";
+            checkBoxShowPass.UseVisualStyleBackColor = true;
+            checkBoxShowPass.CheckedChanged += checkBoxShowPass_CheckedChanged;
+            // 
             // pRegister
             // 
+            pRegister.Controls.Add(tCreatePassword);
+            pRegister.Controls.Add(label12);
             pRegister.Controls.Add(bReturnLogIn);
             pRegister.Controls.Add(tCreateAddress);
             pRegister.Controls.Add(tCreatePhoneNo);
-            pRegister.Controls.Add(tCreateID);
+            pRegister.Controls.Add(tCreateTc);
             pRegister.Controls.Add(tCreateSurname);
             pRegister.Controls.Add(tCreateName);
             pRegister.Controls.Add(bCreateAccount);
@@ -188,6 +206,36 @@
             pRegister.Size = new Size(1902, 1033);
             pRegister.TabIndex = 9;
             // 
+            // tCreatePassword
+            // 
+            tCreatePassword.Location = new Point(873, 619);
+            tCreatePassword.Name = "tCreatePassword";
+            tCreatePassword.Size = new Size(216, 27);
+            tCreatePassword.TabIndex = 15;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label12.Location = new Point(678, 619);
+            label12.Name = "label12";
+            label12.Size = new Size(124, 29);
+            label12.TabIndex = 14;
+            label12.Text = "Password";
+            // 
+            // bReturnLogIn
+            // 
+            bReturnLogIn.BackColor = SystemColors.Menu;
+            bReturnLogIn.FlatAppearance.BorderSize = 0;
+            bReturnLogIn.FlatStyle = FlatStyle.Flat;
+            bReturnLogIn.Location = new Point(3, 3);
+            bReturnLogIn.Name = "bReturnLogIn";
+            bReturnLogIn.Size = new Size(98, 65);
+            bReturnLogIn.TabIndex = 13;
+            bReturnLogIn.Text = "<";
+            bReturnLogIn.UseVisualStyleBackColor = false;
+            bReturnLogIn.Click += bReturnLogIn_Click;
+            // 
             // tCreateAddress
             // 
             tCreateAddress.Location = new Point(873, 551);
@@ -202,12 +250,12 @@
             tCreatePhoneNo.Size = new Size(216, 27);
             tCreatePhoneNo.TabIndex = 11;
             // 
-            // tCreateID
+            // tCreateTc
             // 
-            tCreateID.Location = new Point(873, 402);
-            tCreateID.Name = "tCreateID";
-            tCreateID.Size = new Size(216, 27);
-            tCreateID.TabIndex = 10;
+            tCreateTc.Location = new Point(873, 402);
+            tCreateTc.Name = "tCreateTc";
+            tCreateTc.Size = new Size(216, 27);
+            tCreateTc.TabIndex = 10;
             // 
             // tCreateSurname
             // 
@@ -245,9 +293,9 @@
             label11.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label11.Location = new Point(721, 397);
             label11.Name = "label11";
-            label11.Size = new Size(81, 29);
+            label11.Size = new Size(87, 29);
             label11.TabIndex = 6;
-            label11.Text = "ID No";
+            label11.Text = "TC No";
             // 
             // label10
             // 
@@ -309,28 +357,15 @@
             label5.TabIndex = 0;
             label5.Text = "CREATE ACCOUNT";
             // 
-            // bReturnLogIn
-            // 
-            bReturnLogIn.BackColor = SystemColors.Menu;
-            bReturnLogIn.FlatAppearance.BorderSize = 0;
-            bReturnLogIn.FlatStyle = FlatStyle.Flat;
-            bReturnLogIn.Location = new Point(3, 3);
-            bReturnLogIn.Name = "bReturnLogIn";
-            bReturnLogIn.Size = new Size(98, 65);
-            bReturnLogIn.TabIndex = 13;
-            bReturnLogIn.Text = "<";
-            bReturnLogIn.UseVisualStyleBackColor = false;
-            bReturnLogIn.Click += bReturnLogIn_Click;
-            // 
-            // Form1
+            // CreateAccount_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pRegister);
             Controls.Add(pLogIn);
+            Controls.Add(pRegister);
             ForeColor = SystemColors.ActiveCaptionText;
-            Name = "Form1";
+            Name = "CreateAccount_Form";
             Text = "Buton1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -344,9 +379,9 @@
         #endregion
         private PictureBox pictureBox1;
         private Label label1;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
+        private TextBox txtLoginTc;
+        private TextBox txtLoginPass;
+        private Button btnLogIn;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -356,7 +391,7 @@
         private Label label5;
         private TextBox tCreateAddress;
         private TextBox tCreatePhoneNo;
-        private TextBox tCreateID;
+        private TextBox tCreateTc;
         private TextBox tCreateSurname;
         private TextBox tCreateName;
         private Button bCreateAccount;
@@ -366,5 +401,8 @@
         private Label label8;
         private Label label7;
         private Button bReturnLogIn;
+        private TextBox tCreatePassword;
+        private Label label12;
+        private CheckBox checkBoxShowPass;
     }
 }

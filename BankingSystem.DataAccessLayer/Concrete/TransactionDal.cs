@@ -1,6 +1,8 @@
 ﻿using BankingSystem.DataAccessLayer.Abstract;
 using BankingSystem.DataAccessLayer.Repositories;
 using BankingSystem.EntityLayer.Models;
+using Dapper;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Linq;

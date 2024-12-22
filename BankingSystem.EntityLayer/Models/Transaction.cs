@@ -17,7 +17,7 @@ public partial class Transaction
 
     public string Transactiondescription { get; set; } = null!;
 
-    public virtual Customer TransactionfromtcNavigation { get; set; } = null!;
+    //public virtual Customer TransactionfromtcNavigation { get; set; } = null!;
 
-    public virtual Customer TransactiontotcNavigation { get; set; } = null!;
+    //public virtual Customer TransactiontotcNavigation { get; set; } = null!;
 }

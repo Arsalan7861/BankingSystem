@@ -23,9 +23,9 @@ public partial class Customer
 
     public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
 
-    public virtual Staff? StafftcNavigation { get; set; }
+    //public virtual Staff? StafftcNavigation { get; set; }
 
-    public virtual ICollection<Transaction> TransactionTransactionfromtcNavigations { get; set; } = new List<Transaction>();
+    //public virtual ICollection<Transaction> TransactionTransactionfromtcNavigations { get; set; } = new List<Transaction>();
 
-    public virtual ICollection<Transaction> TransactionTransactiontotcNavigations { get; set; } = new List<Transaction>();
+    //public virtual ICollection<Transaction> TransactionTransactiontotcNavigations { get; set; } = new List<Transaction>();
 }

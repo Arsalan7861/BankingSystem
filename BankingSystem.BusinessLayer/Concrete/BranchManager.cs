@@ -23,7 +23,17 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public void TcreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName)
+        {
+            throw new NotImplementedException();
+        }
+
         public void TDelete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TdeleteBranch(int branchId)
         {
             throw new NotImplementedException();
         }
@@ -39,6 +49,11 @@ namespace BankingSystem.BusinessLayer.Concrete
         }
 
         public void TUpdate(Branch entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TupdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName)
         {
             throw new NotImplementedException();
         }

@@ -6,6 +6,7 @@ using BankingSystem.EntityLayer.Models;
 using BankingSystem.DataAccessLayer;
 using BankingSystem.BusinessLayer.Concrete;
 using BankingSystem.BusinessLayer.Abstract;
+using bankaprojesiform;
 
 namespace BankingSystem.PresentationLayer
 {
@@ -31,6 +32,7 @@ namespace BankingSystem.PresentationLayer
                         options.UseNpgsql(configuration.GetConnectionString("BankingDb")));
                     services.AddSingleton(configuration.GetConnectionString("BankingDb")); // Register connection string
                     services.AddTransient<Form>(); // Register Form1
+                    services.AddTransient<CreateAccount_Form>();
                 })
                 .Build();
 
@@ -41,7 +43,8 @@ namespace BankingSystem.PresentationLayer
             {
                 var services = scope.ServiceProvider;
                 var form1 = services.GetRequiredService<Form>();
-                Application.Run(form1);
+                var createAcc = services.GetRequiredService<CreateAccount_Form>();
+                Application.Run(createAcc);
             }
         }
     }

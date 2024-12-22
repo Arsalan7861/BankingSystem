@@ -9,5 +9,8 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface IBranchService : IGenericService<Branch>
     {
+        void TcreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName);
+        void TupdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName);
+        void TdeleteBranch(int branchId);
     }
 }
