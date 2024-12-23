@@ -123,7 +123,7 @@
             bLogOut.FlatAppearance.BorderSize = 0;
             bLogOut.FlatStyle = FlatStyle.Flat;
             bLogOut.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bLogOut.Location = new Point(3, 969);
+            bLogOut.Location = new Point(3, 930);
             bLogOut.Name = "bLogOut";
             bLogOut.Size = new Size(184, 50);
             bLogOut.TabIndex = 4;

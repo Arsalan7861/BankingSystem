@@ -34,6 +34,9 @@
             label2 = new Label();
             label1 = new Label();
             pCustomer = new Panel();
+            pSeeAllCustomer = new Panel();
+            dCustomer = new DataGridView();
+            label48 = new Label();
             pCreateCustomer = new Panel();
             cmbCreateStaffTc = new ComboBox();
             label4 = new Label();
@@ -68,19 +71,16 @@
             label47 = new Label();
             cUpdateCustomerTc = new ComboBox();
             label36 = new Label();
-            pSeeAllCustomer = new Panel();
-            dCustomer = new DataGridView();
-            label48 = new Label();
             pCustomerSolBar = new Panel();
             button2 = new Button();
             button1 = new Button();
             bCreateCustomer = new Button();
             panel1.SuspendLayout();
             pCustomer.SuspendLayout();
-            pCreateCustomer.SuspendLayout();
-            pUpdateCustomer.SuspendLayout();
             pSeeAllCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
+            pCreateCustomer.SuspendLayout();
+            pUpdateCustomer.SuspendLayout();
             pCustomerSolBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(2, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(161, 1029);
+            panel1.Size = new Size(161, 1032);
             panel1.TabIndex = 0;
             // 
             // bLogOut
@@ -101,9 +101,9 @@
             bLogOut.FlatAppearance.BorderSize = 0;
             bLogOut.FlatStyle = FlatStyle.Flat;
             bLogOut.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bLogOut.Location = new Point(0, 979);
+            bLogOut.Location = new Point(0, 919);
             bLogOut.Name = "bLogOut";
-            bLogOut.Size = new Size(161, 50);
+            bLogOut.Size = new Size(161, 67);
             bLogOut.TabIndex = 5;
             bLogOut.Text = "Log Out";
             bLogOut.UseVisualStyleBackColor = true;
@@ -152,6 +152,39 @@
             pCustomer.Name = "pCustomer";
             pCustomer.Size = new Size(1738, 1029);
             pCustomer.TabIndex = 1;
+            // 
+            // pSeeAllCustomer
+            // 
+            pSeeAllCustomer.Controls.Add(dCustomer);
+            pSeeAllCustomer.Controls.Add(label48);
+            pSeeAllCustomer.Location = new Point(164, 0);
+            pSeeAllCustomer.Name = "pSeeAllCustomer";
+            pSeeAllCustomer.Size = new Size(1574, 1025);
+            pSeeAllCustomer.TabIndex = 61;
+            // 
+            // dCustomer
+            // 
+            dCustomer.AllowUserToAddRows = false;
+            dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dCustomer.BackgroundColor = Color.White;
+            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Location = new Point(191, 291);
+            dCustomer.Name = "dCustomer";
+            dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersWidth = 51;
+            dCustomer.Size = new Size(1144, 580);
+            dCustomer.TabIndex = 39;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label48.Location = new Point(566, 178);
+            label48.Name = "label48";
+            label48.Size = new Size(382, 40);
+            label48.TabIndex = 38;
+            label48.Text = "SEE ALL CUSTOMER";
             // 
             // pCreateCustomer
             // 
@@ -495,39 +528,6 @@
             label36.TabIndex = 37;
             label36.Text = "UPDATE CUSTOMER";
             // 
-            // pSeeAllCustomer
-            // 
-            pSeeAllCustomer.Controls.Add(dCustomer);
-            pSeeAllCustomer.Controls.Add(label48);
-            pSeeAllCustomer.Location = new Point(164, 0);
-            pSeeAllCustomer.Name = "pSeeAllCustomer";
-            pSeeAllCustomer.Size = new Size(1574, 1025);
-            pSeeAllCustomer.TabIndex = 61;
-            // 
-            // dCustomer
-            // 
-            dCustomer.AllowUserToAddRows = false;
-            dCustomer.AllowUserToDeleteRows = false;
-            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dCustomer.BackgroundColor = Color.White;
-            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Location = new Point(191, 291);
-            dCustomer.Name = "dCustomer";
-            dCustomer.ReadOnly = true;
-            dCustomer.RowHeadersWidth = 51;
-            dCustomer.Size = new Size(1144, 580);
-            dCustomer.TabIndex = 39;
-            // 
-            // label48
-            // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(566, 178);
-            label48.Name = "label48";
-            label48.Size = new Size(382, 40);
-            label48.TabIndex = 38;
-            label48.Text = "SEE ALL CUSTOMER";
-            // 
             // pCustomerSolBar
             // 
             pCustomerSolBar.BackColor = Color.FromArgb(224, 224, 224);
@@ -591,13 +591,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             pCustomer.ResumeLayout(false);
+            pSeeAllCustomer.ResumeLayout(false);
+            pSeeAllCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCreateCustomer.ResumeLayout(false);
             pCreateCustomer.PerformLayout();
             pUpdateCustomer.ResumeLayout(false);
             pUpdateCustomer.PerformLayout();
-            pSeeAllCustomer.ResumeLayout(false);
-            pSeeAllCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCustomerSolBar.ResumeLayout(false);
             ResumeLayout(false);
         }

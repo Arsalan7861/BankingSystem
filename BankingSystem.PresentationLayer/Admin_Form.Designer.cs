@@ -236,7 +236,7 @@
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Flat;
             button6.Font = new Font("Century", 12F);
-            button6.Location = new Point(3, 947);
+            button6.Location = new Point(3, 928);
             button6.Name = "button6";
             button6.Size = new Size(175, 68);
             button6.TabIndex = 3;
