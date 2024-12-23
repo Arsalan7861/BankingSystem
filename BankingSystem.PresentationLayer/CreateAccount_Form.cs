@@ -1,6 +1,7 @@
 ﻿using BankingSystem.BusinessLayer.Abstract;
 using BankingSystem.BusinessLayer.Concrete;
 using BankingSystem.DataAccessLayer.Concrete;
+using BankingSystem.EntityLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace bankaprojesiform
     {
         private readonly ICustomerService _customerService;
         private readonly string _connectionString;
+        private readonly IStaffService _staffService;
 
         public CreateAccount_Form(string connectionString)
         {
@@ -24,6 +26,7 @@ namespace bankaprojesiform
             _customerService = new CustomerManager(new CustomerDal(connectionString));
             InitializeComponent();
             this.FormClosed += CreateAccount_Form_FormClosed;
+            _staffService = new StaffManager(new StaffDal(connectionString));
         }
 
         private void CreateAccount_Form_FormClosed(object? sender, FormClosedEventArgs e)
@@ -65,36 +68,46 @@ namespace bankaprojesiform
                     MessageBox.Show("Login Successful");
                     AnaEkran anaEkran = new AnaEkran(_connectionString, tc);
                     this.Hide();
-                    anaEkran.Show();                    
-                    break;                   
+                    anaEkran.Show();
+                    break;
                 }
             }
 
-            if (txtLoginTc.Text.Equals("admin") && txtLoginPass.Text.Equals("123"))
+            // checking if the user is admin
+            if (txtLoginTc.Text == "admin" && txtLoginPass.Text == "123")
             {
                 Admin_Form admin = new Admin_Form(_connectionString, tc);
                 this.Hide();
-                admin.Show();
-                counter++;
+                admin.Show();               
+                return;
             }
-            else if (txtLoginTc.Text.Equals("manager") && txtLoginPass.Text.Equals("123"))
+
+            // checking if the user is admin, manager or pbo
+            var staffs = _staffService.TGetAll();
+            if (staffs.Any(staffs => staffs.Stafftc == txtLoginTc.Text))
             {
-                Manager_Form manager = new Manager_Form(_connectionString);
-                this.Hide();
-                manager.Show();
-                counter++;
+                foreach (var staff in staffs)
+                {
+                    if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "manager")
+                    {
+                        Manager_Form manager = new Manager_Form(_connectionString, tc);
+                        this.Hide();
+                        manager.Show();
+                        counter++;
+                        break;
+                    }
+                    else if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "pbo")
+                    {
+                        Pbo_form pbo = new Pbo_form(_connectionString, tc);
+                        this.Hide();
+                        pbo.Show();
+                        counter++;
+                        break;
+                    }
+                }
+            }            
 
-            }
-            else if (txtLoginTc.Text.Equals("pbo") && txtLoginPass.Text.Equals("123"))
-            {
-                Pbo_form pbo = new Pbo_form(_connectionString, tc);
-                this.Hide();
-                pbo.Show();
-                counter++;
-
-            }
-
-            if(counter == 0)
+            if (counter == 0)
             {
                 MessageBox.Show("Invalid TC or Password!");
                 txtLoginTc.Text = "";

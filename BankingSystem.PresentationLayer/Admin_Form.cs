@@ -57,8 +57,9 @@ namespace bankaprojesiform
             this.StartPosition = FormStartPosition.CenterScreen;
 
             var branches = _branchService.TGetAll();
-            dgvBranches.DataSource = branches;
+            dgvBranches.DataSource = branches; // show branches in data grid view
 
+            // show branches in combo boxes
             foreach (var branch in branches)
             {
                 cmbUSelectBranch.Items.Add(branch.Branchid);
@@ -69,14 +70,15 @@ namespace bankaprojesiform
             }
 
             var transactions = transactionService.TGetAll();
-            dTransaction.DataSource = transactions;
+            dTransaction.DataSource = transactions;// show transactions in data grid view
 
             var logs = _logService.TGetAll();
-            dLog.DataSource = logs;
+            dLog.DataSource = logs;// show logs in data grid view
 
             var staffs = _staffService.TGetAll();
-            dgvStaffs.DataSource = staffs;
+            dgvStaffs.DataSource = staffs;// show staffs in data grid view
 
+            // show staffs in combo boxes
             foreach (var staff in staffs)
             {
                 cmbCusStaffTc.Items.Add($"TC: {staff.Stafftc}");
@@ -84,8 +86,9 @@ namespace bankaprojesiform
             }
 
             var customers = _customerService.TGetAll();
-            dCustomer.DataSource = customers;
+            dCustomer.DataSource = customers;// show customers in data grid view
 
+            // show customers in combo boxes
             foreach (var customer in customers)
             {
                 cUpdateCustomerTC.Items.Add($"TC: {customer.Customertc}");

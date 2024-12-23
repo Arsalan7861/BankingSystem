@@ -51,15 +51,15 @@ namespace bankaprojesiform
             pSupport.Hide();
             pTransactions.Hide();
 
-            // Hesap islemleri gostermek
+            // show account transactions in data grid view
             var transaction = _transactionService.TGetAll();
             dOverViewTransac.DataSource = transaction;
             dTransaction.DataSource = transaction;
 
-            // Hesaplari gostermek
+            // show accounts in data grid view
             dataSetAccount.DataSource = _accountService.TGetAll();
 
-            // Hesap bakiyesini ve iban numarasini musteri tc'sine gore gostermek
+            // show account's amount and iban number according to account type
             var accounts = _accountService.TGetAccountByTc(_customerTc);
             foreach (var account in accounts)
             {
@@ -75,7 +75,7 @@ namespace bankaprojesiform
                 }
             }
 
-            // Musteri bilgilerini gosterme
+            // show customer information
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             tInformationName.Text = customer.Customerfname;
             tInformationSurname.Text = customer.Customerlname;
