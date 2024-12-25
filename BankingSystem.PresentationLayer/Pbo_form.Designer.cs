@@ -71,6 +71,9 @@
             button2 = new Button();
             button1 = new Button();
             bCreateCustomer = new Button();
+            bSearchCustomer = new Button();
+            tSearchCustomer = new TextBox();
+            label64 = new Label();
             panel1.SuspendLayout();
             pCustomer.SuspendLayout();
             pCreateCustomer.SuspendLayout();
@@ -140,9 +143,9 @@
             // 
             // pCustomer
             // 
+            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pCreateCustomer);
             pCustomer.Controls.Add(pUpdateCustomer);
-            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pCustomerSolBar);
             pCustomer.Location = new Point(160, 0);
             pCustomer.Name = "pCustomer";
@@ -451,6 +454,9 @@
             // 
             // pSeeAllCustomer
             // 
+            pSeeAllCustomer.Controls.Add(bSearchCustomer);
+            pSeeAllCustomer.Controls.Add(tSearchCustomer);
+            pSeeAllCustomer.Controls.Add(label64);
             pSeeAllCustomer.Controls.Add(dCustomer);
             pSeeAllCustomer.Controls.Add(label48);
             pSeeAllCustomer.Location = new Point(164, 0);
@@ -478,7 +484,7 @@
             // 
             label48.AutoSize = true;
             label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(566, 178);
+            label48.Location = new Point(586, 129);
             label48.Name = "label48";
             label48.Size = new Size(382, 40);
             label48.TabIndex = 38;
@@ -533,6 +539,34 @@
             bCreateCustomer.Text = "Create Customer";
             bCreateCustomer.UseVisualStyleBackColor = true;
             bCreateCustomer.Click += bCreateCustomer_Click;
+            // 
+            // bSearchCustomer
+            // 
+            bSearchCustomer.FlatStyle = FlatStyle.Flat;
+            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchCustomer.Location = new Point(890, 204);
+            bSearchCustomer.Name = "bSearchCustomer";
+            bSearchCustomer.Size = new Size(94, 29);
+            bSearchCustomer.TabIndex = 42;
+            bSearchCustomer.Text = "Search";
+            bSearchCustomer.UseVisualStyleBackColor = true;
+            // 
+            // tSearchCustomer
+            // 
+            tSearchCustomer.Location = new Point(685, 206);
+            tSearchCustomer.Name = "tSearchCustomer";
+            tSearchCustomer.Size = new Size(183, 27);
+            tSearchCustomer.TabIndex = 41;
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label64.Location = new Point(483, 206);
+            label64.Name = "label64";
+            label64.Size = new Size(193, 23);
+            label64.TabIndex = 40;
+            label64.Text = "Enter customer TC:";
             // 
             // Pbo_form
             // 
@@ -603,5 +637,8 @@
         private Button bLogOut;
         private TextBox tCreatePassword;
         private Label label3;
+        private Button bSearchCustomer;
+        private TextBox tSearchCustomer;
+        private Label label64;
     }
 }
