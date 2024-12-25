@@ -36,6 +36,9 @@
             label1 = new Label();
             pStaff = new Panel();
             pSeeAllStaff = new Panel();
+            bSearchStaff = new Button();
+            tSearchStaff = new TextBox();
+            label9 = new Label();
             dSeeAllStaff = new DataGridView();
             label31 = new Label();
             pDeleteStaff = new Panel();
@@ -93,6 +96,9 @@
             pLog = new Panel();
             label51 = new Label();
             dLog = new DataGridView();
+            label11 = new Label();
+            tSearchLogTc = new TextBox();
+            bSearchLog = new Button();
             pSolBar.SuspendLayout();
             pStaff.SuspendLayout();
             pSeeAllStaff.SuspendLayout();
@@ -191,6 +197,9 @@
             // 
             // pSeeAllStaff
             // 
+            pSeeAllStaff.Controls.Add(bSearchStaff);
+            pSeeAllStaff.Controls.Add(tSearchStaff);
+            pSeeAllStaff.Controls.Add(label9);
             pSeeAllStaff.Controls.Add(dSeeAllStaff);
             pSeeAllStaff.Controls.Add(label31);
             pSeeAllStaff.Location = new Point(201, 0);
@@ -198,24 +207,55 @@
             pSeeAllStaff.Size = new Size(1506, 1021);
             pSeeAllStaff.TabIndex = 35;
             // 
+            // bSearchStaff
+            // 
+            bSearchStaff.FlatStyle = FlatStyle.Flat;
+            bSearchStaff.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchStaff.Location = new Point(894, 267);
+            bSearchStaff.Name = "bSearchStaff";
+            bSearchStaff.Size = new Size(110, 29);
+            bSearchStaff.TabIndex = 35;
+            bSearchStaff.Text = "Search";
+            bSearchStaff.UseVisualStyleBackColor = true;
+            // 
+            // tSearchStaff
+            // 
+            tSearchStaff.Location = new Point(659, 269);
+            tSearchStaff.Name = "tSearchStaff";
+            tSearchStaff.Size = new Size(212, 27);
+            tSearchStaff.TabIndex = 34;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label9.Location = new Point(477, 267);
+            label9.Name = "label9";
+            label9.Size = new Size(175, 29);
+            label9.TabIndex = 33;
+            label9.Text = "Enter staff id:";
+            // 
             // dSeeAllStaff
             // 
+            dSeeAllStaff.AllowUserToAddRows = false;
+            dSeeAllStaff.AllowUserToDeleteRows = false;
             dSeeAllStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dSeeAllStaff.BackgroundColor = Color.White;
             dSeeAllStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dSeeAllStaff.Enabled = false;
-            dSeeAllStaff.Location = new Point(236, 345);
+            dSeeAllStaff.Location = new Point(86, 345);
             dSeeAllStaff.Name = "dSeeAllStaff";
+            dSeeAllStaff.ReadOnly = true;
             dSeeAllStaff.RowHeadersVisible = false;
             dSeeAllStaff.RowHeadersWidth = 51;
-            dSeeAllStaff.Size = new Size(1119, 502);
+            dSeeAllStaff.Size = new Size(1371, 502);
             dSeeAllStaff.TabIndex = 32;
             // 
             // label31
             // 
             label31.AutoSize = true;
             label31.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label31.Location = new Point(713, 221);
+            label31.Location = new Point(659, 202);
             label31.Name = "label31";
             label31.Size = new Size(212, 40);
             label31.TabIndex = 31;
@@ -765,18 +805,21 @@
             // 
             // pLog
             // 
+            pLog.Controls.Add(bSearchLog);
+            pLog.Controls.Add(tSearchLogTc);
+            pLog.Controls.Add(label11);
             pLog.Controls.Add(label51);
             pLog.Controls.Add(dLog);
-            pLog.Location = new Point(190, 0);
+            pLog.Location = new Point(193, 0);
             pLog.Name = "pLog";
-            pLog.Size = new Size(1704, 1024);
+            pLog.Size = new Size(1701, 1024);
             pLog.TabIndex = 43;
             // 
             // label51
             // 
             label51.AutoSize = true;
             label51.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label51.Location = new Point(873, 199);
+            label51.Location = new Point(814, 163);
             label51.Name = "label51";
             label51.Size = new Size(92, 40);
             label51.TabIndex = 39;
@@ -790,21 +833,49 @@
             dLog.BackgroundColor = Color.White;
             dLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dLog.Enabled = false;
-            dLog.Location = new Point(348, 299);
+            dLog.Location = new Point(141, 299);
             dLog.Name = "dLog";
             dLog.ReadOnly = true;
             dLog.RowHeadersVisible = false;
             dLog.RowHeadersWidth = 51;
-            dLog.Size = new Size(1115, 610);
+            dLog.Size = new Size(1438, 610);
             dLog.TabIndex = 40;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label11.Location = new Point(645, 221);
+            label11.Name = "label11";
+            label11.Size = new Size(134, 23);
+            label11.TabIndex = 41;
+            label11.Text = "Enter TC No:";
+            // 
+            // tSearchLogTc
+            // 
+            tSearchLogTc.Location = new Point(785, 221);
+            tSearchLogTc.Name = "tSearchLogTc";
+            tSearchLogTc.Size = new Size(144, 27);
+            tSearchLogTc.TabIndex = 42;
+            // 
+            // bSearchLog
+            // 
+            bSearchLog.FlatStyle = FlatStyle.Flat;
+            bSearchLog.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchLog.Location = new Point(953, 219);
+            bSearchLog.Name = "bSearchLog";
+            bSearchLog.Size = new Size(94, 29);
+            bSearchLog.TabIndex = 43;
+            bSearchLog.Text = "Search";
+            bSearchLog.UseVisualStyleBackColor = true;
             // 
             // Manager_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pStaff);
             Controls.Add(pLog);
+            Controls.Add(pStaff);
             Controls.Add(pSolBar);
             Name = "Manager_Form";
             Text = "Manager_Form";
@@ -895,5 +966,11 @@
         private Label label8;
         private TextBox tUpdStaffPassword;
         private Label label10;
+        private Button bSearchStaff;
+        private TextBox tSearchStaff;
+        private Label label9;
+        private Label label11;
+        private Button bSearchLog;
+        private TextBox tSearchLogTc;
     }
 }
