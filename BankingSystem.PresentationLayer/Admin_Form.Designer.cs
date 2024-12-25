@@ -189,6 +189,21 @@
             pTransactions = new Panel();
             dTransaction = new DataGridView();
             label52 = new Label();
+            label63 = new Label();
+            tSearchStaff = new TextBox();
+            bSearchStaff = new Button();
+            label64 = new Label();
+            tSearchBranch = new TextBox();
+            bSearchBranch = new Button();
+            bSearchCustomer = new Button();
+            tSearchCustomer = new TextBox();
+            label65 = new Label();
+            bSearchTransaction = new Button();
+            tSearchTransaction = new TextBox();
+            label66 = new Label();
+            bSearchLog = new Button();
+            tSearchLog = new TextBox();
+            label67 = new Label();
             pSolbar.SuspendLayout();
             pBranch.SuspendLayout();
             pDelBranch.SuspendLayout();
@@ -333,9 +348,9 @@
             // 
             // pBranch
             // 
+            pBranch.Controls.Add(pSeeAllBranches);
             pBranch.Controls.Add(pDelBranch);
             pBranch.Controls.Add(pUpdateBranch);
-            pBranch.Controls.Add(pSeeAllBranches);
             pBranch.Controls.Add(pCreate_Branch);
             pBranch.Controls.Add(pBranchBar);
             pBranch.Location = new Point(185, -1);
@@ -532,11 +547,14 @@
             // 
             // pSeeAllBranches
             // 
+            pSeeAllBranches.Controls.Add(bSearchBranch);
+            pSeeAllBranches.Controls.Add(tSearchBranch);
+            pSeeAllBranches.Controls.Add(label64);
             pSeeAllBranches.Controls.Add(dgvBranches);
             pSeeAllBranches.Controls.Add(label14);
-            pSeeAllBranches.Location = new Point(174, 0);
+            pSeeAllBranches.Location = new Point(168, 0);
             pSeeAllBranches.Name = "pSeeAllBranches";
-            pSeeAllBranches.Size = new Size(1535, 1025);
+            pSeeAllBranches.Size = new Size(1541, 1025);
             pSeeAllBranches.TabIndex = 18;
             // 
             // dgvBranches
@@ -559,7 +577,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label14.Location = new Point(532, 186);
+            label14.Location = new Point(529, 169);
             label14.Name = "label14";
             label14.Size = new Size(379, 40);
             label14.TabIndex = 1;
@@ -741,10 +759,10 @@
             // 
             // pStaff
             // 
+            pStaff.Controls.Add(pSeeAllStaff);
             pStaff.Controls.Add(pUpdateStaff);
             pStaff.Controls.Add(pDeleteStaff);
             pStaff.Controls.Add(pCreateStaff);
-            pStaff.Controls.Add(pSeeAllStaff);
             pStaff.Controls.Add(pStaffBar);
             pStaff.Location = new Point(185, 0);
             pStaff.Name = "pStaff";
@@ -1275,6 +1293,9 @@
             // 
             // pSeeAllStaff
             // 
+            pSeeAllStaff.Controls.Add(bSearchStaff);
+            pSeeAllStaff.Controls.Add(tSearchStaff);
+            pSeeAllStaff.Controls.Add(label63);
             pSeeAllStaff.Controls.Add(dgvStaffs);
             pSeeAllStaff.Controls.Add(label31);
             pSeeAllStaff.Location = new Point(174, 0);
@@ -1293,20 +1314,20 @@
             dgvStaffs.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvStaffs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvStaffs.Enabled = false;
-            dgvStaffs.Location = new Point(236, 345);
+            dgvStaffs.Location = new Point(6, 345);
             dgvStaffs.MultiSelect = false;
             dgvStaffs.Name = "dgvStaffs";
             dgvStaffs.ReadOnly = true;
             dgvStaffs.RowHeadersVisible = false;
             dgvStaffs.RowHeadersWidth = 51;
-            dgvStaffs.Size = new Size(1119, 502);
+            dgvStaffs.Size = new Size(1529, 502);
             dgvStaffs.TabIndex = 32;
             // 
             // label31
             // 
             label31.AutoSize = true;
             label31.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label31.Location = new Point(713, 221);
+            label31.Location = new Point(660, 220);
             label31.Name = "label31";
             label31.Size = new Size(212, 40);
             label31.TabIndex = 31;
@@ -1378,10 +1399,10 @@
             // 
             // pClient
             // 
+            pClient.Controls.Add(pSeeAllCustomer);
             pClient.Controls.Add(pCreateCustomer);
             pClient.Controls.Add(pDeleteCustomer);
             pClient.Controls.Add(pUpdateCustomer);
-            pClient.Controls.Add(pSeeAllCustomer);
             pClient.Controls.Add(pClientBar);
             pClient.Location = new Point(188, 0);
             pClient.Name = "pClient";
@@ -1786,6 +1807,9 @@
             // 
             // pSeeAllCustomer
             // 
+            pSeeAllCustomer.Controls.Add(bSearchCustomer);
+            pSeeAllCustomer.Controls.Add(tSearchCustomer);
+            pSeeAllCustomer.Controls.Add(label65);
             pSeeAllCustomer.Controls.Add(dCustomer);
             pSeeAllCustomer.Controls.Add(label48);
             pSeeAllCustomer.Location = new Point(174, 0);
@@ -1813,7 +1837,7 @@
             // 
             label48.AutoSize = true;
             label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(566, 264);
+            label48.Location = new Point(580, 216);
             label48.Name = "label48";
             label48.Size = new Size(382, 40);
             label48.TabIndex = 38;
@@ -1885,6 +1909,9 @@
             // 
             // pLog
             // 
+            pLog.Controls.Add(bSearchLog);
+            pLog.Controls.Add(tSearchLog);
+            pLog.Controls.Add(label67);
             pLog.Controls.Add(label51);
             pLog.Controls.Add(dLog);
             pLog.Location = new Point(188, 0);
@@ -1896,7 +1923,7 @@
             // 
             label51.AutoSize = true;
             label51.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label51.Location = new Point(873, 199);
+            label51.Location = new Point(870, 168);
             label51.Name = "label51";
             label51.Size = new Size(92, 40);
             label51.TabIndex = 39;
@@ -1920,6 +1947,9 @@
             // 
             // pTransactions
             // 
+            pTransactions.Controls.Add(bSearchTransaction);
+            pTransactions.Controls.Add(tSearchTransaction);
+            pTransactions.Controls.Add(label66);
             pTransactions.Controls.Add(dTransaction);
             pTransactions.Controls.Add(label52);
             pTransactions.Location = new Point(185, 0);
@@ -1935,34 +1965,174 @@
             dTransaction.BackgroundColor = Color.White;
             dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dTransaction.Enabled = false;
-            dTransaction.Location = new Point(351, 301);
+            dTransaction.Location = new Point(334, 301);
             dTransaction.Name = "dTransaction";
             dTransaction.ReadOnly = true;
             dTransaction.RowHeadersVisible = false;
             dTransaction.RowHeadersWidth = 51;
-            dTransaction.Size = new Size(1115, 608);
+            dTransaction.Size = new Size(1132, 608);
             dTransaction.TabIndex = 39;
             // 
             // label52
             // 
             label52.AutoSize = true;
             label52.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label52.Location = new Point(748, 199);
+            label52.Location = new Point(757, 159);
             label52.Name = "label52";
             label52.Size = new Size(301, 40);
             label52.TabIndex = 38;
             label52.Text = "TRANSACTIONS";
+            // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label63.Location = new Point(488, 279);
+            label63.Name = "label63";
+            label63.Size = new Size(175, 29);
+            label63.TabIndex = 33;
+            label63.Text = "Enter staff id:";
+            // 
+            // tSearchStaff
+            // 
+            tSearchStaff.Location = new Point(669, 279);
+            tSearchStaff.Name = "tSearchStaff";
+            tSearchStaff.Size = new Size(191, 27);
+            tSearchStaff.TabIndex = 34;
+            // 
+            // bSearchStaff
+            // 
+            bSearchStaff.FlatStyle = FlatStyle.Flat;
+            bSearchStaff.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bSearchStaff.Location = new Point(878, 278);
+            bSearchStaff.Name = "bSearchStaff";
+            bSearchStaff.Size = new Size(107, 29);
+            bSearchStaff.TabIndex = 35;
+            bSearchStaff.Text = "Search";
+            bSearchStaff.UseVisualStyleBackColor = true;
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label64.Location = new Point(412, 234);
+            label64.Name = "label64";
+            label64.Size = new Size(196, 23);
+            label64.TabIndex = 3;
+            label64.Text = "Enter branch name:";
+            // 
+            // tSearchBranch
+            // 
+            tSearchBranch.Location = new Point(614, 234);
+            tSearchBranch.Name = "tSearchBranch";
+            tSearchBranch.Size = new Size(183, 27);
+            tSearchBranch.TabIndex = 4;
+            // 
+            // bSearchBranch
+            // 
+            bSearchBranch.FlatStyle = FlatStyle.Flat;
+            bSearchBranch.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchBranch.Location = new Point(819, 232);
+            bSearchBranch.Name = "bSearchBranch";
+            bSearchBranch.Size = new Size(94, 29);
+            bSearchBranch.TabIndex = 5;
+            bSearchBranch.Text = "Search";
+            bSearchBranch.UseVisualStyleBackColor = true;
+            // 
+            // bSearchCustomer
+            // 
+            bSearchCustomer.FlatStyle = FlatStyle.Flat;
+            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchCustomer.Location = new Point(865, 280);
+            bSearchCustomer.Name = "bSearchCustomer";
+            bSearchCustomer.Size = new Size(94, 29);
+            bSearchCustomer.TabIndex = 42;
+            bSearchCustomer.Text = "Search";
+            bSearchCustomer.UseVisualStyleBackColor = true;
+            // 
+            // tSearchCustomer
+            // 
+            tSearchCustomer.Location = new Point(660, 282);
+            tSearchCustomer.Name = "tSearchCustomer";
+            tSearchCustomer.Size = new Size(183, 27);
+            tSearchCustomer.TabIndex = 41;
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label65.Location = new Point(458, 282);
+            label65.Name = "label65";
+            label65.Size = new Size(193, 23);
+            label65.TabIndex = 40;
+            label65.Text = "Enter customer TC:";
+            // 
+            // bSearchTransaction
+            // 
+            bSearchTransaction.FlatStyle = FlatStyle.Flat;
+            bSearchTransaction.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchTransaction.Location = new Point(1006, 218);
+            bSearchTransaction.Name = "bSearchTransaction";
+            bSearchTransaction.Size = new Size(94, 29);
+            bSearchTransaction.TabIndex = 42;
+            bSearchTransaction.Text = "Search";
+            bSearchTransaction.UseVisualStyleBackColor = true;
+            // 
+            // tSearchTransaction
+            // 
+            tSearchTransaction.Location = new Point(801, 220);
+            tSearchTransaction.Name = "tSearchTransaction";
+            tSearchTransaction.Size = new Size(183, 27);
+            tSearchTransaction.TabIndex = 41;
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label66.Location = new Point(651, 220);
+            label66.Name = "label66";
+            label66.Size = new Size(129, 23);
+            label66.TabIndex = 40;
+            label66.Text = "Enter Tc No:";
+            // 
+            // bSearchLog
+            // 
+            bSearchLog.FlatStyle = FlatStyle.Flat;
+            bSearchLog.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchLog.Location = new Point(1035, 226);
+            bSearchLog.Name = "bSearchLog";
+            bSearchLog.Size = new Size(94, 29);
+            bSearchLog.TabIndex = 43;
+            bSearchLog.Text = "Search";
+            bSearchLog.UseVisualStyleBackColor = true;
+            // 
+            // tSearchLog
+            // 
+            tSearchLog.Location = new Point(830, 228);
+            tSearchLog.Name = "tSearchLog";
+            tSearchLog.Size = new Size(183, 27);
+            tSearchLog.TabIndex = 42;
+            // 
+            // label67
+            // 
+            label67.AutoSize = true;
+            label67.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label67.Location = new Point(628, 228);
+            label67.Name = "label67";
+            label67.Size = new Size(196, 23);
+            label67.TabIndex = 41;
+            label67.Text = "Enter branch name:";
             // 
             // Admin_Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pStaff);
-            Controls.Add(pClient);
             Controls.Add(pLog);
             Controls.Add(pTransactions);
+            Controls.Add(pClient);
             Controls.Add(pBranch);
+            Controls.Add(pStaff);
             Controls.Add(pSolbar);
             Name = "Admin_Form";
             Text = "Admin_Form";
@@ -2175,5 +2345,20 @@
         private ComboBox cmbUpdateCusStaffTc;
         private ComboBox cmbUStaffBranch;
         private Label label62;
+        private Label label63;
+        private Button bSearchStaff;
+        private TextBox tSearchStaff;
+        private Label label64;
+        private Button bSearchBranch;
+        private TextBox tSearchBranch;
+        private Button bSearchCustomer;
+        private TextBox tSearchCustomer;
+        private Label label65;
+        private Button bSearchLog;
+        private TextBox tSearchLog;
+        private Label label67;
+        private Button bSearchTransaction;
+        private TextBox tSearchTransaction;
+        private Label label66;
     }
 }
