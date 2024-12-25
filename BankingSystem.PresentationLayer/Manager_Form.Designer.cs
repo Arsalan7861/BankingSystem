@@ -73,7 +73,7 @@
             label4 = new Label();
             tCreateStaffPassword = new TextBox();
             label3 = new Label();
-            bCreateBranch = new Button();
+            btnCreateStaff = new Button();
             cCreateStaffPos = new ComboBox();
             tCreateStaffAddress = new TextBox();
             tCreateStaffPhoneNo = new TextBox();
@@ -203,8 +203,10 @@
             dSeeAllStaff.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dSeeAllStaff.BackgroundColor = Color.White;
             dSeeAllStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dSeeAllStaff.Enabled = false;
             dSeeAllStaff.Location = new Point(236, 345);
             dSeeAllStaff.Name = "dSeeAllStaff";
+            dSeeAllStaff.RowHeadersVisible = false;
             dSeeAllStaff.RowHeadersWidth = 51;
             dSeeAllStaff.Size = new Size(1119, 502);
             dSeeAllStaff.TabIndex = 32;
@@ -373,7 +375,7 @@
             // 
             cUpdStaffPos.DropDownStyle = ComboBoxStyle.DropDownList;
             cUpdStaffPos.FormattingEnabled = true;
-            cUpdStaffPos.Items.AddRange(new object[] { "Manager", "Pbo" });
+            cUpdStaffPos.Items.AddRange(new object[] { "Pbo" });
             cUpdStaffPos.Location = new Point(668, 532);
             cUpdStaffPos.Name = "cUpdStaffPos";
             cUpdStaffPos.Size = new Size(200, 28);
@@ -497,7 +499,7 @@
             pCreateStaff.Controls.Add(label4);
             pCreateStaff.Controls.Add(tCreateStaffPassword);
             pCreateStaff.Controls.Add(label3);
-            pCreateStaff.Controls.Add(bCreateBranch);
+            pCreateStaff.Controls.Add(btnCreateStaff);
             pCreateStaff.Controls.Add(cCreateStaffPos);
             pCreateStaff.Controls.Add(tCreateStaffAddress);
             pCreateStaff.Controls.Add(tCreateStaffPhoneNo);
@@ -584,26 +586,26 @@
             label3.TabIndex = 20;
             label3.Text = "Staff Password";
             // 
-            // bCreateBranch
+            // btnCreateStaff
             // 
-            bCreateBranch.BackColor = Color.FromArgb(76, 175, 80);
-            bCreateBranch.FlatAppearance.BorderSize = 0;
-            bCreateBranch.FlatStyle = FlatStyle.Flat;
-            bCreateBranch.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bCreateBranch.ForeColor = Color.White;
-            bCreateBranch.Location = new Point(618, 827);
-            bCreateBranch.Name = "bCreateBranch";
-            bCreateBranch.Size = new Size(248, 49);
-            bCreateBranch.TabIndex = 19;
-            bCreateBranch.Text = "CREATE BRANCH";
-            bCreateBranch.UseVisualStyleBackColor = false;
-            bCreateBranch.Click += bCreateBranch_Click;
+            btnCreateStaff.BackColor = Color.FromArgb(76, 175, 80);
+            btnCreateStaff.FlatAppearance.BorderSize = 0;
+            btnCreateStaff.FlatStyle = FlatStyle.Flat;
+            btnCreateStaff.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnCreateStaff.ForeColor = Color.White;
+            btnCreateStaff.Location = new Point(618, 827);
+            btnCreateStaff.Name = "btnCreateStaff";
+            btnCreateStaff.Size = new Size(248, 49);
+            btnCreateStaff.TabIndex = 19;
+            btnCreateStaff.Text = "CREATE BRANCH";
+            btnCreateStaff.UseVisualStyleBackColor = false;
+            btnCreateStaff.Click += btnCreateStaff_Click;
             // 
             // cCreateStaffPos
             // 
             cCreateStaffPos.DropDownStyle = ComboBoxStyle.DropDownList;
             cCreateStaffPos.FormattingEnabled = true;
-            cCreateStaffPos.Items.AddRange(new object[] { "Manager", "Pbo" });
+            cCreateStaffPos.Items.AddRange(new object[] { "Pbo" });
             cCreateStaffPos.Location = new Point(658, 465);
             cCreateStaffPos.Name = "cCreateStaffPos";
             cCreateStaffPos.Size = new Size(200, 28);
@@ -787,9 +789,11 @@
             dLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dLog.BackgroundColor = Color.White;
             dLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dLog.Enabled = false;
             dLog.Location = new Point(348, 299);
             dLog.Name = "dLog";
             dLog.ReadOnly = true;
+            dLog.RowHeadersVisible = false;
             dLog.RowHeadersWidth = 51;
             dLog.Size = new Size(1115, 610);
             dLog.TabIndex = 40;
@@ -838,7 +842,7 @@
         private Button bDeleteStaff;
         private Button bUpdateStaff;
         private Panel pCreateStaff;
-        private Button bCreateBranch;
+        private Button btnCreateStaff;
         private ComboBox cCreateStaffPos;
         private TextBox tCreateStaffAddress;
         private TextBox tCreateStaffPhoneNo;

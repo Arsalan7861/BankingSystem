@@ -34,12 +34,7 @@
             label2 = new Label();
             label1 = new Label();
             pCustomer = new Panel();
-            pSeeAllCustomer = new Panel();
-            dCustomer = new DataGridView();
-            label48 = new Label();
             pCreateCustomer = new Panel();
-            cmbCreateStaffTc = new ComboBox();
-            label4 = new Label();
             tCreatePassword = new TextBox();
             label3 = new Label();
             tCreateAddress = new TextBox();
@@ -55,8 +50,6 @@
             label7 = new Label();
             label5 = new Label();
             pUpdateCustomer = new Panel();
-            label6 = new Label();
-            cmbUpdateCusStaffTc = new ComboBox();
             label42 = new Label();
             tUpdateCusPass = new TextBox();
             label43 = new Label();
@@ -71,16 +64,19 @@
             label47 = new Label();
             cUpdateCustomerTc = new ComboBox();
             label36 = new Label();
+            pSeeAllCustomer = new Panel();
+            dCustomer = new DataGridView();
+            label48 = new Label();
             pCustomerSolBar = new Panel();
             button2 = new Button();
             button1 = new Button();
             bCreateCustomer = new Button();
             panel1.SuspendLayout();
             pCustomer.SuspendLayout();
-            pSeeAllCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
             pCreateCustomer.SuspendLayout();
             pUpdateCustomer.SuspendLayout();
+            pSeeAllCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
             pCustomerSolBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -144,52 +140,17 @@
             // 
             // pCustomer
             // 
-            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pCreateCustomer);
             pCustomer.Controls.Add(pUpdateCustomer);
+            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pCustomerSolBar);
             pCustomer.Location = new Point(160, 0);
             pCustomer.Name = "pCustomer";
             pCustomer.Size = new Size(1738, 1029);
             pCustomer.TabIndex = 1;
             // 
-            // pSeeAllCustomer
-            // 
-            pSeeAllCustomer.Controls.Add(dCustomer);
-            pSeeAllCustomer.Controls.Add(label48);
-            pSeeAllCustomer.Location = new Point(164, 0);
-            pSeeAllCustomer.Name = "pSeeAllCustomer";
-            pSeeAllCustomer.Size = new Size(1574, 1025);
-            pSeeAllCustomer.TabIndex = 61;
-            // 
-            // dCustomer
-            // 
-            dCustomer.AllowUserToAddRows = false;
-            dCustomer.AllowUserToDeleteRows = false;
-            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dCustomer.BackgroundColor = Color.White;
-            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Location = new Point(191, 291);
-            dCustomer.Name = "dCustomer";
-            dCustomer.ReadOnly = true;
-            dCustomer.RowHeadersWidth = 51;
-            dCustomer.Size = new Size(1144, 580);
-            dCustomer.TabIndex = 39;
-            // 
-            // label48
-            // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(566, 178);
-            label48.Name = "label48";
-            label48.Size = new Size(382, 40);
-            label48.TabIndex = 38;
-            label48.Text = "SEE ALL CUSTOMER";
-            // 
             // pCreateCustomer
             // 
-            pCreateCustomer.Controls.Add(cmbCreateStaffTc);
-            pCreateCustomer.Controls.Add(label4);
             pCreateCustomer.Controls.Add(tCreatePassword);
             pCreateCustomer.Controls.Add(label3);
             pCreateCustomer.Controls.Add(tCreateAddress);
@@ -209,28 +170,9 @@
             pCreateCustomer.Size = new Size(1574, 1023);
             pCreateCustomer.TabIndex = 4;
             // 
-            // cmbCreateStaffTc
-            // 
-            cmbCreateStaffTc.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbCreateStaffTc.FormattingEnabled = true;
-            cmbCreateStaffTc.Location = new Point(756, 636);
-            cmbCreateStaffTc.Name = "cmbCreateStaffTc";
-            cmbCreateStaffTc.Size = new Size(213, 28);
-            cmbCreateStaffTc.TabIndex = 28;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label4.Location = new Point(596, 637);
-            label4.Name = "label4";
-            label4.Size = new Size(111, 29);
-            label4.TabIndex = 27;
-            label4.Text = "Staff TC";
-            // 
             // tCreatePassword
             // 
-            tCreatePassword.Location = new Point(756, 578);
+            tCreatePassword.Location = new Point(756, 616);
             tCreatePassword.Name = "tCreatePassword";
             tCreatePassword.Size = new Size(213, 27);
             tCreatePassword.TabIndex = 26;
@@ -239,7 +181,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.Location = new Point(583, 579);
+            label3.Location = new Point(583, 617);
             label3.Name = "label3";
             label3.Size = new Size(124, 29);
             label3.TabIndex = 25;
@@ -247,35 +189,35 @@
             // 
             // tCreateAddress
             // 
-            tCreateAddress.Location = new Point(756, 520);
+            tCreateAddress.Location = new Point(756, 558);
             tCreateAddress.Name = "tCreateAddress";
             tCreateAddress.Size = new Size(213, 27);
             tCreateAddress.TabIndex = 24;
             // 
             // tCreatePhoneNo
             // 
-            tCreatePhoneNo.Location = new Point(756, 462);
+            tCreatePhoneNo.Location = new Point(756, 500);
             tCreatePhoneNo.Name = "tCreatePhoneNo";
             tCreatePhoneNo.Size = new Size(213, 27);
             tCreatePhoneNo.TabIndex = 23;
             // 
             // tCreateTc
             // 
-            tCreateTc.Location = new Point(756, 404);
+            tCreateTc.Location = new Point(756, 442);
             tCreateTc.Name = "tCreateTc";
             tCreateTc.Size = new Size(213, 27);
             tCreateTc.TabIndex = 22;
             // 
             // tCreateLName
             // 
-            tCreateLName.Location = new Point(756, 346);
+            tCreateLName.Location = new Point(756, 384);
             tCreateLName.Name = "tCreateLName";
             tCreateLName.Size = new Size(213, 27);
             tCreateLName.TabIndex = 21;
             // 
             // tCreateFName
             // 
-            tCreateFName.Location = new Point(756, 288);
+            tCreateFName.Location = new Point(756, 326);
             tCreateFName.Name = "tCreateFName";
             tCreateFName.Size = new Size(213, 27);
             tCreateFName.TabIndex = 20;
@@ -300,7 +242,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label11.Location = new Point(620, 405);
+            label11.Location = new Point(620, 443);
             label11.Name = "label11";
             label11.Size = new Size(87, 29);
             label11.TabIndex = 18;
@@ -310,7 +252,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label10.Location = new Point(600, 521);
+            label10.Location = new Point(600, 559);
             label10.Name = "label10";
             label10.Size = new Size(107, 29);
             label10.TabIndex = 17;
@@ -320,7 +262,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label9.Location = new Point(520, 463);
+            label9.Location = new Point(520, 501);
             label9.Name = "label9";
             label9.Size = new Size(187, 29);
             label9.TabIndex = 16;
@@ -330,7 +272,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label8.Location = new Point(565, 346);
+            label8.Location = new Point(565, 384);
             label8.Name = "label8";
             label8.Size = new Size(142, 29);
             label8.TabIndex = 15;
@@ -340,7 +282,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label7.Location = new Point(560, 288);
+            label7.Location = new Point(560, 326);
             label7.Name = "label7";
             label7.Size = new Size(147, 29);
             label7.TabIndex = 14;
@@ -358,8 +300,6 @@
             // 
             // pUpdateCustomer
             // 
-            pUpdateCustomer.Controls.Add(label6);
-            pUpdateCustomer.Controls.Add(cmbUpdateCusStaffTc);
             pUpdateCustomer.Controls.Add(label42);
             pUpdateCustomer.Controls.Add(tUpdateCusPass);
             pUpdateCustomer.Controls.Add(label43);
@@ -379,30 +319,11 @@
             pUpdateCustomer.Size = new Size(1574, 1024);
             pUpdateCustomer.TabIndex = 49;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Century", 12F);
-            label6.Location = new Point(607, 691);
-            label6.Name = "label6";
-            label6.Size = new Size(89, 23);
-            label6.TabIndex = 61;
-            label6.Text = "Staff TC";
-            // 
-            // cmbUpdateCusStaffTc
-            // 
-            cmbUpdateCusStaffTc.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUpdateCusStaffTc.FormattingEnabled = true;
-            cmbUpdateCusStaffTc.Location = new Point(744, 686);
-            cmbUpdateCusStaffTc.Name = "cmbUpdateCusStaffTc";
-            cmbUpdateCusStaffTc.Size = new Size(267, 28);
-            cmbUpdateCusStaffTc.TabIndex = 60;
-            // 
             // label42
             // 
             label42.AutoSize = true;
             label42.Font = new Font("Century", 12F);
-            label42.Location = new Point(477, 317);
+            label42.Location = new Point(476, 352);
             label42.Name = "label42";
             label42.Size = new Size(227, 23);
             label42.TabIndex = 59;
@@ -410,7 +331,7 @@
             // 
             // tUpdateCusPass
             // 
-            tUpdateCusPass.Location = new Point(744, 629);
+            tUpdateCusPass.Location = new Point(743, 664);
             tUpdateCusPass.Name = "tUpdateCusPass";
             tUpdateCusPass.Size = new Size(267, 27);
             tUpdateCusPass.TabIndex = 58;
@@ -419,7 +340,7 @@
             // 
             label43.AutoSize = true;
             label43.Font = new Font("Century", 12F);
-            label43.Location = new Point(502, 633);
+            label43.Location = new Point(501, 668);
             label43.Name = "label43";
             label43.Size = new Size(194, 23);
             label43.TabIndex = 57;
@@ -442,7 +363,7 @@
             // 
             // tUpdateCusAddress
             // 
-            tUpdateCusAddress.Location = new Point(744, 573);
+            tUpdateCusAddress.Location = new Point(743, 608);
             tUpdateCusAddress.Name = "tUpdateCusAddress";
             tUpdateCusAddress.Size = new Size(267, 27);
             tUpdateCusAddress.TabIndex = 55;
@@ -451,7 +372,7 @@
             // 
             label44.AutoSize = true;
             label44.Font = new Font("Century", 12F);
-            label44.Location = new Point(517, 573);
+            label44.Location = new Point(516, 608);
             label44.Name = "label44";
             label44.Size = new Size(179, 23);
             label44.TabIndex = 54;
@@ -459,7 +380,7 @@
             // 
             // tUpdateCusPhoneNo
             // 
-            tUpdateCusPhoneNo.Location = new Point(744, 510);
+            tUpdateCusPhoneNo.Location = new Point(743, 545);
             tUpdateCusPhoneNo.Name = "tUpdateCusPhoneNo";
             tUpdateCusPhoneNo.Size = new Size(267, 27);
             tUpdateCusPhoneNo.TabIndex = 53;
@@ -468,7 +389,7 @@
             // 
             label45.AutoSize = true;
             label45.Font = new Font("Century", 12F);
-            label45.Location = new Point(501, 510);
+            label45.Location = new Point(500, 545);
             label45.Name = "label45";
             label45.Size = new Size(195, 23);
             label45.TabIndex = 52;
@@ -476,7 +397,7 @@
             // 
             // tUpdateCusLastName
             // 
-            tUpdateCusLastName.Location = new Point(744, 449);
+            tUpdateCusLastName.Location = new Point(743, 484);
             tUpdateCusLastName.Name = "tUpdateCusLastName";
             tUpdateCusLastName.Size = new Size(267, 27);
             tUpdateCusLastName.TabIndex = 51;
@@ -485,7 +406,7 @@
             // 
             label46.AutoSize = true;
             label46.Font = new Font("Century", 12F);
-            label46.Location = new Point(491, 449);
+            label46.Location = new Point(490, 484);
             label46.Name = "label46";
             label46.Size = new Size(208, 23);
             label46.TabIndex = 50;
@@ -493,7 +414,7 @@
             // 
             // tUpdateCusFirstName
             // 
-            tUpdateCusFirstName.Location = new Point(744, 386);
+            tUpdateCusFirstName.Location = new Point(743, 421);
             tUpdateCusFirstName.Name = "tUpdateCusFirstName";
             tUpdateCusFirstName.Size = new Size(267, 27);
             tUpdateCusFirstName.TabIndex = 49;
@@ -502,7 +423,7 @@
             // 
             label47.AutoSize = true;
             label47.Font = new Font("Century", 12F);
-            label47.Location = new Point(490, 386);
+            label47.Location = new Point(489, 421);
             label47.Name = "label47";
             label47.Size = new Size(212, 23);
             label47.TabIndex = 48;
@@ -512,7 +433,7 @@
             // 
             cUpdateCustomerTc.DropDownStyle = ComboBoxStyle.DropDownList;
             cUpdateCustomerTc.FormattingEnabled = true;
-            cUpdateCustomerTc.Location = new Point(744, 317);
+            cUpdateCustomerTc.Location = new Point(743, 352);
             cUpdateCustomerTc.Name = "cUpdateCustomerTc";
             cUpdateCustomerTc.Size = new Size(267, 28);
             cUpdateCustomerTc.TabIndex = 39;
@@ -527,6 +448,41 @@
             label36.Size = new Size(381, 40);
             label36.TabIndex = 37;
             label36.Text = "UPDATE CUSTOMER";
+            // 
+            // pSeeAllCustomer
+            // 
+            pSeeAllCustomer.Controls.Add(dCustomer);
+            pSeeAllCustomer.Controls.Add(label48);
+            pSeeAllCustomer.Location = new Point(164, 0);
+            pSeeAllCustomer.Name = "pSeeAllCustomer";
+            pSeeAllCustomer.Size = new Size(1574, 1025);
+            pSeeAllCustomer.TabIndex = 61;
+            // 
+            // dCustomer
+            // 
+            dCustomer.AllowUserToAddRows = false;
+            dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dCustomer.BackgroundColor = Color.White;
+            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Enabled = false;
+            dCustomer.Location = new Point(191, 291);
+            dCustomer.Name = "dCustomer";
+            dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersVisible = false;
+            dCustomer.RowHeadersWidth = 51;
+            dCustomer.Size = new Size(1144, 580);
+            dCustomer.TabIndex = 39;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label48.Location = new Point(566, 178);
+            label48.Name = "label48";
+            label48.Size = new Size(382, 40);
+            label48.TabIndex = 38;
+            label48.Text = "SEE ALL CUSTOMER";
             // 
             // pCustomerSolBar
             // 
@@ -591,13 +547,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             pCustomer.ResumeLayout(false);
-            pSeeAllCustomer.ResumeLayout(false);
-            pSeeAllCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCreateCustomer.ResumeLayout(false);
             pCreateCustomer.PerformLayout();
             pUpdateCustomer.ResumeLayout(false);
             pUpdateCustomer.PerformLayout();
+            pSeeAllCustomer.ResumeLayout(false);
+            pSeeAllCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCustomerSolBar.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -645,11 +601,7 @@
         private DataGridView dCustomer;
         private Label label48;
         private Button bLogOut;
-        private Label label4;
         private TextBox tCreatePassword;
         private Label label3;
-        private ComboBox cmbCreateStaffTc;
-        private Label label6;
-        private ComboBox cmbUpdateCusStaffTc;
     }
 }

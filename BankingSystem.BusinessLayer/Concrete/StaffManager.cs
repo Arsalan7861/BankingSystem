@@ -48,6 +48,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public Staff TGetManagerByTc(string managerTc)
+        {
+            return _staffDal.GetManagerByTc(managerTc);
+        }
+
         public void TUpdate(Staff entity)
         {
             throw new NotImplementedException();

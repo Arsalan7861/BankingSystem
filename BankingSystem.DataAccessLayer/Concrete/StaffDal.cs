@@ -37,6 +37,16 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
+        public Staff GetManagerByTc(string managerTc)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT * FROM staff WHERE stafftc = @managerTc";
+                return connection.QueryFirstOrDefault<Staff>(query, new { managerTc });
+            }
+        }
+
         public void UpdateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
         {
             using (var connection = new NpgsqlConnection(_connectionString))

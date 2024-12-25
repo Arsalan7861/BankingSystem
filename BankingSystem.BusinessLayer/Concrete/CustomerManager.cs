@@ -35,7 +35,7 @@ namespace BankingSystem.BusinessLayer.Concrete
 
         public void TDeleteCustomer(string customerTc)
         {
-            throw new NotImplementedException();
+            _customerService.DeleteCustomer(customerTc);
         }
 
         public List<Customer> TGetAll()

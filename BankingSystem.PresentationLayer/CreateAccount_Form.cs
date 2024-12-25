@@ -128,7 +128,7 @@ namespace bankaprojesiform
                 MessageBox.Show("Please fill in all fields");
                 return;
             }
-            _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "3452");
+            _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "24352345");
             MessageBox.Show("Account Created Successfully");
 
             pRegister.Hide();

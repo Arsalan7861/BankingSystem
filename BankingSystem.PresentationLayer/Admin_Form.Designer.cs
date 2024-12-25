@@ -76,14 +76,9 @@
             bUpdateBranch = new Button();
             bCreateBranch = new Button();
             pStaff = new Panel();
-            pDeleteStaff = new Panel();
-            cDelSelBranch = new ComboBox();
-            label34 = new Label();
-            cDelSelStaff = new ComboBox();
-            label33 = new Label();
-            bDStaff = new Button();
-            label32 = new Label();
             pUpdateStaff = new Panel();
+            cmbUStaffBranch = new ComboBox();
+            label62 = new Label();
             txtUStaffPassword = new TextBox();
             label58 = new Label();
             txtUStaffEmail = new TextBox();
@@ -101,9 +96,16 @@
             label30 = new Label();
             cmbUStaff = new ComboBox();
             label25 = new Label();
-            cmbUBranch = new ComboBox();
+            cmbUSelBranch = new ComboBox();
             label24 = new Label();
             label23 = new Label();
+            pDeleteStaff = new Panel();
+            cDelSelBranch = new ComboBox();
+            label34 = new Label();
+            cDelSelStaff = new ComboBox();
+            label33 = new Label();
+            bDStaff = new Button();
+            label32 = new Label();
             pCreateStaff = new Panel();
             txtStaffPassword = new TextBox();
             label56 = new Label();
@@ -196,8 +198,8 @@
             pCreate_Branch.SuspendLayout();
             pBranchBar.SuspendLayout();
             pStaff.SuspendLayout();
-            pDeleteStaff.SuspendLayout();
             pUpdateStaff.SuspendLayout();
+            pDeleteStaff.SuspendLayout();
             pCreateStaff.SuspendLayout();
             pSeeAllStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvStaffs).BeginInit();
@@ -544,9 +546,11 @@
             dgvBranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBranches.BackgroundColor = Color.White;
             dgvBranches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBranches.Enabled = false;
             dgvBranches.Location = new Point(166, 310);
             dgvBranches.Name = "dgvBranches";
             dgvBranches.ReadOnly = true;
+            dgvBranches.RowHeadersVisible = false;
             dgvBranches.RowHeadersWidth = 51;
             dgvBranches.Size = new Size(1099, 542);
             dgvBranches.TabIndex = 2;
@@ -737,8 +741,8 @@
             // 
             // pStaff
             // 
-            pStaff.Controls.Add(pDeleteStaff);
             pStaff.Controls.Add(pUpdateStaff);
+            pStaff.Controls.Add(pDeleteStaff);
             pStaff.Controls.Add(pCreateStaff);
             pStaff.Controls.Add(pSeeAllStaff);
             pStaff.Controls.Add(pStaffBar);
@@ -746,6 +750,241 @@
             pStaff.Name = "pStaff";
             pStaff.Size = new Size(1709, 1028);
             pStaff.TabIndex = 19;
+            // 
+            // pUpdateStaff
+            // 
+            pUpdateStaff.Controls.Add(cmbUStaffBranch);
+            pUpdateStaff.Controls.Add(label62);
+            pUpdateStaff.Controls.Add(txtUStaffPassword);
+            pUpdateStaff.Controls.Add(label58);
+            pUpdateStaff.Controls.Add(txtUStaffEmail);
+            pUpdateStaff.Controls.Add(label57);
+            pUpdateStaff.Controls.Add(bUStaff);
+            pUpdateStaff.Controls.Add(cmbUStaffPosition);
+            pUpdateStaff.Controls.Add(txtUStaffAddress);
+            pUpdateStaff.Controls.Add(txtUStaffPhoneNo);
+            pUpdateStaff.Controls.Add(txtUStaffLName);
+            pUpdateStaff.Controls.Add(txtUStaffFName);
+            pUpdateStaff.Controls.Add(label26);
+            pUpdateStaff.Controls.Add(label27);
+            pUpdateStaff.Controls.Add(label28);
+            pUpdateStaff.Controls.Add(label29);
+            pUpdateStaff.Controls.Add(label30);
+            pUpdateStaff.Controls.Add(cmbUStaff);
+            pUpdateStaff.Controls.Add(label25);
+            pUpdateStaff.Controls.Add(cmbUSelBranch);
+            pUpdateStaff.Controls.Add(label24);
+            pUpdateStaff.Controls.Add(label23);
+            pUpdateStaff.Location = new Point(174, 0);
+            pUpdateStaff.Name = "pUpdateStaff";
+            pUpdateStaff.Size = new Size(1358, 1019);
+            pUpdateStaff.TabIndex = 20;
+            // 
+            // cmbUStaffBranch
+            // 
+            cmbUStaffBranch.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUStaffBranch.FormattingEnabled = true;
+            cmbUStaffBranch.Location = new Point(657, 823);
+            cmbUStaffBranch.Name = "cmbUStaffBranch";
+            cmbUStaffBranch.Size = new Size(201, 28);
+            cmbUStaffBranch.TabIndex = 36;
+            // 
+            // label62
+            // 
+            label62.AutoSize = true;
+            label62.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label62.Location = new Point(469, 828);
+            label62.Name = "label62";
+            label62.Size = new Size(129, 23);
+            label62.TabIndex = 35;
+            label62.Text = "Staff Branch";
+            // 
+            // txtUStaffPassword
+            // 
+            txtUStaffPassword.Location = new Point(658, 574);
+            txtUStaffPassword.Name = "txtUStaffPassword";
+            txtUStaffPassword.Size = new Size(201, 27);
+            txtUStaffPassword.TabIndex = 34;
+            // 
+            // label58
+            // 
+            label58.AutoSize = true;
+            label58.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label58.Location = new Point(448, 578);
+            label58.Name = "label58";
+            label58.Size = new Size(150, 23);
+            label58.TabIndex = 33;
+            label58.Text = "Staff Password";
+            // 
+            // txtUStaffEmail
+            // 
+            txtUStaffEmail.Location = new Point(658, 774);
+            txtUStaffEmail.Name = "txtUStaffEmail";
+            txtUStaffEmail.Size = new Size(201, 27);
+            txtUStaffEmail.TabIndex = 32;
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label57.Location = new Point(481, 776);
+            label57.Name = "label57";
+            label57.Size = new Size(117, 23);
+            label57.TabIndex = 31;
+            label57.Text = "Staff Email";
+            // 
+            // bUStaff
+            // 
+            bUStaff.BackColor = Color.FromArgb(76, 175, 80);
+            bUStaff.FlatAppearance.BorderSize = 0;
+            bUStaff.FlatStyle = FlatStyle.Flat;
+            bUStaff.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bUStaff.ForeColor = Color.White;
+            bUStaff.Location = new Point(658, 894);
+            bUStaff.Name = "bUStaff";
+            bUStaff.Size = new Size(208, 49);
+            bUStaff.TabIndex = 30;
+            bUStaff.Text = "UPDATE STAFF";
+            bUStaff.UseVisualStyleBackColor = false;
+            bUStaff.Click += bUStaff_Click;
+            // 
+            // cmbUStaffPosition
+            // 
+            cmbUStaffPosition.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUStaffPosition.FormattingEnabled = true;
+            cmbUStaffPosition.Items.AddRange(new object[] { "Manager", "Pbo" });
+            cmbUStaffPosition.Location = new Point(658, 620);
+            cmbUStaffPosition.Name = "cmbUStaffPosition";
+            cmbUStaffPosition.Size = new Size(201, 28);
+            cmbUStaffPosition.TabIndex = 29;
+            // 
+            // txtUStaffAddress
+            // 
+            txtUStaffAddress.Location = new Point(658, 722);
+            txtUStaffAddress.Name = "txtUStaffAddress";
+            txtUStaffAddress.Size = new Size(201, 27);
+            txtUStaffAddress.TabIndex = 28;
+            // 
+            // txtUStaffPhoneNo
+            // 
+            txtUStaffPhoneNo.Location = new Point(658, 672);
+            txtUStaffPhoneNo.Name = "txtUStaffPhoneNo";
+            txtUStaffPhoneNo.Size = new Size(201, 27);
+            txtUStaffPhoneNo.TabIndex = 27;
+            // 
+            // txtUStaffLName
+            // 
+            txtUStaffLName.Location = new Point(658, 525);
+            txtUStaffLName.Name = "txtUStaffLName";
+            txtUStaffLName.Size = new Size(201, 27);
+            txtUStaffLName.TabIndex = 26;
+            // 
+            // txtUStaffFName
+            // 
+            txtUStaffFName.Location = new Point(658, 474);
+            txtUStaffFName.Name = "txtUStaffFName";
+            txtUStaffFName.Size = new Size(201, 27);
+            txtUStaffFName.TabIndex = 25;
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label26.Location = new Point(463, 724);
+            label26.Name = "label26";
+            label26.Size = new Size(135, 23);
+            label26.TabIndex = 24;
+            label26.Text = "Staff Address";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label27.Location = new Point(447, 676);
+            label27.Name = "label27";
+            label27.Size = new Size(151, 23);
+            label27.TabIndex = 23;
+            label27.Text = "Staff Phone No";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label28.Location = new Point(462, 625);
+            label28.Name = "label28";
+            label28.Size = new Size(136, 23);
+            label28.TabIndex = 22;
+            label28.Text = "Staff Position";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label29.Location = new Point(434, 529);
+            label29.Name = "label29";
+            label29.Size = new Size(164, 23);
+            label29.TabIndex = 21;
+            label29.Text = "Staff Last Name";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label30.Location = new Point(430, 474);
+            label30.Name = "label30";
+            label30.Size = new Size(168, 23);
+            label30.TabIndex = 20;
+            label30.Text = "Staff First Name";
+            // 
+            // cmbUStaff
+            // 
+            cmbUStaff.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUStaff.FormattingEnabled = true;
+            cmbUStaff.Location = new Point(659, 377);
+            cmbUStaff.Name = "cmbUStaff";
+            cmbUStaff.Size = new Size(201, 28);
+            cmbUStaff.TabIndex = 5;
+            cmbUStaff.SelectedValueChanged += cmbUStaff_SelectedValueChanged;
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label25.Location = new Point(480, 382);
+            label25.Name = "label25";
+            label25.Size = new Size(118, 23);
+            label25.TabIndex = 4;
+            label25.Text = "Select Staff";
+            // 
+            // cmbUSelBranch
+            // 
+            cmbUSelBranch.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUSelBranch.FormattingEnabled = true;
+            cmbUSelBranch.Location = new Point(659, 313);
+            cmbUSelBranch.Name = "cmbUSelBranch";
+            cmbUSelBranch.Size = new Size(201, 28);
+            cmbUSelBranch.TabIndex = 3;
+            cmbUSelBranch.SelectedValueChanged += cmbUBranch_SelectedValueChanged;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label24.Location = new Point(459, 318);
+            label24.Name = "label24";
+            label24.Size = new Size(139, 23);
+            label24.TabIndex = 2;
+            label24.Text = "Select Branch";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label23.Location = new Point(652, 220);
+            label23.Name = "label23";
+            label23.Size = new Size(218, 40);
+            label23.TabIndex = 1;
+            label23.Text = "Update Staff";
             // 
             // pDeleteStaff
             // 
@@ -823,220 +1062,6 @@
             label32.Size = new Size(202, 40);
             label32.TabIndex = 31;
             label32.Text = "Delete Staff";
-            // 
-            // pUpdateStaff
-            // 
-            pUpdateStaff.Controls.Add(txtUStaffPassword);
-            pUpdateStaff.Controls.Add(label58);
-            pUpdateStaff.Controls.Add(txtUStaffEmail);
-            pUpdateStaff.Controls.Add(label57);
-            pUpdateStaff.Controls.Add(bUStaff);
-            pUpdateStaff.Controls.Add(cmbUStaffPosition);
-            pUpdateStaff.Controls.Add(txtUStaffAddress);
-            pUpdateStaff.Controls.Add(txtUStaffPhoneNo);
-            pUpdateStaff.Controls.Add(txtUStaffLName);
-            pUpdateStaff.Controls.Add(txtUStaffFName);
-            pUpdateStaff.Controls.Add(label26);
-            pUpdateStaff.Controls.Add(label27);
-            pUpdateStaff.Controls.Add(label28);
-            pUpdateStaff.Controls.Add(label29);
-            pUpdateStaff.Controls.Add(label30);
-            pUpdateStaff.Controls.Add(cmbUStaff);
-            pUpdateStaff.Controls.Add(label25);
-            pUpdateStaff.Controls.Add(cmbUBranch);
-            pUpdateStaff.Controls.Add(label24);
-            pUpdateStaff.Controls.Add(label23);
-            pUpdateStaff.Location = new Point(174, 0);
-            pUpdateStaff.Name = "pUpdateStaff";
-            pUpdateStaff.Size = new Size(1358, 1019);
-            pUpdateStaff.TabIndex = 20;
-            // 
-            // txtUStaffPassword
-            // 
-            txtUStaffPassword.Location = new Point(658, 574);
-            txtUStaffPassword.Name = "txtUStaffPassword";
-            txtUStaffPassword.Size = new Size(200, 27);
-            txtUStaffPassword.TabIndex = 34;
-            // 
-            // label58
-            // 
-            label58.AutoSize = true;
-            label58.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label58.Location = new Point(466, 578);
-            label58.Name = "label58";
-            label58.Size = new Size(150, 23);
-            label58.TabIndex = 33;
-            label58.Text = "Staff Password";
-            // 
-            // txtUStaffEmail
-            // 
-            txtUStaffEmail.Location = new Point(658, 774);
-            txtUStaffEmail.Name = "txtUStaffEmail";
-            txtUStaffEmail.Size = new Size(200, 27);
-            txtUStaffEmail.TabIndex = 32;
-            // 
-            // label57
-            // 
-            label57.AutoSize = true;
-            label57.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label57.Location = new Point(481, 776);
-            label57.Name = "label57";
-            label57.Size = new Size(117, 23);
-            label57.TabIndex = 31;
-            label57.Text = "Staff Email";
-            // 
-            // bUStaff
-            // 
-            bUStaff.BackColor = Color.FromArgb(76, 175, 80);
-            bUStaff.FlatAppearance.BorderSize = 0;
-            bUStaff.FlatStyle = FlatStyle.Flat;
-            bUStaff.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bUStaff.ForeColor = Color.White;
-            bUStaff.Location = new Point(658, 836);
-            bUStaff.Name = "bUStaff";
-            bUStaff.Size = new Size(208, 49);
-            bUStaff.TabIndex = 30;
-            bUStaff.Text = "UPDATE STAFF";
-            bUStaff.UseVisualStyleBackColor = false;
-            bUStaff.Click += bUStaff_Click;
-            // 
-            // cmbUStaffPosition
-            // 
-            cmbUStaffPosition.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUStaffPosition.FormattingEnabled = true;
-            cmbUStaffPosition.Items.AddRange(new object[] { "Manager", "Pbo" });
-            cmbUStaffPosition.Location = new Point(658, 620);
-            cmbUStaffPosition.Name = "cmbUStaffPosition";
-            cmbUStaffPosition.Size = new Size(200, 28);
-            cmbUStaffPosition.TabIndex = 29;
-            // 
-            // txtUStaffAddress
-            // 
-            txtUStaffAddress.Location = new Point(658, 722);
-            txtUStaffAddress.Name = "txtUStaffAddress";
-            txtUStaffAddress.Size = new Size(200, 27);
-            txtUStaffAddress.TabIndex = 28;
-            // 
-            // txtUStaffPhoneNo
-            // 
-            txtUStaffPhoneNo.Location = new Point(658, 672);
-            txtUStaffPhoneNo.Name = "txtUStaffPhoneNo";
-            txtUStaffPhoneNo.Size = new Size(200, 27);
-            txtUStaffPhoneNo.TabIndex = 27;
-            // 
-            // txtUStaffLName
-            // 
-            txtUStaffLName.Location = new Point(658, 525);
-            txtUStaffLName.Name = "txtUStaffLName";
-            txtUStaffLName.Size = new Size(200, 27);
-            txtUStaffLName.TabIndex = 26;
-            // 
-            // txtUStaffFName
-            // 
-            txtUStaffFName.Location = new Point(658, 474);
-            txtUStaffFName.Name = "txtUStaffFName";
-            txtUStaffFName.Size = new Size(200, 27);
-            txtUStaffFName.TabIndex = 25;
-            // 
-            // label26
-            // 
-            label26.AutoSize = true;
-            label26.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label26.Location = new Point(481, 724);
-            label26.Name = "label26";
-            label26.Size = new Size(135, 23);
-            label26.TabIndex = 24;
-            label26.Text = "Staff Address";
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label27.Location = new Point(465, 676);
-            label27.Name = "label27";
-            label27.Size = new Size(151, 23);
-            label27.TabIndex = 23;
-            label27.Text = "Staff Phone No";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label28.Location = new Point(477, 625);
-            label28.Name = "label28";
-            label28.Size = new Size(136, 23);
-            label28.TabIndex = 22;
-            label28.Text = "Staff Position";
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label29.Location = new Point(452, 529);
-            label29.Name = "label29";
-            label29.Size = new Size(164, 23);
-            label29.TabIndex = 21;
-            label29.Text = "Staff Last Name";
-            // 
-            // label30
-            // 
-            label30.AutoSize = true;
-            label30.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label30.Location = new Point(445, 474);
-            label30.Name = "label30";
-            label30.Size = new Size(168, 23);
-            label30.TabIndex = 20;
-            label30.Text = "Staff First Name";
-            // 
-            // cmbUStaff
-            // 
-            cmbUStaff.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUStaff.FormattingEnabled = true;
-            cmbUStaff.Location = new Point(659, 377);
-            cmbUStaff.Name = "cmbUStaff";
-            cmbUStaff.Size = new Size(201, 28);
-            cmbUStaff.TabIndex = 5;
-            cmbUStaff.SelectedValueChanged += cmbUStaff_SelectedValueChanged;
-            // 
-            // label25
-            // 
-            label25.AutoSize = true;
-            label25.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label25.Location = new Point(487, 382);
-            label25.Name = "label25";
-            label25.Size = new Size(118, 23);
-            label25.TabIndex = 4;
-            label25.Text = "Select Staff";
-            // 
-            // cmbUBranch
-            // 
-            cmbUBranch.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbUBranch.FormattingEnabled = true;
-            cmbUBranch.Location = new Point(659, 313);
-            cmbUBranch.Name = "cmbUBranch";
-            cmbUBranch.Size = new Size(201, 28);
-            cmbUBranch.TabIndex = 3;
-            cmbUBranch.SelectedValueChanged += cmbUBranch_SelectedValueChanged;
-            // 
-            // label24
-            // 
-            label24.AutoSize = true;
-            label24.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label24.Location = new Point(471, 318);
-            label24.Name = "label24";
-            label24.Size = new Size(139, 23);
-            label24.TabIndex = 2;
-            label24.Text = "Select Branch";
-            // 
-            // label23
-            // 
-            label23.AutoSize = true;
-            label23.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label23.Location = new Point(652, 220);
-            label23.Name = "label23";
-            label23.Size = new Size(218, 40);
-            label23.TabIndex = 1;
-            label23.Text = "Update Staff";
             // 
             // pCreateStaff
             // 
@@ -1259,11 +1284,20 @@
             // 
             // dgvStaffs
             // 
+            dgvStaffs.AllowUserToAddRows = false;
+            dgvStaffs.AllowUserToDeleteRows = false;
+            dgvStaffs.AllowUserToResizeColumns = false;
+            dgvStaffs.AllowUserToResizeRows = false;
             dgvStaffs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvStaffs.BackgroundColor = Color.White;
+            dgvStaffs.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvStaffs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStaffs.Enabled = false;
             dgvStaffs.Location = new Point(236, 345);
+            dgvStaffs.MultiSelect = false;
             dgvStaffs.Name = "dgvStaffs";
+            dgvStaffs.ReadOnly = true;
+            dgvStaffs.RowHeadersVisible = false;
             dgvStaffs.RowHeadersWidth = 51;
             dgvStaffs.Size = new Size(1119, 502);
             dgvStaffs.TabIndex = 32;
@@ -1766,9 +1800,11 @@
             dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dCustomer.BackgroundColor = Color.White;
             dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Enabled = false;
             dCustomer.Location = new Point(191, 377);
             dCustomer.Name = "dCustomer";
             dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersVisible = false;
             dCustomer.RowHeadersWidth = 51;
             dCustomer.Size = new Size(1144, 580);
             dCustomer.TabIndex = 39;
@@ -1873,9 +1909,11 @@
             dLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dLog.BackgroundColor = Color.White;
             dLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dLog.Enabled = false;
             dLog.Location = new Point(348, 299);
             dLog.Name = "dLog";
             dLog.ReadOnly = true;
+            dLog.RowHeadersVisible = false;
             dLog.RowHeadersWidth = 51;
             dLog.Size = new Size(1115, 610);
             dLog.TabIndex = 40;
@@ -1896,9 +1934,11 @@
             dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dTransaction.BackgroundColor = Color.White;
             dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dTransaction.Enabled = false;
             dTransaction.Location = new Point(351, 301);
             dTransaction.Name = "dTransaction";
             dTransaction.ReadOnly = true;
+            dTransaction.RowHeadersVisible = false;
             dTransaction.RowHeadersWidth = 51;
             dTransaction.Size = new Size(1115, 608);
             dTransaction.TabIndex = 39;
@@ -1918,8 +1958,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pClient);
             Controls.Add(pStaff);
+            Controls.Add(pClient);
             Controls.Add(pLog);
             Controls.Add(pTransactions);
             Controls.Add(pBranch);
@@ -1941,10 +1981,10 @@
             pCreate_Branch.PerformLayout();
             pBranchBar.ResumeLayout(false);
             pStaff.ResumeLayout(false);
-            pDeleteStaff.ResumeLayout(false);
-            pDeleteStaff.PerformLayout();
             pUpdateStaff.ResumeLayout(false);
             pUpdateStaff.PerformLayout();
+            pDeleteStaff.ResumeLayout(false);
+            pDeleteStaff.PerformLayout();
             pCreateStaff.ResumeLayout(false);
             pCreateStaff.PerformLayout();
             pSeeAllStaff.ResumeLayout(false);
@@ -2043,7 +2083,7 @@
         private Panel pUpdateStaff;
         private ComboBox cmbUStaff;
         private Label label25;
-        private ComboBox cmbUBranch;
+        private ComboBox cmbUSelBranch;
         private Label label24;
         private Label label23;
         private Button bUStaff;
@@ -2133,5 +2173,7 @@
         private Label label60;
         private Label label61;
         private ComboBox cmbUpdateCusStaffTc;
+        private ComboBox cmbUStaffBranch;
+        private Label label62;
     }
 }

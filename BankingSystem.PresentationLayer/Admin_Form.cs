@@ -56,29 +56,46 @@ namespace bankaprojesiform
             this.Height = Screen.PrimaryScreen.Bounds.Height;
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            LoadData();
+        }
+        // Load data function
+        private void LoadData()
+        {
             var branches = _branchService.TGetAll();
             dgvBranches.DataSource = branches; // show branches in data grid view
+            dgvBranches.ClearSelection(); // clear selection of data grid view
 
             // show branches in combo boxes
+            cmbUSelectBranch.Items.Clear();
+            cmbDSelectBranch.Items.Clear();
+            cmbStaffBranch.Items.Clear();
+            cmbUSelBranch.Items.Clear();
+            cDelSelBranch.Items.Clear();
             foreach (var branch in branches)
             {
-                cmbUSelectBranch.Items.Add(branch.Branchid);
+                cmbUSelectBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
                 cmbDSelectBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
                 cmbStaffBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");// for staff
-                cmbUBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
+                cmbUSelBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
+                cmbUStaffBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
                 cDelSelBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
             }
 
             var transactions = transactionService.TGetAll();
             dTransaction.DataSource = transactions;// show transactions in data grid view
+            dTransaction.ClearSelection();// clear selection of data grid view
 
             var logs = _logService.TGetAll();
             dLog.DataSource = logs;// show logs in data grid view
+            dLog.ClearSelection();// clear selection of data grid view
 
             var staffs = _staffService.TGetAll();
             dgvStaffs.DataSource = staffs;// show staffs in data grid view
+            dgvStaffs.ClearSelection();// clear selection of data grid view
 
             // show staffs in combo boxes
+            cmbUStaff.Items.Clear();
+            cDelSelStaff.Items.Clear();
             foreach (var staff in staffs)
             {
                 cmbCusStaffTc.Items.Add($"TC: {staff.Stafftc}");
@@ -87,8 +104,11 @@ namespace bankaprojesiform
 
             var customers = _customerService.TGetAll();
             dCustomer.DataSource = customers;// show customers in data grid view
+            dCustomer.ClearSelection();// clear selection of data grid view
 
             // show customers in combo boxes
+            cUpdateCustomerTC.Items.Clear();
+            cDelCustomer.Items.Clear();
             foreach (var customer in customers)
             {
                 cUpdateCustomerTC.Items.Add($"TC: {customer.Customertc}");
@@ -300,6 +320,7 @@ namespace bankaprojesiform
             tBranchPostCode.Text = "";
             tBranchName.Text = "";
 
+            LoadData();
         }
 
         // Show selected branch information in the update branch panel
@@ -307,7 +328,7 @@ namespace bankaprojesiform
         {
             var branches = _branchService.TGetAll();
 
-            var selectedBranch = branches.FirstOrDefault(x => x.Branchid == Convert.ToInt32(cmbUSelectBranch.SelectedItem));
+            var selectedBranch = branches.FirstOrDefault(x => x.Branchid == Convert.ToInt32(cmbUSelectBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim()));
             if (selectedBranch != null)
             {
                 tUBranchCity.Text = selectedBranch.Branchcity;
@@ -325,18 +346,20 @@ namespace bankaprojesiform
                 return;
             }
 
-            var id = Convert.ToInt32(cmbUSelectBranch.SelectedItem);
+            var id = Convert.ToInt32(cmbUSelectBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
             var city = tUBranchCity.Text;
             var street = tUBranchStreet.Text;
             var postCode = tUBranchPostCode.Text;
             var name = tUBranchName.Text;
             _branchService.TUpdateBranch(id, city, street, postCode, name);
             MessageBox.Show("Branch Updated Successfully.");
-            tBranchCity.Text = "";
-            tBranchName.Text = "";
-            tBranchPostCode.Text = "";
-            tBranchStreet.Text = "";
+            tUBranchCity.Text = "";
+            tUBranchName.Text = "";
+            tUBranchPostCode.Text = "";
+            tUBranchStreet.Text = "";
             cmbUSelectBranch.Text = "";
+
+            LoadData();
         }
 
         private void bDeleteBranch_Click(object sender, EventArgs e)
@@ -351,6 +374,8 @@ namespace bankaprojesiform
             _branchService.TDeleteBranch(id);
             MessageBox.Show("Branch Deleted Successfully.");
             cmbDSelectBranch.Text = "";
+
+            LoadData();
         }
 
         private void btnCreateStaff_Click(object sender, EventArgs e)
@@ -381,22 +406,25 @@ namespace bankaprojesiform
             cmbStaffBranch.Text = "";
             txtStaffAddress.Text = "";
             txtStaffEmail.Text = "";
+
+            LoadData();
         }
 
         private void bUStaff_Click(object sender, EventArgs e)
         {
-            if (cmbUStaff.Text == "" && txtUStaffFName.Text == "" && txtUStaffLName.Text == "" && txtUStaffPassword.Text == "" && cmbUStaffPosition.Text == "" && txtUStaffPhoneNo.Text == "" && cmbUBranch.Text == "" && txtUStaffAddress.Text == "" && txtUStaffEmail.Text == "")
+            if (cmbUStaff.Text == "" || txtUStaffFName.Text == "" || txtUStaffLName.Text == "" || txtUStaffPassword.Text == "" || cmbUStaffPosition.Text == "" || txtUStaffPhoneNo.Text == "" || cmbUSelBranch.Text == "" || txtUStaffAddress.Text == "" || txtUStaffEmail.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
                 return;
             }
+
             var tc = cmbUStaff.Text.Split(':')[1].Trim();
             var fName = txtUStaffFName.Text;
             var lName = txtUStaffLName.Text;
             var password = txtUStaffPassword.Text;
             var position = cmbUStaffPosition.Text;
             var phone = txtUStaffPhoneNo.Text;
-            var branchId = Convert.ToInt32(cmbUBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
+            var branchId = Convert.ToInt32(cmbUStaffBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
             var address = txtUStaffAddress.Text;
             var email = txtUStaffEmail.Text;
 
@@ -408,9 +436,11 @@ namespace bankaprojesiform
             txtUStaffPassword.Text = "";
             cmbUStaffPosition.Text = "";
             txtUStaffPhoneNo.Text = "";
-            cmbUBranch.Text = "";
+            cmbUSelBranch.Text = "";
             txtUStaffAddress.Text = "";
             txtUStaffEmail.Text = "";
+
+            LoadData();
         }
 
         private void cmbUBranch_SelectedValueChanged(object sender, EventArgs e)
@@ -426,7 +456,7 @@ namespace bankaprojesiform
             txtUStaffEmail.Text = "";
 
             var branches = _branchService.TGetAll();
-            var branchId = Convert.ToInt32(cmbUBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
+            var branchId = Convert.ToInt32(cmbUSelBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
             var selectedBranch = branches.FirstOrDefault(x => x.Branchid == branchId);
 
             var staffs = _staffService.TGetAll();
@@ -444,6 +474,7 @@ namespace bankaprojesiform
             var staffs = _staffService.TGetAll();
             var stafftc = cmbUStaff.Text.Split(':')[1].Trim();
             var selectedStaff = staffs.FirstOrDefault(x => x.Stafftc == stafftc);
+            var branch = _branchService.TGetAll().FirstOrDefault(x=>x.Branchid == selectedStaff.Branchid);
 
             if (selectedStaff != null)
             {
@@ -454,6 +485,7 @@ namespace bankaprojesiform
                 txtUStaffPhoneNo.Text = selectedStaff.Staffphone;
                 txtUStaffAddress.Text = selectedStaff.Staffaddress;
                 txtUStaffEmail.Text = selectedStaff.Staffemail;
+                cmbUStaffBranch.Text = $"ID: {selectedStaff.Branchid}, Name: {branch.Branchname}";
             }
         }
 
@@ -489,6 +521,8 @@ namespace bankaprojesiform
             cDelSelStaff.Text = "";
             cDelSelStaff.Items.Clear();
             cDelSelBranch.Text = "";
+
+            LoadData();
         }
 
         private void bCreateCus_Click(object sender, EventArgs e)
@@ -524,6 +558,8 @@ namespace bankaprojesiform
             tCusPhoneNo.Text = "";
             tCusAddress.Text = "";
             cmbCusStaffTc.Text = "";
+
+            LoadData();
         }
 
         // Show selected customer information in the update customer panel
@@ -551,25 +587,6 @@ namespace bankaprojesiform
                 return;
             }
 
-            var customers = _customerService.TGetAll();
-            if (customers.Any(x => x.Customertc == txtCustomerTc.Text))
-            {
-                MessageBox.Show("Customer with this TC already exists!");
-                return;
-            }
-
-
-            if (cmbUpdateCusStaffTc.Text != "")
-            {
-                var staffTc1 = cmbUpdateCusStaffTc.Text;
-                var staffs = _staffService.TGetAll();
-                if (!staffs.Any(x => x.Stafftc == staffTc1))
-                {
-                    MessageBox.Show("Staff with this TC does not exist!");
-                    return;
-                }
-            }
-
             var customerTc = cUpdateCustomerTC.Text.Split(':')[1].Trim();
             var fname = tUpdateCusFirstName.Text;
             var lname = tUpdateCusLastName.Text;
@@ -587,6 +604,8 @@ namespace bankaprojesiform
             tUpdateCusPhoneNo.Text = "";
             tUpdateCusAddress.Text = "";
             cmbUpdateCusStaffTc.Text = "";
+
+            LoadData();
         }
 
         private void bDelCustomer_Click(object sender, EventArgs e)
@@ -597,20 +616,13 @@ namespace bankaprojesiform
                 return;
             }
 
-            var customers = _customerService.TGetAll();
-            foreach ( var customer in customers ) {
-                if (!customers.Any(x => x.Customertc == cDelCustomer.Text))
-                {
-                    MessageBox.Show("Customer with this TC does not exist!");
-                    return;
-                }
-            }
-
             var customerTc = cDelCustomer.Text.Split(':')[1].Trim();
 
             _customerService.TDeleteCustomer(customerTc);
             MessageBox.Show("Customer Deleted Successfully.");
             cDelCustomer.Text = "";
+
+            LoadData();
         }
     }
 }

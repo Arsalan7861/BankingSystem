@@ -18,7 +18,6 @@ namespace bankaprojesiform
         private readonly string _connectionString;
         private readonly ICustomerService _customerService;
         private readonly string _pboTc;
-        private readonly IStaffService _staffService;
         public Pbo_form(string connectionString, string tc)
         {
             InitializeComponent();
@@ -26,9 +25,8 @@ namespace bankaprojesiform
             this.FormClosed += Pbo_form_FormClosed;
             _customerService = new CustomerManager(new CustomerDal(connectionString));
             _pboTc = tc;
-            _staffService = new StaffManager(new StaffDal(connectionString));
         }
-
+        // Closes the application when page is closed.
         private void Pbo_form_FormClosed(object? sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -44,16 +42,16 @@ namespace bankaprojesiform
 
             pCustomer.Hide();
 
-            var customers = _customerService.TGetAll();
+            LoadData();
+        }
+        // Load only cutomers that belongs to the pbo that is signed in. 
+        private void LoadData()
+        {
+            var customers = _customerService.TGetAll().Where(x => x.Stafftc == _pboTc).ToList();
             dCustomer.DataSource = customers;
+            dCustomer.ClearSelection(); // Clear the selection of the datagridview
 
-            var staffs = _staffService.TGetAll();
-            foreach (var staff in staffs)
-            {
-                cmbCreateStaffTc.Items.Add($"TC: {staff.Stafftc}");
-                cmbUpdateCusStaffTc.Items.Add($"TC: {staff.Stafftc}");
-            }
-
+            cUpdateCustomerTc.Items.Clear();
             foreach (var customer in customers)
             {
                 cUpdateCustomerTc.Items.Add($"TC: {customer.Customertc}");
@@ -101,7 +99,7 @@ namespace bankaprojesiform
 
         private void bCreateAccount_Click(object sender, EventArgs e)
         {
-            if (tCreateFName.Text == "" || tCreateLName.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "" || cmbCreateStaffTc.Text == "")
+            if (tCreateFName.Text == "" || tCreateLName.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "")
             {
                 MessageBox.Show("Please fill in all fields");
                 return;
@@ -113,7 +111,6 @@ namespace bankaprojesiform
             var password = tCreatePassword.Text;
             var phone = tCreatePhoneNo.Text;
             var address = tCreateAddress.Text;
-            var staffTc = cmbCreateStaffTc.Text.Split(':')[1].Trim();
 
             var customers = _customerService.TGetAll();
             foreach (var customer in customers)
@@ -125,7 +122,7 @@ namespace bankaprojesiform
                 }
             }
 
-            _customerService.TCreateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
+            _customerService.TCreateCustomer(customerTc, fname, lname, password, phone, address, _pboTc);
             MessageBox.Show("Customer Created Successfully.");
             tCreateTc.Text = "";
             tCreateFName.Text = "";
@@ -133,7 +130,8 @@ namespace bankaprojesiform
             tCreatePassword.Text = "";
             tCreatePhoneNo.Text = "";
             tCreateAddress.Text = "";
-            cmbCreateStaffTc.Text = "";
+
+            LoadData();
         }
 
         // Show the selected customer's information in the textboxes
@@ -148,12 +146,11 @@ namespace bankaprojesiform
             tUpdateCusPass.Text = customer.Customerpassword;
             tUpdateCusPhoneNo.Text = customer.Customerphone;
             tUpdateCusAddress.Text = customer.Customeraddress;
-            cmbUpdateCusStaffTc.Text = $"TC: {customer.Stafftc}";
         }
 
         private void bUpdCus_Click(object sender, EventArgs e)
         {
-            if (tUpdateCusFirstName.Text == "" || tUpdateCusLastName.Text == "" || tUpdateCusPass.Text == "" || tUpdateCusPhoneNo.Text == "" || tUpdateCusAddress.Text == "" || cmbUpdateCusStaffTc.Text == "")
+            if (tUpdateCusFirstName.Text == "" || tUpdateCusLastName.Text == "" || tUpdateCusPass.Text == "" || tUpdateCusPhoneNo.Text == "" || tUpdateCusAddress.Text == "")
             {
                 MessageBox.Show("Please fill in all fields");
                 return;
@@ -165,16 +162,16 @@ namespace bankaprojesiform
             var password = tUpdateCusPass.Text;
             var phone = tUpdateCusPhoneNo.Text;
             var address = tUpdateCusAddress.Text;
-            var staffTc = cmbUpdateCusStaffTc.Text.Split(':')[1].Trim();
 
-            _customerService.TUpdateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
+            _customerService.TUpdateCustomer(customerTc, fname, lname, password, phone, address, _pboTc);
             MessageBox.Show("Customer Updated Successfully.");
             tUpdateCusFirstName.Text = "";
             tUpdateCusLastName.Text = "";
             tUpdateCusPass.Text = "";
             tUpdateCusPhoneNo.Text = "";
             tUpdateCusAddress.Text = "";
-            cmbUpdateCusStaffTc.Text = "";
+
+            LoadData();
         }
     }
 }

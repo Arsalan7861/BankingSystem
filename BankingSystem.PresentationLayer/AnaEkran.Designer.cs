@@ -399,9 +399,9 @@
             lDemandMoney.Font = new Font("Century", 15F);
             lDemandMoney.Location = new Point(524, 228);
             lDemandMoney.Name = "lDemandMoney";
-            lDemandMoney.Size = new Size(166, 29);
+            lDemandMoney.Size = new Size(103, 29);
             lDemandMoney.TabIndex = 5;
-            lDemandMoney.Text = "10.000,00 TL";
+            lDemandMoney.Text = "0.00 TL";
             // 
             // lblCreditAccount
             // 
@@ -439,9 +439,9 @@
             lCreditMoney.Font = new Font("Century", 15F);
             lCreditMoney.Location = new Point(524, 156);
             lCreditMoney.Name = "lCreditMoney";
-            lCreditMoney.Size = new Size(166, 29);
+            lCreditMoney.Size = new Size(103, 29);
             lCreditMoney.TabIndex = 1;
-            lCreditMoney.Text = "10.000,00 TL";
+            lCreditMoney.Text = "0.00 TL";
             // 
             // lBalance
             // 

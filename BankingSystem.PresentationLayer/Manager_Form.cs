@@ -1,6 +1,8 @@
 ﻿using BankingSystem.BusinessLayer.Abstract;
 using BankingSystem.BusinessLayer.Concrete;
 using BankingSystem.DataAccessLayer.Concrete;
+using BankingSystem.EntityLayer.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,7 +32,7 @@ namespace bankaprojesiform
             _branchService = new BranchManager(new BranchDal(connectionString));
             _staffService = new StaffManager(new StaffDal(connectionString));
         }
-
+        // Close the application when the form is closed
         private void Manager_Form_FormClosed(object? sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -47,27 +49,46 @@ namespace bankaprojesiform
             pStaff.Hide();
             pLog.Hide();
 
-            var logs = _logService.TGetAll();
+            LoadData();
+        }
+        // Load data to show in the form
+        private void LoadData()
+        {
+            var manager = _staffService.TGetManagerByTc(_managerTc);// get manager by tc
+            var staffs = _staffService.TGetAll().Where(x => x.Branchid == manager.Branchid && x.Stafftc != manager.Stafftc).ToList();// get staffs by branch id that is belong to the manager
+
+            // show logs in data grid view according to the manager's branch id
+            var logs = new List<Log>();
+            foreach (var staff in staffs)
+            {
+                var staffLogs = _logService.TGetAll().Where(x => x.Stafftc == staff.Stafftc).ToList();
+                logs.AddRange(staffLogs);
+            }
             dLog.DataSource = logs;
+            dLog.ClearSelection(); // clear selection of the data grid view
 
             // show branches in combo boxes
             var branches = _branchService.TGetAll();
+            cCreateStaffBranchId.Items.Clear();
+            cUpdStaffBranchId.Items.Clear();
             foreach (var branch in branches)
             {
                 cCreateStaffBranchId.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
                 cUpdStaffBranchId.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
             }
 
-            // show staffs in combo boxes
-            var staffs = _staffService.TGetAll();
+            // show staffs in combo boxes according to the manager's branch id
+            cDelSelStaff.Items.Clear();
+            cUpdateStaffSel.Items.Clear();
             foreach (var staff in staffs)
             {
                 cDelSelStaff.Items.Add($"TC: {staff.Stafftc}");
                 cUpdateStaffSel.Items.Add($"TC: {staff.Stafftc}");
             }
 
-            // show staffs in data grid view
+            // show staffs in data grid view according to the manager's branch id
             dSeeAllStaff.DataSource = staffs;
+            dSeeAllStaff.ClearSelection();
         }
 
         private void bCreateStaff_Click(object sender, EventArgs e)
@@ -131,7 +152,7 @@ namespace bankaprojesiform
             this.Hide();
         }
 
-        private void bCreateBranch_Click(object sender, EventArgs e)
+        private void btnCreateStaff_Click(object sender, EventArgs e)
         {
             if (tCreateStaffTc.Text == "" || tCreateStaffFName.Text == "" || tCreateStaffLName.Text == "" || tCreateStaffPassword.Text == "" || tCreateStaffPhoneNo.Text == "" || tCreateStaffAddress.Text == "" || cCreateStaffPos.Text == "" || tCreateStaffEmail.Text == "" || cCreateStaffBranchId.Text == "")
             {
@@ -168,6 +189,8 @@ namespace bankaprojesiform
             tCreateStaffPhoneNo.Text = "";
             tCreateStaffAddress.Text = "";
             tCreateStaffEmail.Text = "";
+
+            LoadData();
         }
 
         private void btnDeleteStaff_Click(object sender, EventArgs e)
@@ -181,8 +204,10 @@ namespace bankaprojesiform
             var staffTc = cDelSelStaff.Text.Split(':')[1].Trim();
             _staffService.TDeleteStaff(staffTc);
             MessageBox.Show("Staff deleted successfully");
-        }
 
+            LoadData();
+        }
+        // Update staff information when staff is selected from the combo box to update
         private void cUpdateStaffSel_SelectedValueChanged(object sender, EventArgs e)
         {
             var staffTc = cUpdateStaffSel.Text.Split(':')[1].Trim();
@@ -226,6 +251,9 @@ namespace bankaprojesiform
             tUpdStaffPhoneNo.Text = "";
             tUpdStaffAddress.Text = "";
             tUpdStaffEmail.Text = "";
+
+            LoadData();
         }
+
     }
 }

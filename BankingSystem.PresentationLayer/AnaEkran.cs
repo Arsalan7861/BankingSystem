@@ -52,7 +52,7 @@ namespace bankaprojesiform
             pTransactions.Hide();
 
             // show account transactions in data grid view
-            var transaction = _transactionService.TGetAll();
+            var transaction = _transactionService.TGetAll().FirstOrDefault(x => x.Transactionfromtc == _customerTc);
             dOverViewTransac.DataSource = transaction;
             dTransaction.DataSource = transaction;
 
