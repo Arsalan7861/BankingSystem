@@ -51,13 +51,21 @@ namespace bankaprojesiform
             pSupport.Hide();
             pTransactions.Hide();
 
+            LoadData();
+        }
+
+        private void LoadData()
+        {
             // show account transactions in data grid view
-            var transaction = _transactionService.TGetAll().FirstOrDefault(x => x.Transactionfromtc == _customerTc);
+            var transaction = _transactionService.TGetAll().Where(x => x.Transactionfromtc == _customerTc).ToList();
             dOverViewTransac.DataSource = transaction;
+            dOverViewTransac.ClearSelection();
             dTransaction.DataSource = transaction;
+            dTransaction.ClearSelection();
 
             // show accounts in data grid view
             dataSetAccount.DataSource = _accountService.TGetAll();
+            dataSetAccount.ClearSelection();
 
             // show account's amount and iban number according to account type
             var accounts = _accountService.TGetAccountByTc(_customerTc);
@@ -218,13 +226,12 @@ namespace bankaprojesiform
 
         private void bCreateCredit_Click(object sender, EventArgs e)
         {
-            var tc = tCreditTC.Text;
             var accountType = "Credit";
             decimal initialBalance = 0.0M;
             var currency = "TRY";
             var iban = GenerateUniqueIban();
 
-            _accountService.TcreateBankAccount(tc, accountType, initialBalance, iban, currency);
+            _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
             MessageBox.Show("Credit Account Created Successfully");
         }
 
@@ -251,13 +258,12 @@ namespace bankaprojesiform
 
         private void bCreateDemand_Click(object sender, EventArgs e)
         {
-            var tc = tDemandTC.Text;
             var accountType = "Demand Deposit";
             decimal initialBalance = 0.0M;
             var currency = "TRY";
             SessionContext.StaffTc = "3452";
             var iban = GenerateUniqueIban();
-            _accountService.TcreateBankAccount(tc, accountType, initialBalance, iban, currency);
+            _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
             MessageBox.Show("Demand Deposit Account Created Successfully");
         }
 

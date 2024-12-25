@@ -66,6 +66,19 @@
             pCreate_second = new Panel();
             bCredit = new Button();
             bDemand = new Button();
+            pDemand = new Panel();
+            bCreateDemand = new Button();
+            tDemandAddress = new TextBox();
+            tDemandEmail = new TextBox();
+            tDemandTelNo = new TextBox();
+            tDemandSurname = new TextBox();
+            tDemandName = new TextBox();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label9 = new Label();
+            label8 = new Label();
+            label7 = new Label();
             pCredit = new Panel();
             bCreateCredit = new Button();
             label20 = new Label();
@@ -74,28 +87,11 @@
             tCreditEmail = new TextBox();
             label18 = new Label();
             tCreditTelNo = new TextBox();
-            label17 = new Label();
-            tCreditTC = new TextBox();
             label16 = new Label();
             tCreditSurname = new TextBox();
             label15 = new Label();
             tCreditName = new TextBox();
             label14 = new Label();
-            pDemand = new Panel();
-            bCreateDemand = new Button();
-            tDemandAddress = new TextBox();
-            tDemandEmail = new TextBox();
-            tDemandTelNo = new TextBox();
-            tDemandTC = new TextBox();
-            tDemandSurname = new TextBox();
-            tDemandName = new TextBox();
-            label13 = new Label();
-            label12 = new Label();
-            label11 = new Label();
-            label10 = new Label();
-            label9 = new Label();
-            label8 = new Label();
-            label7 = new Label();
             pSettings = new Panel();
             pInformation = new Panel();
             tInformationPhone = new TextBox();
@@ -157,8 +153,8 @@
             pOverview_Main.SuspendLayout();
             pCreateAccount_Main.SuspendLayout();
             pCreate_second.SuspendLayout();
-            pCredit.SuspendLayout();
             pDemand.SuspendLayout();
+            pCredit.SuspendLayout();
             pSettings.SuspendLayout();
             pInformation.SuspendLayout();
             pChangePass.SuspendLayout();
@@ -280,7 +276,7 @@
             pTransactions.Controls.Add(label32);
             pTransactions.Location = new Point(250, 0);
             pTransactions.Name = "pTransactions";
-            pTransactions.Size = new Size(1389, 1028);
+            pTransactions.Size = new Size(1640, 1028);
             pTransactions.TabIndex = 6;
             // 
             // dTransaction
@@ -289,6 +285,7 @@
             dTransaction.AllowUserToDeleteRows = false;
             dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dTransaction.BackgroundColor = Color.White;
+            dTransaction.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
@@ -306,9 +303,11 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dTransaction.DefaultCellStyle = dataGridViewCellStyle2;
+            dTransaction.Enabled = false;
             dTransaction.Location = new Point(122, 275);
             dTransaction.Name = "dTransaction";
             dTransaction.ReadOnly = true;
+            dTransaction.RowHeadersVisible = false;
             dTransaction.RowHeadersWidth = 51;
             dTransaction.Size = new Size(1410, 680);
             dTransaction.TabIndex = 2;
@@ -467,6 +466,8 @@
             // 
             dOverViewTransac.AllowUserToAddRows = false;
             dOverViewTransac.AllowUserToDeleteRows = false;
+            dOverViewTransac.AllowUserToResizeColumns = false;
+            dOverViewTransac.AllowUserToResizeRows = false;
             dOverViewTransac.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dOverViewTransac.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -490,6 +491,7 @@
             dOverViewTransac.Location = new Point(87, 74);
             dOverViewTransac.Name = "dOverViewTransac";
             dOverViewTransac.ReadOnly = true;
+            dOverViewTransac.RowHeadersVisible = false;
             dOverViewTransac.RowHeadersWidth = 51;
             dOverViewTransac.Size = new Size(556, 451);
             dOverViewTransac.TabIndex = 1;
@@ -528,8 +530,8 @@
             // pCreateAccount_Main
             // 
             pCreateAccount_Main.Controls.Add(pCreate_second);
-            pCreateAccount_Main.Controls.Add(pCredit);
             pCreateAccount_Main.Controls.Add(pDemand);
+            pCreateAccount_Main.Controls.Add(pCredit);
             pCreateAccount_Main.Location = new Point(250, 0);
             pCreateAccount_Main.Name = "pCreateAccount_Main";
             pCreateAccount_Main.Size = new Size(1637, 1031);
@@ -571,176 +573,21 @@
             bDemand.UseVisualStyleBackColor = true;
             bDemand.Click += bDemand_Click;
             // 
-            // pCredit
-            // 
-            pCredit.Controls.Add(bCreateCredit);
-            pCredit.Controls.Add(label20);
-            pCredit.Controls.Add(tCreditAddress);
-            pCredit.Controls.Add(label19);
-            pCredit.Controls.Add(tCreditEmail);
-            pCredit.Controls.Add(label18);
-            pCredit.Controls.Add(tCreditTelNo);
-            pCredit.Controls.Add(label17);
-            pCredit.Controls.Add(tCreditTC);
-            pCredit.Controls.Add(label16);
-            pCredit.Controls.Add(tCreditSurname);
-            pCredit.Controls.Add(label15);
-            pCredit.Controls.Add(tCreditName);
-            pCredit.Controls.Add(label14);
-            pCredit.Location = new Point(282, 0);
-            pCredit.Name = "pCredit";
-            pCredit.Size = new Size(1355, 1025);
-            pCredit.TabIndex = 14;
-            // 
-            // bCreateCredit
-            // 
-            bCreateCredit.BackColor = Color.FromArgb(76, 175, 80);
-            bCreateCredit.FlatStyle = FlatStyle.Flat;
-            bCreateCredit.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bCreateCredit.ForeColor = Color.White;
-            bCreateCredit.Location = new Point(614, 697);
-            bCreateCredit.Name = "bCreateCredit";
-            bCreateCredit.Size = new Size(290, 42);
-            bCreateCredit.TabIndex = 27;
-            bCreateCredit.Text = "Create";
-            bCreateCredit.UseVisualStyleBackColor = false;
-            bCreateCredit.Click += bCreateCredit_Click;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label20.Location = new Point(430, 135);
-            label20.Name = "label20";
-            label20.Size = new Size(501, 40);
-            label20.TabIndex = 14;
-            label20.Text = "CREATE CREDİT ACCOUNT";
-            // 
-            // tCreditAddress
-            // 
-            tCreditAddress.BackColor = SystemColors.Control;
-            tCreditAddress.Location = new Point(614, 557);
-            tCreditAddress.Name = "tCreditAddress";
-            tCreditAddress.Size = new Size(290, 27);
-            tCreditAddress.TabIndex = 26;
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label19.Location = new Point(481, 241);
-            label19.Name = "label19";
-            label19.Size = new Size(76, 28);
-            label19.TabIndex = 15;
-            label19.Text = "Name";
-            // 
-            // tCreditEmail
-            // 
-            tCreditEmail.BackColor = SystemColors.Control;
-            tCreditEmail.Location = new Point(614, 491);
-            tCreditEmail.Name = "tCreditEmail";
-            tCreditEmail.Size = new Size(290, 27);
-            tCreditEmail.TabIndex = 25;
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label18.Location = new Point(448, 298);
-            label18.Name = "label18";
-            label18.Size = new Size(109, 28);
-            label18.TabIndex = 16;
-            label18.Text = "Surname";
-            // 
-            // tCreditTelNo
-            // 
-            tCreditTelNo.BackColor = SystemColors.Control;
-            tCreditTelNo.Location = new Point(614, 423);
-            tCreditTelNo.Name = "tCreditTelNo";
-            tCreditTelNo.Size = new Size(290, 27);
-            tCreditTelNo.TabIndex = 24;
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label17.Location = new Point(513, 362);
-            label17.Name = "label17";
-            label17.Size = new Size(44, 28);
-            label17.TabIndex = 17;
-            label17.Text = "TC";
-            // 
-            // tCreditTC
-            // 
-            tCreditTC.BackColor = SystemColors.Control;
-            tCreditTC.Location = new Point(614, 365);
-            tCreditTC.Name = "tCreditTC";
-            tCreditTC.Size = new Size(290, 27);
-            tCreditTC.TabIndex = 23;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label16.Location = new Point(340, 420);
-            label16.Name = "label16";
-            label16.Size = new Size(217, 28);
-            label16.TabIndex = 18;
-            label16.Text = "Telephone Number";
-            // 
-            // tCreditSurname
-            // 
-            tCreditSurname.BackColor = SystemColors.Control;
-            tCreditSurname.Location = new Point(614, 301);
-            tCreditSurname.Name = "tCreditSurname";
-            tCreditSurname.Size = new Size(290, 27);
-            tCreditSurname.TabIndex = 22;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label15.Location = new Point(473, 488);
-            label15.Name = "label15";
-            label15.Size = new Size(84, 28);
-            label15.TabIndex = 19;
-            label15.Text = "E-mail";
-            // 
-            // tCreditName
-            // 
-            tCreditName.BackColor = SystemColors.Control;
-            tCreditName.Location = new Point(614, 244);
-            tCreditName.Name = "tCreditName";
-            tCreditName.Size = new Size(290, 27);
-            tCreditName.TabIndex = 21;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label14.Location = new Point(458, 554);
-            label14.Name = "label14";
-            label14.Size = new Size(99, 28);
-            label14.TabIndex = 20;
-            label14.Text = "Address";
-            // 
             // pDemand
             // 
             pDemand.Controls.Add(bCreateDemand);
             pDemand.Controls.Add(tDemandAddress);
             pDemand.Controls.Add(tDemandEmail);
             pDemand.Controls.Add(tDemandTelNo);
-            pDemand.Controls.Add(tDemandTC);
             pDemand.Controls.Add(tDemandSurname);
             pDemand.Controls.Add(tDemandName);
             pDemand.Controls.Add(label13);
             pDemand.Controls.Add(label12);
             pDemand.Controls.Add(label11);
-            pDemand.Controls.Add(label10);
             pDemand.Controls.Add(label9);
             pDemand.Controls.Add(label8);
             pDemand.Controls.Add(label7);
-            pDemand.Location = new Point(282, 3);
+            pDemand.Location = new Point(281, 3);
             pDemand.Name = "pDemand";
             pDemand.Size = new Size(1352, 1025);
             pDemand.TabIndex = 1;
@@ -762,7 +609,7 @@
             // tDemandAddress
             // 
             tDemandAddress.BackColor = SystemColors.Control;
-            tDemandAddress.Location = new Point(616, 557);
+            tDemandAddress.Location = new Point(616, 508);
             tDemandAddress.Name = "tDemandAddress";
             tDemandAddress.Size = new Size(290, 27);
             tDemandAddress.TabIndex = 12;
@@ -770,7 +617,7 @@
             // tDemandEmail
             // 
             tDemandEmail.BackColor = SystemColors.Control;
-            tDemandEmail.Location = new Point(616, 491);
+            tDemandEmail.Location = new Point(616, 442);
             tDemandEmail.Name = "tDemandEmail";
             tDemandEmail.Size = new Size(290, 27);
             tDemandEmail.TabIndex = 11;
@@ -778,18 +625,10 @@
             // tDemandTelNo
             // 
             tDemandTelNo.BackColor = SystemColors.Control;
-            tDemandTelNo.Location = new Point(616, 423);
+            tDemandTelNo.Location = new Point(616, 374);
             tDemandTelNo.Name = "tDemandTelNo";
             tDemandTelNo.Size = new Size(290, 27);
             tDemandTelNo.TabIndex = 10;
-            // 
-            // tDemandTC
-            // 
-            tDemandTC.BackColor = SystemColors.Control;
-            tDemandTC.Location = new Point(616, 365);
-            tDemandTC.Name = "tDemandTC";
-            tDemandTC.Size = new Size(290, 27);
-            tDemandTC.TabIndex = 9;
             // 
             // tDemandSurname
             // 
@@ -811,7 +650,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label13.Location = new Point(460, 554);
+            label13.Location = new Point(460, 505);
             label13.Name = "label13";
             label13.Size = new Size(99, 28);
             label13.TabIndex = 6;
@@ -821,7 +660,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label12.Location = new Point(475, 488);
+            label12.Location = new Point(475, 439);
             label12.Name = "label12";
             label12.Size = new Size(84, 28);
             label12.TabIndex = 5;
@@ -831,21 +670,11 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label11.Location = new Point(342, 420);
+            label11.Location = new Point(342, 371);
             label11.Name = "label11";
             label11.Size = new Size(217, 28);
             label11.TabIndex = 4;
             label11.Text = "Telephone Number";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label10.Location = new Point(515, 362);
-            label10.Name = "label10";
-            label10.Size = new Size(44, 28);
-            label10.TabIndex = 3;
-            label10.Text = "TC";
             // 
             // label9
             // 
@@ -876,6 +705,139 @@
             label7.Size = new Size(692, 40);
             label7.TabIndex = 0;
             label7.Text = "CREATE DEMAND DEPOSİT ACCOUNT";
+            // 
+            // pCredit
+            // 
+            pCredit.Controls.Add(bCreateCredit);
+            pCredit.Controls.Add(label20);
+            pCredit.Controls.Add(tCreditAddress);
+            pCredit.Controls.Add(label19);
+            pCredit.Controls.Add(tCreditEmail);
+            pCredit.Controls.Add(label18);
+            pCredit.Controls.Add(tCreditTelNo);
+            pCredit.Controls.Add(label16);
+            pCredit.Controls.Add(tCreditSurname);
+            pCredit.Controls.Add(label15);
+            pCredit.Controls.Add(tCreditName);
+            pCredit.Controls.Add(label14);
+            pCredit.Location = new Point(282, 0);
+            pCredit.Name = "pCredit";
+            pCredit.Size = new Size(1355, 1025);
+            pCredit.TabIndex = 14;
+            // 
+            // bCreateCredit
+            // 
+            bCreateCredit.BackColor = Color.FromArgb(76, 175, 80);
+            bCreateCredit.FlatStyle = FlatStyle.Flat;
+            bCreateCredit.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bCreateCredit.ForeColor = Color.White;
+            bCreateCredit.Location = new Point(614, 609);
+            bCreateCredit.Name = "bCreateCredit";
+            bCreateCredit.Size = new Size(290, 42);
+            bCreateCredit.TabIndex = 27;
+            bCreateCredit.Text = "Create";
+            bCreateCredit.UseVisualStyleBackColor = false;
+            bCreateCredit.Click += bCreateCredit_Click;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label20.Location = new Point(430, 135);
+            label20.Name = "label20";
+            label20.Size = new Size(501, 40);
+            label20.TabIndex = 14;
+            label20.Text = "CREATE CREDİT ACCOUNT";
+            // 
+            // tCreditAddress
+            // 
+            tCreditAddress.BackColor = SystemColors.Control;
+            tCreditAddress.Location = new Point(614, 504);
+            tCreditAddress.Name = "tCreditAddress";
+            tCreditAddress.Size = new Size(290, 27);
+            tCreditAddress.TabIndex = 26;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label19.Location = new Point(481, 241);
+            label19.Name = "label19";
+            label19.Size = new Size(76, 28);
+            label19.TabIndex = 15;
+            label19.Text = "Name";
+            // 
+            // tCreditEmail
+            // 
+            tCreditEmail.BackColor = SystemColors.Control;
+            tCreditEmail.Location = new Point(614, 438);
+            tCreditEmail.Name = "tCreditEmail";
+            tCreditEmail.Size = new Size(290, 27);
+            tCreditEmail.TabIndex = 25;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label18.Location = new Point(448, 298);
+            label18.Name = "label18";
+            label18.Size = new Size(109, 28);
+            label18.TabIndex = 16;
+            label18.Text = "Surname";
+            // 
+            // tCreditTelNo
+            // 
+            tCreditTelNo.BackColor = SystemColors.Control;
+            tCreditTelNo.Location = new Point(614, 370);
+            tCreditTelNo.Name = "tCreditTelNo";
+            tCreditTelNo.Size = new Size(290, 27);
+            tCreditTelNo.TabIndex = 24;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label16.Location = new Point(340, 367);
+            label16.Name = "label16";
+            label16.Size = new Size(217, 28);
+            label16.TabIndex = 18;
+            label16.Text = "Telephone Number";
+            // 
+            // tCreditSurname
+            // 
+            tCreditSurname.BackColor = SystemColors.Control;
+            tCreditSurname.Location = new Point(614, 301);
+            tCreditSurname.Name = "tCreditSurname";
+            tCreditSurname.Size = new Size(290, 27);
+            tCreditSurname.TabIndex = 22;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label15.Location = new Point(473, 435);
+            label15.Name = "label15";
+            label15.Size = new Size(84, 28);
+            label15.TabIndex = 19;
+            label15.Text = "E-mail";
+            // 
+            // tCreditName
+            // 
+            tCreditName.BackColor = SystemColors.Control;
+            tCreditName.Location = new Point(614, 244);
+            tCreditName.Name = "tCreditName";
+            tCreditName.Size = new Size(290, 27);
+            tCreditName.TabIndex = 21;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Century", 13.2000008F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label14.Location = new Point(458, 501);
+            label14.Name = "label14";
+            label14.Size = new Size(99, 28);
+            label14.TabIndex = 20;
+            label14.Text = "Address";
             // 
             // pSettings
             // 
@@ -1291,9 +1253,11 @@
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
             dataSetAccount.DefaultCellStyle = dataGridViewCellStyle6;
+            dataSetAccount.Enabled = false;
             dataSetAccount.Location = new Point(176, 280);
             dataSetAccount.Name = "dataSetAccount";
             dataSetAccount.ReadOnly = true;
+            dataSetAccount.RowHeadersVisible = false;
             dataSetAccount.RowHeadersWidth = 51;
             dataSetAccount.Size = new Size(1092, 183);
             dataSetAccount.TabIndex = 2;
@@ -1467,9 +1431,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
             Controls.Add(pOverview_Main);
-            Controls.Add(pSettings);
-            Controls.Add(pCreateAccount_Main);
             Controls.Add(pTransactions);
+            Controls.Add(pCreateAccount_Main);
+            Controls.Add(pSettings);
             Controls.Add(pSupport);
             Controls.Add(panel1);
             Name = "AnaEkran";
@@ -1489,10 +1453,10 @@
             pOverview_Main.PerformLayout();
             pCreateAccount_Main.ResumeLayout(false);
             pCreate_second.ResumeLayout(false);
-            pCredit.ResumeLayout(false);
-            pCredit.PerformLayout();
             pDemand.ResumeLayout(false);
             pDemand.PerformLayout();
+            pCredit.ResumeLayout(false);
+            pCredit.PerformLayout();
             pSettings.ResumeLayout(false);
             pInformation.ResumeLayout(false);
             pInformation.PerformLayout();
@@ -1536,7 +1500,6 @@
         private Label label13;
         private Label label12;
         private Label label11;
-        private Label label10;
         private Label label9;
         private Label label8;
         private Label label7;
@@ -1545,7 +1508,6 @@
         private TextBox tDemandAddress;
         private TextBox tDemandEmail;
         private TextBox tDemandTelNo;
-        private TextBox tDemandTC;
         private TextBox tDemandSurname;
         private Panel pCredit;
         private Button bCreateCredit;
@@ -1555,8 +1517,6 @@
         private TextBox tCreditEmail;
         private Label label18;
         private TextBox tCreditTelNo;
-        private Label label17;
-        private TextBox tCreditTC;
         private Label label16;
         private TextBox tCreditSurname;
         private Label label15;
