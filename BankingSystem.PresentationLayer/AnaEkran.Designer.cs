@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             panel1 = new Panel();
             bLogOut = new Button();
             bSupport = new Button();
@@ -43,6 +43,24 @@
             bOverView = new Button();
             label1 = new Label();
             pTransactions = new Panel();
+            panelSendMoney = new Panel();
+            button2 = new Button();
+            label44 = new Label();
+            tSendAmount = new TextBox();
+            label43 = new Label();
+            tReciverIban = new TextBox();
+            label42 = new Label();
+            label2 = new Label();
+            pSeeAllTransactions = new Panel();
+            button1 = new Button();
+            tSearchTransaction = new TextBox();
+            lSearchTransaction = new Label();
+            dTransaction = new DataGridView();
+            label33 = new Label();
+            label32 = new Label();
+            pTransactionSolBar = new Panel();
+            bSeeAllTransactions = new Button();
+            bSendMoney = new Button();
             pOverview1 = new Panel();
             lDemandIbanNo = new Label();
             lblDemandAccountIban = new Label();
@@ -141,26 +159,12 @@
             lGoToTransactions = new Label();
             lGoToChangePass = new Label();
             label31 = new Label();
-            pTransactionSolBar = new Panel();
-            bSendMoney = new Button();
-            bSeeAllTransactions = new Button();
-            pSeeAllTransactions = new Panel();
-            tSearchTransaction = new TextBox();
-            lSearchTransaction = new Label();
-            dTransaction = new DataGridView();
-            label33 = new Label();
-            label32 = new Label();
-            button1 = new Button();
-            panel3 = new Panel();
-            label2 = new Label();
-            label42 = new Label();
-            tReciverIban = new TextBox();
-            tSendAmount = new TextBox();
-            label43 = new Label();
-            label44 = new Label();
-            button2 = new Button();
             panel1.SuspendLayout();
             pTransactions.SuspendLayout();
+            panelSendMoney.SuspendLayout();
+            pSeeAllTransactions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dTransaction).BeginInit();
+            pTransactionSolBar.SuspendLayout();
             pOverview1.SuspendLayout();
             pOverview4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dOverViewTransac).BeginInit();
@@ -177,10 +181,6 @@
             ((System.ComponentModel.ISupportInitialize)dataSetAccount).BeginInit();
             panel2.SuspendLayout();
             pSupport.SuspendLayout();
-            pTransactionSolBar.SuspendLayout();
-            pSeeAllTransactions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dTransaction).BeginInit();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -289,13 +289,228 @@
             // 
             // pTransactions
             // 
-            pTransactions.Controls.Add(panel3);
+            pTransactions.Controls.Add(panelSendMoney);
             pTransactions.Controls.Add(pSeeAllTransactions);
             pTransactions.Controls.Add(pTransactionSolBar);
             pTransactions.Location = new Point(255, 0);
             pTransactions.Name = "pTransactions";
             pTransactions.Size = new Size(1632, 1028);
             pTransactions.TabIndex = 6;
+            // 
+            // panelSendMoney
+            // 
+            panelSendMoney.Controls.Add(button2);
+            panelSendMoney.Controls.Add(label44);
+            panelSendMoney.Controls.Add(tSendAmount);
+            panelSendMoney.Controls.Add(label43);
+            panelSendMoney.Controls.Add(tReciverIban);
+            panelSendMoney.Controls.Add(label42);
+            panelSendMoney.Controls.Add(label2);
+            panelSendMoney.Location = new Point(175, 0);
+            panelSendMoney.Name = "panelSendMoney";
+            panelSendMoney.Size = new Size(1465, 1025);
+            panelSendMoney.TabIndex = 11;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(76, 175, 80);
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(665, 537);
+            button2.Name = "button2";
+            button2.Size = new Size(144, 42);
+            button2.TabIndex = 13;
+            button2.Text = "SEND";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label44.ForeColor = Color.Gray;
+            label44.Location = new Point(432, 237);
+            label44.Name = "label44";
+            label44.Size = new Size(576, 23);
+            label44.TabIndex = 12;
+            label44.Text = "Money can only be transferred using demand deposit account";
+            label44.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tSendAmount
+            // 
+            tSendAmount.Location = new Point(605, 405);
+            tSendAmount.Name = "tSendAmount";
+            tSendAmount.Size = new Size(257, 27);
+            tSendAmount.TabIndex = 11;
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label43.Location = new Point(509, 407);
+            label43.Name = "label43";
+            label43.Size = new Size(78, 21);
+            label43.TabIndex = 10;
+            label43.Text = "Amount:";
+            label43.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tReciverIban
+            // 
+            tReciverIban.Location = new Point(605, 350);
+            tReciverIban.Name = "tReciverIban";
+            tReciverIban.Size = new Size(257, 27);
+            tReciverIban.TabIndex = 9;
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label42.Location = new Point(432, 352);
+            label42.Name = "label42";
+            label42.Size = new Size(155, 21);
+            label42.TabIndex = 8;
+            label42.Text = "Beneficiary IBAN:";
+            label42.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label2.Location = new Point(605, 179);
+            label2.Name = "label2";
+            label2.Size = new Size(261, 40);
+            label2.TabIndex = 7;
+            label2.Text = "SEND MONEY";
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pSeeAllTransactions
+            // 
+            pSeeAllTransactions.Controls.Add(button1);
+            pSeeAllTransactions.Controls.Add(tSearchTransaction);
+            pSeeAllTransactions.Controls.Add(lSearchTransaction);
+            pSeeAllTransactions.Controls.Add(dTransaction);
+            pSeeAllTransactions.Controls.Add(label33);
+            pSeeAllTransactions.Controls.Add(label32);
+            pSeeAllTransactions.Location = new Point(175, 0);
+            pSeeAllTransactions.Name = "pSeeAllTransactions";
+            pSeeAllTransactions.Size = new Size(1460, 1028);
+            pSeeAllTransactions.TabIndex = 7;
+            // 
+            // button1
+            // 
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Location = new Point(868, 222);
+            button1.Name = "button1";
+            button1.Size = new Size(111, 29);
+            button1.TabIndex = 10;
+            button1.Text = "Search";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // tSearchTransaction
+            // 
+            tSearchTransaction.Location = new Point(642, 223);
+            tSearchTransaction.Name = "tSearchTransaction";
+            tSearchTransaction.Size = new Size(201, 27);
+            tSearchTransaction.TabIndex = 9;
+            // 
+            // lSearchTransaction
+            // 
+            lSearchTransaction.AutoSize = true;
+            lSearchTransaction.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lSearchTransaction.Location = new Point(298, 225);
+            lSearchTransaction.Name = "lSearchTransaction";
+            lSearchTransaction.Size = new Size(329, 23);
+            lSearchTransaction.TabIndex = 8;
+            lSearchTransaction.Text = "Search transaction (Enter TC No):";
+            // 
+            // dTransaction
+            // 
+            dTransaction.AllowUserToAddRows = false;
+            dTransaction.AllowUserToDeleteRows = false;
+            dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dTransaction.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dTransaction.DefaultCellStyle = dataGridViewCellStyle2;
+            dTransaction.Location = new Point(25, 302);
+            dTransaction.Name = "dTransaction";
+            dTransaction.ReadOnly = true;
+            dTransaction.RowHeadersWidth = 51;
+            dTransaction.Size = new Size(1410, 637);
+            dTransaction.TabIndex = 7;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.BackColor = Color.Transparent;
+            label33.Font = new Font("Century", 13F);
+            label33.ForeColor = Color.Gray;
+            label33.Location = new Point(551, 156);
+            label33.Name = "label33";
+            label33.Size = new Size(365, 27);
+            label33.TabIndex = 6;
+            label33.Text = "You can see your transactions here";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 0);
+            label32.Location = new Point(580, 84);
+            label32.Name = "label32";
+            label32.Size = new Size(301, 40);
+            label32.TabIndex = 5;
+            label32.Text = "TRANSACTIONS";
+            // 
+            // pTransactionSolBar
+            // 
+            pTransactionSolBar.BackColor = Color.FromArgb(224, 224, 224);
+            pTransactionSolBar.Controls.Add(bSeeAllTransactions);
+            pTransactionSolBar.Controls.Add(bSendMoney);
+            pTransactionSolBar.Location = new Point(-2, 3);
+            pTransactionSolBar.Name = "pTransactionSolBar";
+            pTransactionSolBar.Size = new Size(171, 1025);
+            pTransactionSolBar.TabIndex = 6;
+            // 
+            // bSeeAllTransactions
+            // 
+            bSeeAllTransactions.FlatAppearance.BorderSize = 0;
+            bSeeAllTransactions.FlatStyle = FlatStyle.Flat;
+            bSeeAllTransactions.Font = new Font("Century", 12F);
+            bSeeAllTransactions.Location = new Point(1, 408);
+            bSeeAllTransactions.Name = "bSeeAllTransactions";
+            bSeeAllTransactions.Size = new Size(168, 63);
+            bSeeAllTransactions.TabIndex = 8;
+            bSeeAllTransactions.Text = "See All Transactions";
+            bSeeAllTransactions.UseVisualStyleBackColor = true;
+            bSeeAllTransactions.Click += bSeeAllTransactions_Click;
+            // 
+            // bSendMoney
+            // 
+            bSendMoney.FlatAppearance.BorderSize = 0;
+            bSendMoney.FlatStyle = FlatStyle.Flat;
+            bSendMoney.Font = new Font("Century", 12F);
+            bSendMoney.Location = new Point(2, 344);
+            bSendMoney.Name = "bSendMoney";
+            bSendMoney.Size = new Size(168, 58);
+            bSendMoney.TabIndex = 7;
+            bSendMoney.Text = "Send Money";
+            bSendMoney.UseVisualStyleBackColor = true;
+            bSendMoney.Click += bSendMoney_Click;
             // 
             // pOverview1
             // 
@@ -433,23 +648,23 @@
             dOverViewTransac.AllowUserToResizeRows = false;
             dOverViewTransac.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dOverViewTransac.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = SystemColors.Control;
-            dataGridViewCellStyle13.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle13.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dOverViewTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dOverViewTransac.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dOverViewTransac.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = SystemColors.Window;
-            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle14.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dOverViewTransac.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dOverViewTransac.DefaultCellStyle = dataGridViewCellStyle4;
             dOverViewTransac.GridColor = SystemColors.ControlDark;
             dOverViewTransac.Location = new Point(87, 74);
             dOverViewTransac.Name = "dOverViewTransac";
@@ -1199,23 +1414,23 @@
             dataSetAccount.AllowUserToDeleteRows = false;
             dataSetAccount.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataSetAccount.BackgroundColor = Color.White;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = SystemColors.Control;
-            dataGridViewCellStyle15.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle15.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            dataSetAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dataSetAccount.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             dataSetAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = SystemColors.Window;
-            dataGridViewCellStyle16.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
-            dataSetAccount.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            dataSetAccount.DefaultCellStyle = dataGridViewCellStyle6;
             dataSetAccount.Location = new Point(176, 280);
             dataSetAccount.Name = "dataSetAccount";
             dataSetAccount.ReadOnly = true;
@@ -1387,219 +1602,6 @@
             label31.TabIndex = 0;
             label31.Text = "FREQUENTLY ASKED QUESTIONS";
             // 
-            // pTransactionSolBar
-            // 
-            pTransactionSolBar.BackColor = Color.FromArgb(224, 224, 224);
-            pTransactionSolBar.Controls.Add(bSeeAllTransactions);
-            pTransactionSolBar.Controls.Add(bSendMoney);
-            pTransactionSolBar.Location = new Point(-2, 3);
-            pTransactionSolBar.Name = "pTransactionSolBar";
-            pTransactionSolBar.Size = new Size(171, 1025);
-            pTransactionSolBar.TabIndex = 6;
-            // 
-            // bSendMoney
-            // 
-            bSendMoney.FlatAppearance.BorderSize = 0;
-            bSendMoney.FlatStyle = FlatStyle.Flat;
-            bSendMoney.Font = new Font("Century", 12F);
-            bSendMoney.Location = new Point(2, 344);
-            bSendMoney.Name = "bSendMoney";
-            bSendMoney.Size = new Size(168, 58);
-            bSendMoney.TabIndex = 7;
-            bSendMoney.Text = "Send Money";
-            bSendMoney.UseVisualStyleBackColor = true;
-            // 
-            // bSeeAllTransactions
-            // 
-            bSeeAllTransactions.FlatAppearance.BorderSize = 0;
-            bSeeAllTransactions.FlatStyle = FlatStyle.Flat;
-            bSeeAllTransactions.Font = new Font("Century", 12F);
-            bSeeAllTransactions.Location = new Point(1, 408);
-            bSeeAllTransactions.Name = "bSeeAllTransactions";
-            bSeeAllTransactions.Size = new Size(168, 63);
-            bSeeAllTransactions.TabIndex = 8;
-            bSeeAllTransactions.Text = "See All Transactions";
-            bSeeAllTransactions.UseVisualStyleBackColor = true;
-            // 
-            // pSeeAllTransactions
-            // 
-            pSeeAllTransactions.Controls.Add(button1);
-            pSeeAllTransactions.Controls.Add(tSearchTransaction);
-            pSeeAllTransactions.Controls.Add(lSearchTransaction);
-            pSeeAllTransactions.Controls.Add(dTransaction);
-            pSeeAllTransactions.Controls.Add(label33);
-            pSeeAllTransactions.Controls.Add(label32);
-            pSeeAllTransactions.Location = new Point(175, 0);
-            pSeeAllTransactions.Name = "pSeeAllTransactions";
-            pSeeAllTransactions.Size = new Size(1460, 1028);
-            pSeeAllTransactions.TabIndex = 7;
-            // 
-            // tSearchTransaction
-            // 
-            tSearchTransaction.Location = new Point(642, 223);
-            tSearchTransaction.Name = "tSearchTransaction";
-            tSearchTransaction.Size = new Size(201, 27);
-            tSearchTransaction.TabIndex = 9;
-            // 
-            // lSearchTransaction
-            // 
-            lSearchTransaction.AutoSize = true;
-            lSearchTransaction.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            lSearchTransaction.Location = new Point(298, 225);
-            lSearchTransaction.Name = "lSearchTransaction";
-            lSearchTransaction.Size = new Size(329, 23);
-            lSearchTransaction.TabIndex = 8;
-            lSearchTransaction.Text = "Search transaction (Enter TC No):";
-            // 
-            // dTransaction
-            // 
-            dTransaction.AllowUserToAddRows = false;
-            dTransaction.AllowUserToDeleteRows = false;
-            dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dTransaction.BackgroundColor = Color.White;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = SystemColors.Control;
-            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dTransaction.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle18.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dTransaction.DefaultCellStyle = dataGridViewCellStyle18;
-            dTransaction.Location = new Point(25, 302);
-            dTransaction.Name = "dTransaction";
-            dTransaction.ReadOnly = true;
-            dTransaction.RowHeadersWidth = 51;
-            dTransaction.Size = new Size(1410, 637);
-            dTransaction.TabIndex = 7;
-            // 
-            // label33
-            // 
-            label33.AutoSize = true;
-            label33.BackColor = Color.Transparent;
-            label33.Font = new Font("Century", 13F);
-            label33.ForeColor = Color.Gray;
-            label33.Location = new Point(551, 156);
-            label33.Name = "label33";
-            label33.Size = new Size(365, 27);
-            label33.TabIndex = 6;
-            label33.Text = "You can see your transactions here";
-            // 
-            // label32
-            // 
-            label32.AutoSize = true;
-            label32.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 0);
-            label32.Location = new Point(580, 84);
-            label32.Name = "label32";
-            label32.Size = new Size(301, 40);
-            label32.TabIndex = 5;
-            label32.Text = "TRANSACTIONS";
-            // 
-            // button1
-            // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(868, 222);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 29);
-            button1.TabIndex = 10;
-            button1.Text = "Search";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(button2);
-            panel3.Controls.Add(label44);
-            panel3.Controls.Add(tSendAmount);
-            panel3.Controls.Add(label43);
-            panel3.Controls.Add(tReciverIban);
-            panel3.Controls.Add(label42);
-            panel3.Controls.Add(label2);
-            panel3.Location = new Point(175, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1465, 1025);
-            panel3.TabIndex = 11;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label2.Location = new Point(605, 179);
-            label2.Name = "label2";
-            label2.Size = new Size(261, 40);
-            label2.TabIndex = 7;
-            label2.Text = "SEND MONEY";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            label42.AutoSize = true;
-            label42.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label42.Location = new Point(432, 352);
-            label42.Name = "label42";
-            label42.Size = new Size(155, 21);
-            label42.TabIndex = 8;
-            label42.Text = "Beneficiary IBAN:";
-            label42.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // tReciverIban
-            // 
-            tReciverIban.Location = new Point(605, 350);
-            tReciverIban.Name = "tReciverIban";
-            tReciverIban.Size = new Size(257, 27);
-            tReciverIban.TabIndex = 9;
-            // 
-            // tSendAmount
-            // 
-            tSendAmount.Location = new Point(605, 405);
-            tSendAmount.Name = "tSendAmount";
-            tSendAmount.Size = new Size(257, 27);
-            tSendAmount.TabIndex = 11;
-            // 
-            // label43
-            // 
-            label43.AutoSize = true;
-            label43.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label43.Location = new Point(509, 407);
-            label43.Name = "label43";
-            label43.Size = new Size(78, 21);
-            label43.TabIndex = 10;
-            label43.Text = "Amount:";
-            label43.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label44
-            // 
-            label44.AutoSize = true;
-            label44.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label44.ForeColor = Color.Gray;
-            label44.Location = new Point(432, 237);
-            label44.Name = "label44";
-            label44.Size = new Size(576, 23);
-            label44.TabIndex = 12;
-            label44.Text = "Money can only be transferred using demand deposit account";
-            label44.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.FromArgb(76, 175, 80);
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(665, 537);
-            button2.Name = "button2";
-            button2.Size = new Size(144, 42);
-            button2.TabIndex = 13;
-            button2.Text = "SEND";
-            button2.UseVisualStyleBackColor = false;
-            // 
             // AnaEkran
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1607,17 +1609,8 @@
             ClientSize = new Size(1902, 1033);
             Controls.Add(pTransactions);
             Controls.Add(pOverview_Main);
-            Controls.Add(pTransactions);
-            Controls.Add(pCreateAccount_Main);
             Controls.Add(pSettings);
             Controls.Add(pCreateAccount_Main);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
-            Controls.Add(pTransactions);
             Controls.Add(pSupport);
             Controls.Add(panel1);
             Name = "AnaEkran";
@@ -1626,6 +1619,12 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             pTransactions.ResumeLayout(false);
+            panelSendMoney.ResumeLayout(false);
+            panelSendMoney.PerformLayout();
+            pSeeAllTransactions.ResumeLayout(false);
+            pSeeAllTransactions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dTransaction).EndInit();
+            pTransactionSolBar.ResumeLayout(false);
             pOverview1.ResumeLayout(false);
             pOverview1.PerformLayout();
             pOverview4.ResumeLayout(false);
@@ -1653,12 +1652,6 @@
             panel2.PerformLayout();
             pSupport.ResumeLayout(false);
             pSupport.PerformLayout();
-            pTransactionSolBar.ResumeLayout(false);
-            pSeeAllTransactions.ResumeLayout(false);
-            pSeeAllTransactions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dTransaction).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1774,7 +1767,7 @@
         private Panel pTransactionSolBar;
         private Button bSeeAllTransactions;
         private Button bSendMoney;
-        private Panel panel3;
+        private Panel panelSendMoney;
         private Label label2;
         private Panel pSeeAllTransactions;
         private Button button1;

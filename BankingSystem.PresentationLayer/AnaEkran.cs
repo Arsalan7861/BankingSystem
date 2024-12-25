@@ -216,6 +216,8 @@ namespace bankaprojesiform
             pCreateAccount_Main.Hide();
             pSettings.Hide();
             pSupport.Hide();
+            pSeeAllTransactions.Hide();
+            panelSendMoney.Hide();
             pTransactions.Show();
         }
 
@@ -317,6 +319,18 @@ namespace bankaprojesiform
             {
                 MessageBox.Show("Password is Incorrect!");
             }
+        }
+
+        private void bSeeAllTransactions_Click(object sender, EventArgs e)
+        {
+            panelSendMoney.Hide();
+            pSeeAllTransactions.Show();
+        }
+
+        private void bSendMoney_Click(object sender, EventArgs e)
+        {
+            pSeeAllTransactions.Hide();
+            panelSendMoney.Show();
         }
     }
 }
