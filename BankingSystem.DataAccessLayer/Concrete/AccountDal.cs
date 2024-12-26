@@ -40,6 +40,13 @@ namespace BankingSystem.DataAccessLayer.Concrete
             using (var connection = new NpgsqlConnection(_connectionString))
             {
                 connection.Open();
+
+                // Set the session staff tc
+                using (var command = new NpgsqlCommand($"SET session staff.tc = '{SessionContext.StaffTc}'", connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+
                 var query = "DELETE FROM account WHERE customertc = @customerTc AND accounttype = @accountType";
                 connection.Execute(query, new { customerTc, accountType });
             }

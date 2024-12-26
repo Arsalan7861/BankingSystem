@@ -38,6 +38,12 @@
             label2 = new Label();
             label1 = new Label();
             pBranch = new Panel();
+            pSeeAllBranches = new Panel();
+            bSearchBranch = new Button();
+            tSearchBranch = new TextBox();
+            label64 = new Label();
+            dgvBranches = new DataGridView();
+            label14 = new Label();
             pDelBranch = new Panel();
             bDeleteBranch = new Button();
             cmbDSelectBranch = new ComboBox();
@@ -56,9 +62,6 @@
             label13 = new Label();
             label9 = new Label();
             label8 = new Label();
-            pSeeAllBranches = new Panel();
-            dgvBranches = new DataGridView();
-            label14 = new Label();
             pCreate_Branch = new Panel();
             btnCreateBranch = new Button();
             tBranchPostCode = new TextBox();
@@ -76,6 +79,12 @@
             bUpdateBranch = new Button();
             bCreateBranch = new Button();
             pStaff = new Panel();
+            pSeeAllStaff = new Panel();
+            bSearchStaff = new Button();
+            tSearchStaff = new TextBox();
+            label63 = new Label();
+            dgvStaffs = new DataGridView();
+            label31 = new Label();
             pUpdateStaff = new Panel();
             cmbUStaffBranch = new ComboBox();
             label62 = new Label();
@@ -127,15 +136,18 @@
             label19 = new Label();
             label18 = new Label();
             label17 = new Label();
-            pSeeAllStaff = new Panel();
-            dgvStaffs = new DataGridView();
-            label31 = new Label();
             pStaffBar = new Panel();
             bDelStaff = new Button();
             bSeeAllStaff = new Button();
             bUpdateStaff = new Button();
             bCreateStaff = new Button();
             pClient = new Panel();
+            pSeeAllCustomer = new Panel();
+            bSearchCustomer = new Button();
+            tSearchCustomer = new TextBox();
+            label65 = new Label();
+            dCustomer = new DataGridView();
+            label48 = new Label();
             pCreateCustomer = new Panel();
             cmbCusStaffTc = new ComboBox();
             label60 = new Label();
@@ -175,56 +187,44 @@
             label47 = new Label();
             cUpdateCustomerTC = new ComboBox();
             label36 = new Label();
-            pSeeAllCustomer = new Panel();
-            dCustomer = new DataGridView();
-            label48 = new Label();
             pClientBar = new Panel();
             bDeleteClient = new Button();
             bSeeAllClient = new Button();
             bUpdateClient = new Button();
             bCreateClient = new Button();
             pLog = new Panel();
-            label51 = new Label();
-            dLog = new DataGridView();
-            pTransactions = new Panel();
-            dTransaction = new DataGridView();
-            label52 = new Label();
-            label63 = new Label();
-            tSearchStaff = new TextBox();
-            bSearchStaff = new Button();
-            label64 = new Label();
-            tSearchBranch = new TextBox();
-            bSearchBranch = new Button();
-            bSearchCustomer = new Button();
-            tSearchCustomer = new TextBox();
-            label65 = new Label();
-            bSearchTransaction = new Button();
-            tSearchTransaction = new TextBox();
-            label66 = new Label();
             bSearchLog = new Button();
             tSearchLog = new TextBox();
             label67 = new Label();
+            label51 = new Label();
+            dLog = new DataGridView();
+            pTransactions = new Panel();
+            bSearchTransaction = new Button();
+            tSearchTransaction = new TextBox();
+            label66 = new Label();
+            dTransaction = new DataGridView();
+            label52 = new Label();
             pSolbar.SuspendLayout();
             pBranch.SuspendLayout();
-            pDelBranch.SuspendLayout();
-            pUpdateBranch.SuspendLayout();
             pSeeAllBranches.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBranches).BeginInit();
+            pDelBranch.SuspendLayout();
+            pUpdateBranch.SuspendLayout();
             pCreate_Branch.SuspendLayout();
             pBranchBar.SuspendLayout();
             pStaff.SuspendLayout();
+            pSeeAllStaff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStaffs).BeginInit();
             pUpdateStaff.SuspendLayout();
             pDeleteStaff.SuspendLayout();
             pCreateStaff.SuspendLayout();
-            pSeeAllStaff.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvStaffs).BeginInit();
             pStaffBar.SuspendLayout();
             pClient.SuspendLayout();
+            pSeeAllCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
             pCreateCustomer.SuspendLayout();
             pDeleteCustomer.SuspendLayout();
             pUpdateCustomer.SuspendLayout();
-            pSeeAllCustomer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
             pClientBar.SuspendLayout();
             pLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dLog).BeginInit();
@@ -357,6 +357,72 @@
             pBranch.Name = "pBranch";
             pBranch.Size = new Size(1715, 1031);
             pBranch.TabIndex = 1;
+            // 
+            // pSeeAllBranches
+            // 
+            pSeeAllBranches.Controls.Add(bSearchBranch);
+            pSeeAllBranches.Controls.Add(tSearchBranch);
+            pSeeAllBranches.Controls.Add(label64);
+            pSeeAllBranches.Controls.Add(dgvBranches);
+            pSeeAllBranches.Controls.Add(label14);
+            pSeeAllBranches.Location = new Point(168, 0);
+            pSeeAllBranches.Name = "pSeeAllBranches";
+            pSeeAllBranches.Size = new Size(1541, 1025);
+            pSeeAllBranches.TabIndex = 18;
+            // 
+            // bSearchBranch
+            // 
+            bSearchBranch.FlatStyle = FlatStyle.Flat;
+            bSearchBranch.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchBranch.Location = new Point(819, 232);
+            bSearchBranch.Name = "bSearchBranch";
+            bSearchBranch.Size = new Size(94, 29);
+            bSearchBranch.TabIndex = 5;
+            bSearchBranch.Text = "Search";
+            bSearchBranch.UseVisualStyleBackColor = true;
+            // 
+            // tSearchBranch
+            // 
+            tSearchBranch.Location = new Point(614, 234);
+            tSearchBranch.Name = "tSearchBranch";
+            tSearchBranch.Size = new Size(183, 27);
+            tSearchBranch.TabIndex = 4;
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label64.Location = new Point(412, 234);
+            label64.Name = "label64";
+            label64.Size = new Size(196, 23);
+            label64.TabIndex = 3;
+            label64.Text = "Enter branch name:";
+            // 
+            // dgvBranches
+            // 
+            dgvBranches.AllowUserToAddRows = false;
+            dgvBranches.AllowUserToDeleteRows = false;
+            dgvBranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBranches.BackgroundColor = Color.White;
+            dgvBranches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBranches.Enabled = false;
+            dgvBranches.Location = new Point(166, 310);
+            dgvBranches.Name = "dgvBranches";
+            dgvBranches.ReadOnly = true;
+            dgvBranches.RowHeadersVisible = false;
+            dgvBranches.RowHeadersWidth = 51;
+            dgvBranches.Size = new Size(1099, 542);
+            dgvBranches.TabIndex = 2;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label14.Location = new Point(529, 169);
+            label14.Name = "label14";
+            label14.Size = new Size(379, 40);
+            label14.TabIndex = 1;
+            label14.Text = "SEE ALL BRANCHES";
             // 
             // pDelBranch
             // 
@@ -545,44 +611,6 @@
             label8.TabIndex = 0;
             label8.Text = "UPDATE BRANCH";
             // 
-            // pSeeAllBranches
-            // 
-            pSeeAllBranches.Controls.Add(bSearchBranch);
-            pSeeAllBranches.Controls.Add(tSearchBranch);
-            pSeeAllBranches.Controls.Add(label64);
-            pSeeAllBranches.Controls.Add(dgvBranches);
-            pSeeAllBranches.Controls.Add(label14);
-            pSeeAllBranches.Location = new Point(168, 0);
-            pSeeAllBranches.Name = "pSeeAllBranches";
-            pSeeAllBranches.Size = new Size(1541, 1025);
-            pSeeAllBranches.TabIndex = 18;
-            // 
-            // dgvBranches
-            // 
-            dgvBranches.AllowUserToAddRows = false;
-            dgvBranches.AllowUserToDeleteRows = false;
-            dgvBranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvBranches.BackgroundColor = Color.White;
-            dgvBranches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBranches.Enabled = false;
-            dgvBranches.Location = new Point(166, 310);
-            dgvBranches.Name = "dgvBranches";
-            dgvBranches.ReadOnly = true;
-            dgvBranches.RowHeadersVisible = false;
-            dgvBranches.RowHeadersWidth = 51;
-            dgvBranches.Size = new Size(1099, 542);
-            dgvBranches.TabIndex = 2;
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label14.Location = new Point(529, 169);
-            label14.Name = "label14";
-            label14.Size = new Size(379, 40);
-            label14.TabIndex = 1;
-            label14.Text = "SEE ALL BRANCHES";
-            // 
             // pCreate_Branch
             // 
             pCreate_Branch.Controls.Add(btnCreateBranch);
@@ -768,6 +796,76 @@
             pStaff.Name = "pStaff";
             pStaff.Size = new Size(1709, 1028);
             pStaff.TabIndex = 19;
+            // 
+            // pSeeAllStaff
+            // 
+            pSeeAllStaff.Controls.Add(bSearchStaff);
+            pSeeAllStaff.Controls.Add(tSearchStaff);
+            pSeeAllStaff.Controls.Add(label63);
+            pSeeAllStaff.Controls.Add(dgvStaffs);
+            pSeeAllStaff.Controls.Add(label31);
+            pSeeAllStaff.Location = new Point(174, 0);
+            pSeeAllStaff.Name = "pSeeAllStaff";
+            pSeeAllStaff.Size = new Size(1538, 1021);
+            pSeeAllStaff.TabIndex = 31;
+            // 
+            // bSearchStaff
+            // 
+            bSearchStaff.FlatStyle = FlatStyle.Flat;
+            bSearchStaff.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            bSearchStaff.Location = new Point(878, 278);
+            bSearchStaff.Name = "bSearchStaff";
+            bSearchStaff.Size = new Size(107, 29);
+            bSearchStaff.TabIndex = 35;
+            bSearchStaff.Text = "Search";
+            bSearchStaff.UseVisualStyleBackColor = true;
+            // 
+            // tSearchStaff
+            // 
+            tSearchStaff.Location = new Point(669, 279);
+            tSearchStaff.Name = "tSearchStaff";
+            tSearchStaff.Size = new Size(191, 27);
+            tSearchStaff.TabIndex = 34;
+            // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label63.Location = new Point(488, 279);
+            label63.Name = "label63";
+            label63.Size = new Size(175, 29);
+            label63.TabIndex = 33;
+            label63.Text = "Enter staff id:";
+            // 
+            // dgvStaffs
+            // 
+            dgvStaffs.AllowUserToAddRows = false;
+            dgvStaffs.AllowUserToDeleteRows = false;
+            dgvStaffs.AllowUserToResizeColumns = false;
+            dgvStaffs.AllowUserToResizeRows = false;
+            dgvStaffs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStaffs.BackgroundColor = Color.White;
+            dgvStaffs.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
+            dgvStaffs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStaffs.Enabled = false;
+            dgvStaffs.Location = new Point(6, 345);
+            dgvStaffs.MultiSelect = false;
+            dgvStaffs.Name = "dgvStaffs";
+            dgvStaffs.ReadOnly = true;
+            dgvStaffs.RowHeadersVisible = false;
+            dgvStaffs.RowHeadersWidth = 51;
+            dgvStaffs.Size = new Size(1529, 502);
+            dgvStaffs.TabIndex = 32;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label31.Location = new Point(660, 220);
+            label31.Name = "label31";
+            label31.Size = new Size(212, 40);
+            label31.TabIndex = 31;
+            label31.Text = "See All Staff";
             // 
             // pUpdateStaff
             // 
@@ -1291,48 +1389,6 @@
             label17.TabIndex = 0;
             label17.Text = "Create Staff";
             // 
-            // pSeeAllStaff
-            // 
-            pSeeAllStaff.Controls.Add(bSearchStaff);
-            pSeeAllStaff.Controls.Add(tSearchStaff);
-            pSeeAllStaff.Controls.Add(label63);
-            pSeeAllStaff.Controls.Add(dgvStaffs);
-            pSeeAllStaff.Controls.Add(label31);
-            pSeeAllStaff.Location = new Point(174, 0);
-            pSeeAllStaff.Name = "pSeeAllStaff";
-            pSeeAllStaff.Size = new Size(1538, 1021);
-            pSeeAllStaff.TabIndex = 31;
-            // 
-            // dgvStaffs
-            // 
-            dgvStaffs.AllowUserToAddRows = false;
-            dgvStaffs.AllowUserToDeleteRows = false;
-            dgvStaffs.AllowUserToResizeColumns = false;
-            dgvStaffs.AllowUserToResizeRows = false;
-            dgvStaffs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvStaffs.BackgroundColor = Color.White;
-            dgvStaffs.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
-            dgvStaffs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStaffs.Enabled = false;
-            dgvStaffs.Location = new Point(6, 345);
-            dgvStaffs.MultiSelect = false;
-            dgvStaffs.Name = "dgvStaffs";
-            dgvStaffs.ReadOnly = true;
-            dgvStaffs.RowHeadersVisible = false;
-            dgvStaffs.RowHeadersWidth = 51;
-            dgvStaffs.Size = new Size(1529, 502);
-            dgvStaffs.TabIndex = 32;
-            // 
-            // label31
-            // 
-            label31.AutoSize = true;
-            label31.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label31.Location = new Point(660, 220);
-            label31.Name = "label31";
-            label31.Size = new Size(212, 40);
-            label31.TabIndex = 31;
-            label31.Text = "See All Staff";
-            // 
             // pStaffBar
             // 
             pStaffBar.BackColor = Color.FromArgb(224, 224, 224);
@@ -1408,6 +1464,72 @@
             pClient.Name = "pClient";
             pClient.Size = new Size(1703, 1025);
             pClient.TabIndex = 37;
+            // 
+            // pSeeAllCustomer
+            // 
+            pSeeAllCustomer.Controls.Add(bSearchCustomer);
+            pSeeAllCustomer.Controls.Add(tSearchCustomer);
+            pSeeAllCustomer.Controls.Add(label65);
+            pSeeAllCustomer.Controls.Add(dCustomer);
+            pSeeAllCustomer.Controls.Add(label48);
+            pSeeAllCustomer.Location = new Point(174, 0);
+            pSeeAllCustomer.Name = "pSeeAllCustomer";
+            pSeeAllCustomer.Size = new Size(1535, 1025);
+            pSeeAllCustomer.TabIndex = 60;
+            // 
+            // bSearchCustomer
+            // 
+            bSearchCustomer.FlatStyle = FlatStyle.Flat;
+            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchCustomer.Location = new Point(865, 280);
+            bSearchCustomer.Name = "bSearchCustomer";
+            bSearchCustomer.Size = new Size(94, 29);
+            bSearchCustomer.TabIndex = 42;
+            bSearchCustomer.Text = "Search";
+            bSearchCustomer.UseVisualStyleBackColor = true;
+            // 
+            // tSearchCustomer
+            // 
+            tSearchCustomer.Location = new Point(660, 282);
+            tSearchCustomer.Name = "tSearchCustomer";
+            tSearchCustomer.Size = new Size(183, 27);
+            tSearchCustomer.TabIndex = 41;
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label65.Location = new Point(458, 282);
+            label65.Name = "label65";
+            label65.Size = new Size(193, 23);
+            label65.TabIndex = 40;
+            label65.Text = "Enter customer TC:";
+            // 
+            // dCustomer
+            // 
+            dCustomer.AllowUserToAddRows = false;
+            dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dCustomer.BackgroundColor = Color.White;
+            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Enabled = false;
+            dCustomer.Location = new Point(191, 377);
+            dCustomer.Name = "dCustomer";
+            dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersVisible = false;
+            dCustomer.RowHeadersWidth = 51;
+            dCustomer.Size = new Size(1144, 580);
+            dCustomer.TabIndex = 39;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label48.Location = new Point(580, 216);
+            label48.Name = "label48";
+            label48.Size = new Size(382, 40);
+            label48.TabIndex = 38;
+            label48.Text = "SEE ALL CUSTOMER";
             // 
             // pCreateCustomer
             // 
@@ -1805,44 +1927,6 @@
             label36.TabIndex = 37;
             label36.Text = "UPDATE CUSTOMER";
             // 
-            // pSeeAllCustomer
-            // 
-            pSeeAllCustomer.Controls.Add(bSearchCustomer);
-            pSeeAllCustomer.Controls.Add(tSearchCustomer);
-            pSeeAllCustomer.Controls.Add(label65);
-            pSeeAllCustomer.Controls.Add(dCustomer);
-            pSeeAllCustomer.Controls.Add(label48);
-            pSeeAllCustomer.Location = new Point(174, 0);
-            pSeeAllCustomer.Name = "pSeeAllCustomer";
-            pSeeAllCustomer.Size = new Size(1535, 1025);
-            pSeeAllCustomer.TabIndex = 60;
-            // 
-            // dCustomer
-            // 
-            dCustomer.AllowUserToAddRows = false;
-            dCustomer.AllowUserToDeleteRows = false;
-            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dCustomer.BackgroundColor = Color.White;
-            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Enabled = false;
-            dCustomer.Location = new Point(191, 377);
-            dCustomer.Name = "dCustomer";
-            dCustomer.ReadOnly = true;
-            dCustomer.RowHeadersVisible = false;
-            dCustomer.RowHeadersWidth = 51;
-            dCustomer.Size = new Size(1144, 580);
-            dCustomer.TabIndex = 39;
-            // 
-            // label48
-            // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(580, 216);
-            label48.Name = "label48";
-            label48.Size = new Size(382, 40);
-            label48.TabIndex = 38;
-            label48.Text = "SEE ALL CUSTOMER";
-            // 
             // pClientBar
             // 
             pClientBar.BackColor = Color.FromArgb(224, 224, 224);
@@ -1919,6 +2003,34 @@
             pLog.Size = new Size(1709, 1024);
             pLog.TabIndex = 42;
             // 
+            // bSearchLog
+            // 
+            bSearchLog.FlatStyle = FlatStyle.Flat;
+            bSearchLog.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchLog.Location = new Point(1035, 226);
+            bSearchLog.Name = "bSearchLog";
+            bSearchLog.Size = new Size(94, 29);
+            bSearchLog.TabIndex = 43;
+            bSearchLog.Text = "Search";
+            bSearchLog.UseVisualStyleBackColor = true;
+            // 
+            // tSearchLog
+            // 
+            tSearchLog.Location = new Point(830, 228);
+            tSearchLog.Name = "tSearchLog";
+            tSearchLog.Size = new Size(183, 27);
+            tSearchLog.TabIndex = 42;
+            // 
+            // label67
+            // 
+            label67.AutoSize = true;
+            label67.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label67.Location = new Point(628, 228);
+            label67.Name = "label67";
+            label67.Size = new Size(196, 23);
+            label67.TabIndex = 41;
+            label67.Text = "Enter branch name:";
+            // 
             // label51
             // 
             label51.AutoSize = true;
@@ -1957,116 +2069,6 @@
             pTransactions.Size = new Size(1715, 1019);
             pTransactions.TabIndex = 41;
             // 
-            // dTransaction
-            // 
-            dTransaction.AllowUserToAddRows = false;
-            dTransaction.AllowUserToDeleteRows = false;
-            dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dTransaction.BackgroundColor = Color.White;
-            dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dTransaction.Enabled = false;
-            dTransaction.Location = new Point(334, 301);
-            dTransaction.Name = "dTransaction";
-            dTransaction.ReadOnly = true;
-            dTransaction.RowHeadersVisible = false;
-            dTransaction.RowHeadersWidth = 51;
-            dTransaction.Size = new Size(1132, 608);
-            dTransaction.TabIndex = 39;
-            // 
-            // label52
-            // 
-            label52.AutoSize = true;
-            label52.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label52.Location = new Point(757, 159);
-            label52.Name = "label52";
-            label52.Size = new Size(301, 40);
-            label52.TabIndex = 38;
-            label52.Text = "TRANSACTIONS";
-            // 
-            // label63
-            // 
-            label63.AutoSize = true;
-            label63.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label63.Location = new Point(488, 279);
-            label63.Name = "label63";
-            label63.Size = new Size(175, 29);
-            label63.TabIndex = 33;
-            label63.Text = "Enter staff id:";
-            // 
-            // tSearchStaff
-            // 
-            tSearchStaff.Location = new Point(669, 279);
-            tSearchStaff.Name = "tSearchStaff";
-            tSearchStaff.Size = new Size(191, 27);
-            tSearchStaff.TabIndex = 34;
-            // 
-            // bSearchStaff
-            // 
-            bSearchStaff.FlatStyle = FlatStyle.Flat;
-            bSearchStaff.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            bSearchStaff.Location = new Point(878, 278);
-            bSearchStaff.Name = "bSearchStaff";
-            bSearchStaff.Size = new Size(107, 29);
-            bSearchStaff.TabIndex = 35;
-            bSearchStaff.Text = "Search";
-            bSearchStaff.UseVisualStyleBackColor = true;
-            // 
-            // label64
-            // 
-            label64.AutoSize = true;
-            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label64.Location = new Point(412, 234);
-            label64.Name = "label64";
-            label64.Size = new Size(196, 23);
-            label64.TabIndex = 3;
-            label64.Text = "Enter branch name:";
-            // 
-            // tSearchBranch
-            // 
-            tSearchBranch.Location = new Point(614, 234);
-            tSearchBranch.Name = "tSearchBranch";
-            tSearchBranch.Size = new Size(183, 27);
-            tSearchBranch.TabIndex = 4;
-            // 
-            // bSearchBranch
-            // 
-            bSearchBranch.FlatStyle = FlatStyle.Flat;
-            bSearchBranch.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bSearchBranch.Location = new Point(819, 232);
-            bSearchBranch.Name = "bSearchBranch";
-            bSearchBranch.Size = new Size(94, 29);
-            bSearchBranch.TabIndex = 5;
-            bSearchBranch.Text = "Search";
-            bSearchBranch.UseVisualStyleBackColor = true;
-            // 
-            // bSearchCustomer
-            // 
-            bSearchCustomer.FlatStyle = FlatStyle.Flat;
-            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bSearchCustomer.Location = new Point(865, 280);
-            bSearchCustomer.Name = "bSearchCustomer";
-            bSearchCustomer.Size = new Size(94, 29);
-            bSearchCustomer.TabIndex = 42;
-            bSearchCustomer.Text = "Search";
-            bSearchCustomer.UseVisualStyleBackColor = true;
-            // 
-            // tSearchCustomer
-            // 
-            tSearchCustomer.Location = new Point(660, 282);
-            tSearchCustomer.Name = "tSearchCustomer";
-            tSearchCustomer.Size = new Size(183, 27);
-            tSearchCustomer.TabIndex = 41;
-            // 
-            // label65
-            // 
-            label65.AutoSize = true;
-            label65.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label65.Location = new Point(458, 282);
-            label65.Name = "label65";
-            label65.Size = new Size(193, 23);
-            label65.TabIndex = 40;
-            label65.Text = "Enter customer TC:";
-            // 
             // bSearchTransaction
             // 
             bSearchTransaction.FlatStyle = FlatStyle.Flat;
@@ -2095,33 +2097,31 @@
             label66.TabIndex = 40;
             label66.Text = "Enter Tc No:";
             // 
-            // bSearchLog
+            // dTransaction
             // 
-            bSearchLog.FlatStyle = FlatStyle.Flat;
-            bSearchLog.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bSearchLog.Location = new Point(1035, 226);
-            bSearchLog.Name = "bSearchLog";
-            bSearchLog.Size = new Size(94, 29);
-            bSearchLog.TabIndex = 43;
-            bSearchLog.Text = "Search";
-            bSearchLog.UseVisualStyleBackColor = true;
+            dTransaction.AllowUserToAddRows = false;
+            dTransaction.AllowUserToDeleteRows = false;
+            dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dTransaction.BackgroundColor = Color.White;
+            dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dTransaction.Enabled = false;
+            dTransaction.Location = new Point(334, 301);
+            dTransaction.Name = "dTransaction";
+            dTransaction.ReadOnly = true;
+            dTransaction.RowHeadersVisible = false;
+            dTransaction.RowHeadersWidth = 51;
+            dTransaction.Size = new Size(1132, 608);
+            dTransaction.TabIndex = 39;
             // 
-            // tSearchLog
+            // label52
             // 
-            tSearchLog.Location = new Point(830, 228);
-            tSearchLog.Name = "tSearchLog";
-            tSearchLog.Size = new Size(183, 27);
-            tSearchLog.TabIndex = 42;
-            // 
-            // label67
-            // 
-            label67.AutoSize = true;
-            label67.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label67.Location = new Point(628, 228);
-            label67.Name = "label67";
-            label67.Size = new Size(196, 23);
-            label67.TabIndex = 41;
-            label67.Text = "Enter branch name:";
+            label52.AutoSize = true;
+            label52.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label52.Location = new Point(757, 159);
+            label52.Name = "label52";
+            label52.Size = new Size(301, 40);
+            label52.TabIndex = 38;
+            label52.Text = "TRANSACTIONS";
             // 
             // Admin_Form
             // 
@@ -2140,37 +2140,37 @@
             pSolbar.ResumeLayout(false);
             pSolbar.PerformLayout();
             pBranch.ResumeLayout(false);
+            pSeeAllBranches.ResumeLayout(false);
+            pSeeAllBranches.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvBranches).EndInit();
             pDelBranch.ResumeLayout(false);
             pDelBranch.PerformLayout();
             pUpdateBranch.ResumeLayout(false);
             pUpdateBranch.PerformLayout();
-            pSeeAllBranches.ResumeLayout(false);
-            pSeeAllBranches.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvBranches).EndInit();
             pCreate_Branch.ResumeLayout(false);
             pCreate_Branch.PerformLayout();
             pBranchBar.ResumeLayout(false);
             pStaff.ResumeLayout(false);
+            pSeeAllStaff.ResumeLayout(false);
+            pSeeAllStaff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStaffs).EndInit();
             pUpdateStaff.ResumeLayout(false);
             pUpdateStaff.PerformLayout();
             pDeleteStaff.ResumeLayout(false);
             pDeleteStaff.PerformLayout();
             pCreateStaff.ResumeLayout(false);
             pCreateStaff.PerformLayout();
-            pSeeAllStaff.ResumeLayout(false);
-            pSeeAllStaff.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvStaffs).EndInit();
             pStaffBar.ResumeLayout(false);
             pClient.ResumeLayout(false);
+            pSeeAllCustomer.ResumeLayout(false);
+            pSeeAllCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCreateCustomer.ResumeLayout(false);
             pCreateCustomer.PerformLayout();
             pDeleteCustomer.ResumeLayout(false);
             pDeleteCustomer.PerformLayout();
             pUpdateCustomer.ResumeLayout(false);
             pUpdateCustomer.PerformLayout();
-            pSeeAllCustomer.ResumeLayout(false);
-            pSeeAllCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pClientBar.ResumeLayout(false);
             pLog.ResumeLayout(false);
             pLog.PerformLayout();

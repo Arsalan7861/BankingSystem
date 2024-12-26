@@ -56,15 +56,16 @@ namespace bankaprojesiform
 
         private void LoadData()
         {
+            lblInformationTc.Text = _customerTc;
             // show account transactions in data grid view
-            var transaction = _transactionService.TGetAll().Where(x => x.Transactionfromtc == _customerTc).ToList();
+            var transaction = _transactionService.TGetAll().Where(x => x.Transactionfromtc == _customerTc || x.Transactiontotc == _customerTc).ToList();
             dOverViewTransac.DataSource = transaction;
             dOverViewTransac.ClearSelection();
             dTransaction.DataSource = transaction;
             dTransaction.ClearSelection();
 
             // show accounts in data grid view
-            dataSetAccount.DataSource = _accountService.TGetAll();
+            dataSetAccount.DataSource = _accountService.TGetAccountByTc(_customerTc);
             dataSetAccount.ClearSelection();
 
             // show account's amount and iban number according to account type
@@ -81,6 +82,19 @@ namespace bankaprojesiform
                     lCreditMoney.Text = $"{account.Accountbalance.ToString()} TL";
                     lCreditIbanNo.Text = account.Accountiban;
                 }
+            }
+
+            // if the customer does not have an account, show "No Account"
+            if (accounts.All(x => x.Accounttype != "Demand Deposit"))
+            {
+                lDemandMoney.Text = "No Account";
+                lDemandIbanNo.Text = "No Account";
+            }
+
+            if (accounts.All(x => x.Accounttype != "Credit"))
+            {
+                lCreditMoney.Text = "No Account";
+                lCreditIbanNo.Text = "No Account";
             }
 
             // show customer information
@@ -224,17 +238,47 @@ namespace bankaprojesiform
         private void lGoToTransactions_Click(object sender, EventArgs e)
         {
             pTransactions.Show();
+            pSupport.Hide();
         }
 
         private void bCreateCredit_Click(object sender, EventArgs e)
         {
+            if (tCreditInitialBalance.Text == "" || tCreditPassword.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            var customer = _customerService.TGetCustomerByTc(_customerTc);
+            if (tCreditPassword.Text != customer.Customerpassword)
+            {
+                MessageBox.Show("Password is Incorrect!");
+                return;
+            }
+
+            var accounts = _accountService.TGetAccountByTc(_customerTc);
+            foreach (var account in accounts)
+            {
+                if (account.Accounttype == "Credit")
+                {
+                    MessageBox.Show("You already have a credit account.");
+                    tCreditInitialBalance.Text = "";
+                    tCreditPassword.Text = "";
+                    return;
+                }
+            }
+
             var accountType = "Credit";
-            decimal initialBalance = 0.0M;
+            decimal initialBalance = decimal.Parse(tCreditInitialBalance.Text);
             var currency = "TRY";
             var iban = GenerateUniqueIban();
-
+            SessionContext.StaffTc = customer.Stafftc;// Set the session staff tc
             _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
             MessageBox.Show("Credit Account Created Successfully");
+            tCreditInitialBalance.Text = "";
+            tCreditPassword.Text = "";
+
+            LoadData();
         }
 
         private string GenerateUniqueIban()
@@ -260,30 +304,83 @@ namespace bankaprojesiform
 
         private void bCreateDemand_Click(object sender, EventArgs e)
         {
+            if (tDemandInitialBalance.Text == "" || tDemandPassword.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            var customer = _customerService.TGetCustomerByTc(_customerTc);
+            if (tDemandPassword.Text != customer.Customerpassword)
+            {
+                MessageBox.Show("Password is Incorrect!");
+                return;
+            }
+
+            var accounts = _accountService.TGetAccountByTc(_customerTc);
+            foreach (var account in accounts)
+            {
+                if (account.Accounttype == "Demand Deposit")
+                {
+                    MessageBox.Show("You already have a demand deposit account.");
+                    tDemandInitialBalance.Text = "";
+                    tDemandPassword.Text = "";
+                    return;
+                }
+            }
+
             var accountType = "Demand Deposit";
-            decimal initialBalance = 0.0M;
+            decimal initialBalance = decimal.Parse(tDemandInitialBalance.Text);
             var currency = "TRY";
-            SessionContext.StaffTc = "3452";
+            SessionContext.StaffTc = customer.Stafftc;// Set the session staff tc
             var iban = GenerateUniqueIban();
             _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
             MessageBox.Show("Demand Deposit Account Created Successfully");
+            tDemandInitialBalance.Text = "";
+            tDemandPassword.Text = "";
+
+            LoadData();
         }
 
         private void bCloseAcc_Click(object sender, EventArgs e)
         {
+            if (cmbAccCloseReqAccountType.SelectedItem == null || tAccCloseReqPass.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            var customer = _customerService.TGetCustomerByTc(_customerTc);
+            if (tAccCloseReqPass.Text != customer.Customerpassword)
+            {
+                MessageBox.Show("Password is Incorrect!");
+                return;
+            }
+
+            SessionContext.StaffTc = customer.Stafftc;// Set the session staff tc
+
             if (cmbAccCloseReqAccountType.SelectedItem.ToString() == "Credit")
             {
-                _accountService.TDeleteAccountByTcAndType(tAccCloseReqTC.Text, "Credit");
+                _accountService.TDeleteAccountByTcAndType(_customerTc, "Credit");
             }
             else if (cmbAccCloseReqAccountType.SelectedItem.ToString() == "Demand Deposit")
             {
-                _accountService.TDeleteAccountByTcAndType(tAccCloseReqTC.Text, "Demand Deposit");
+                _accountService.TDeleteAccountByTcAndType(_customerTc, "Demand Deposit");
             }
             MessageBox.Show("Account Closed Successfully");
+            tAccCloseReqPass.Text = "";
+            cmbAccCloseReqAccountType.SelectedItem = null;
+            LoadData();
         }
 
         private void bChaPass_Click(object sender, EventArgs e)
         {
+            if (tOldPass.Text == "" || tNewPass.Text == "" || tNewPassAgain.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             if (tNewPass.Text != tNewPassAgain.Text && tNewPass.Text == "")
             {
@@ -301,10 +398,17 @@ namespace bankaprojesiform
             {
                 MessageBox.Show("Old Password is Incorrect!");
             }
+            LoadData();
         }
 
         private void bInformationButton_Click(object sender, EventArgs e)
         {
+            if (tInformationName.Text == "" || tInformationSurname.Text == "" || tInformationAddress.Text == "" || tInformationPhone.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             customer.Customerfname = tInformationName.Text;
             customer.Customerlname = tInformationSurname.Text;
@@ -314,11 +418,13 @@ namespace bankaprojesiform
             {
                 _customerService.TUpdateCustomer(customer.Customertc, customer.Customerfname, customer.Customerlname, customer.Customerpassword, customer.Customerphone, customer.Customeraddress, customer.Stafftc);
                 MessageBox.Show("Information Updated Successfully.");
+                tInformationPass.Text = "";
             }
             else
             {
                 MessageBox.Show("Password is Incorrect!");
             }
+            LoadData();
         }
 
         private void bSeeAllTransactions_Click(object sender, EventArgs e)
@@ -331,6 +437,41 @@ namespace bankaprojesiform
         {
             pSeeAllTransactions.Hide();
             panelSendMoney.Show();
+        }
+
+        private void btnSendMoney_Click(object sender, EventArgs e)
+        {
+            if (tReciverIban.Text == "" || tSendAmount.Text == "")
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            var recipientIban = tReciverIban.Text;
+            var amount = decimal.Parse(tSendAmount.Text);
+
+            // Check if the recipient exists
+            var customers = _customerService.TGetAll();
+            if (customers.All(x => x.Customertc != recipientIban))
+            {
+                MessageBox.Show("There is no customer with this IBAN!");
+                return;
+            }
+
+            // Check if the sender has a demand deposit account
+            var accounts = _accountService.TGetAccountByTc(_customerTc);
+            if (accounts.All(x => x.Accounttype != "Demand Deposit"))
+            {
+                MessageBox.Show("You do not have a demand deposit account.");
+                return;
+            }
+
+            _accountService.TsendMoney(_customerTc, recipientIban, amount);
+            MessageBox.Show("Money Sent Successfully.");
+            tReciverIban.Text = "";
+            tSendAmount.Text = "";
+
+            LoadData();
         }
     }
 }
