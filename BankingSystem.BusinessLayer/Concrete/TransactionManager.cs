@@ -18,6 +18,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             _transactionDal = transactionDal;
         }
 
+        public List<Transaction> TSearchTransaction(string customerTc)
+        {
+            return _transactionDal.SearchTransaction(customerTc);
+        }
+
         public void TAdd(Transaction entity)
         {
             _transactionDal.Add(entity);

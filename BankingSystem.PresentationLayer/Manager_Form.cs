@@ -255,5 +255,36 @@ namespace bankaprojesiform
             LoadData();
         }
 
+        private void bSearchLog_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchLogTc.Text;
+            var manager = _staffService.TGetManagerByTc(_managerTc); // Get the manager by TC
+            var managerBranchId = manager.Branchid; // Get the manager's branch ID
+
+            // Get all staff members in the same branch as the manager
+            var staffs = _staffService.TGetAll().Where(x => x.Branchid == managerBranchId && x.Stafftc != manager.Stafftc).ToList();
+
+            // Get logs for the specified TC and filter by staff in the same branch
+            var logs = new List<Log>();
+            foreach (var staff in staffs)
+            {
+                var staffLogs = _logService.TSearchLog(tc).Where(x => x.Stafftc == staff.Stafftc).ToList();
+                logs.AddRange(staffLogs);
+            }
+
+            dLog.DataSource = logs;
+            dLog.ClearSelection(); // Clear selection of the data grid view
+        }
+
+        private void bSearchStaff_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchStaff.Text;
+            var manager = _staffService.TGetManagerByTc(_managerTc); // Get the manager by TC
+
+            var staffs = _staffService.TSearchStaff(tc).Where(x => x.Branchid == manager.Branchid && x.Stafftc != manager.Stafftc).ToList(); // Get staff members in the same branch as the manager
+
+            dSeeAllStaff.DataSource = staffs;
+            dSeeAllStaff.ClearSelection();
+        }
     }
 }

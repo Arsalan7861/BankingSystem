@@ -474,7 +474,7 @@ namespace bankaprojesiform
             var staffs = _staffService.TGetAll();
             var stafftc = cmbUStaff.Text.Split(':')[1].Trim();
             var selectedStaff = staffs.FirstOrDefault(x => x.Stafftc == stafftc);
-            var branch = _branchService.TGetAll().FirstOrDefault(x=>x.Branchid == selectedStaff.Branchid);
+            var branch = _branchService.TGetAll().FirstOrDefault(x => x.Branchid == selectedStaff.Branchid);
 
             if (selectedStaff != null)
             {
@@ -623,6 +623,46 @@ namespace bankaprojesiform
             cDelCustomer.Text = "";
 
             LoadData();
+        }
+
+        private void bSearchLog_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchLog.Text;
+            var logs = _logService.TSearchLog(tc);
+            dLog.DataSource = logs;
+            dLog.ClearSelection();
+        }
+
+        private void bSearchBranch_Click(object sender, EventArgs e)
+        {
+            var name = tSearchBranch.Text;
+            var branches = _branchService.TSearchBranch(name);
+            dgvBranches.DataSource = branches;
+            dgvBranches.ClearSelection();
+        }
+
+        private void bSearchStaff_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchStaff.Text;
+            var staffs = _staffService.TSearchStaff(tc);
+            dgvStaffs.DataSource = staffs;
+            dgvStaffs.ClearSelection();
+        }
+
+        private void bSearchCustomer_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchCustomer.Text;
+            var customers = _customerService.TSearchCustomer(tc);
+            dCustomer.DataSource = customers;
+            dCustomer.ClearSelection();
+        }
+
+        private void bSearchTransaction_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchTransaction.Text;
+            var transactions = transactionService.TSearchTransaction(tc);
+            dTransaction.DataSource = transactions;
+            dTransaction.ClearSelection();
         }
     }
 }

@@ -173,5 +173,13 @@ namespace bankaprojesiform
 
             LoadData();
         }
+
+        private void bSearchCustomer_Click(object sender, EventArgs e)
+        {
+            var tc = tSearchCustomer.Text;
+            var customers = _customerService.TSearchCustomer(tc).Where(x => x.Stafftc == _pboTc).ToList();
+            dCustomer.DataSource = customers;
+            dCustomer.ClearSelection();
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace BankingSystem.DataAccessLayer.Abstract
 {
     public interface ILogDal: IGenericDal<Log>
     {
+        List<Log> SearchLog(string tc);
     }
 }

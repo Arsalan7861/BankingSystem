@@ -9,5 +9,6 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface ILogService: IGenericService<Log>
     {
+        List<Log> TSearchLog(string tc);
     }
 }

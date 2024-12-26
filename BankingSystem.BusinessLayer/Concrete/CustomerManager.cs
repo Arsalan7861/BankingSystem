@@ -53,6 +53,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             return _customerService.GetCustomerByTc(customerTc);
         }
 
+        public List<Customer> TSearchCustomer(string customerTc)
+        {
+            return _customerService.SearchCustomer(customerTc);
+        }
+
         public void TUpdate(Customer entity)
         {
             _customerService.Update(entity);

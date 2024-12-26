@@ -45,5 +45,14 @@ namespace BankingSystem.DataAccessLayer.Concrete
                 connection.Execute(query, new { branchId });
             }
         }
+
+        public List<Branch> SearchBranch(string branchName)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                var query = "SELECT * FROM branch WHERE branchname LIKE @BranchName";
+                return connection.Query<Branch>(query, new { BranchName = $"%{branchName}%" }).ToList();
+            }
+        }
     }
 }

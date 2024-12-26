@@ -473,5 +473,12 @@ namespace bankaprojesiform
 
             LoadData();
         }
+
+        private void btnSearchTransaction_Click(object sender, EventArgs e)
+        {
+            var customerTc = tSearchTransaction.Text;
+            var transactions = _transactionService.TSearchTransaction(customerTc);
+            dTransaction.DataSource = transactions;
+        }
     }
 }

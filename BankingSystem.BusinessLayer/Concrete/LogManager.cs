@@ -18,6 +18,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             _logService = logService;
         }
 
+        public List<Log> TSearchLog(string tc)
+        {
+            return _logService.SearchLog(tc);
+        }
+
         public void TAdd(Log entity)
         {
             throw new NotImplementedException();

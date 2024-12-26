@@ -12,5 +12,6 @@ namespace BankingSystem.DataAccessLayer.Abstract
         void CreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName);
         void UpdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName);
         void DeleteBranch(int branchId);
+        List<Branch> SearchBranch(string branchName);
     }
 }

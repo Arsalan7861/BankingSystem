@@ -15,5 +15,6 @@ namespace BankingSystem.DataAccessLayer.Abstract
 
         void DeleteCustomer(string customerTc);
         Customer GetCustomerByTc(string customerTc);
+        List<Customer> SearchCustomer(string customerTc);
     }
 }

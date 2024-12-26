@@ -12,5 +12,6 @@ namespace BankingSystem.BusinessLayer.Abstract
         void TCreateBranch(string branchCity, string branchStreet, string branchPostCode, string branchName);
         void TUpdateBranch(int branchId, string branchCity, string branchStreet, string branchPostCode, string branchName);
         void TDeleteBranch(int branchId);
+        List<Branch> TSearchBranch(string branchName);
     }
 }

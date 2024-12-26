@@ -13,5 +13,6 @@ namespace BankingSystem.BusinessLayer.Abstract
         void TUpdateCustomer(string customerTc, string fname, string lname, string password, string phone, string address, string staffTc);
         void TDeleteCustomer(string customerTc);
         Customer TGetCustomerByTc(string customerTc);
+        List<Customer> TSearchCustomer(string customerTc);
     }
 }

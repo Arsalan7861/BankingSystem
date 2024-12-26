@@ -380,6 +380,7 @@
             bSearchBranch.TabIndex = 5;
             bSearchBranch.Text = "Search";
             bSearchBranch.UseVisualStyleBackColor = true;
+            bSearchBranch.Click += bSearchBranch_Click;
             // 
             // tSearchBranch
             // 
@@ -402,10 +403,11 @@
             // 
             dgvBranches.AllowUserToAddRows = false;
             dgvBranches.AllowUserToDeleteRows = false;
+            dgvBranches.AllowUserToResizeColumns = false;
+            dgvBranches.AllowUserToResizeRows = false;
             dgvBranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBranches.BackgroundColor = Color.White;
             dgvBranches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBranches.Enabled = false;
             dgvBranches.Location = new Point(166, 310);
             dgvBranches.Name = "dgvBranches";
             dgvBranches.ReadOnly = true;
@@ -819,10 +821,11 @@
             bSearchStaff.TabIndex = 35;
             bSearchStaff.Text = "Search";
             bSearchStaff.UseVisualStyleBackColor = true;
+            bSearchStaff.Click += bSearchStaff_Click;
             // 
             // tSearchStaff
             // 
-            tSearchStaff.Location = new Point(669, 279);
+            tSearchStaff.Location = new Point(669, 278);
             tSearchStaff.Name = "tSearchStaff";
             tSearchStaff.Size = new Size(191, 27);
             tSearchStaff.TabIndex = 34;
@@ -831,11 +834,11 @@
             // 
             label63.AutoSize = true;
             label63.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label63.Location = new Point(488, 279);
+            label63.Location = new Point(408, 278);
             label63.Name = "label63";
-            label63.Size = new Size(175, 29);
+            label63.Size = new Size(227, 29);
             label63.TabIndex = 33;
-            label63.Text = "Enter staff id:";
+            label63.Text = "Enter staff TC No:";
             // 
             // dgvStaffs
             // 
@@ -847,7 +850,6 @@
             dgvStaffs.BackgroundColor = Color.White;
             dgvStaffs.CellBorderStyle = DataGridViewCellBorderStyle.Sunken;
             dgvStaffs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvStaffs.Enabled = false;
             dgvStaffs.Location = new Point(6, 345);
             dgvStaffs.MultiSelect = false;
             dgvStaffs.Name = "dgvStaffs";
@@ -1487,6 +1489,7 @@
             bSearchCustomer.TabIndex = 42;
             bSearchCustomer.Text = "Search";
             bSearchCustomer.UseVisualStyleBackColor = true;
+            bSearchCustomer.Click += bSearchCustomer_Click;
             // 
             // tSearchCustomer
             // 
@@ -1509,10 +1512,11 @@
             // 
             dCustomer.AllowUserToAddRows = false;
             dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AllowUserToResizeColumns = false;
+            dCustomer.AllowUserToResizeRows = false;
             dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dCustomer.BackgroundColor = Color.White;
             dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Enabled = false;
             dCustomer.Location = new Point(191, 377);
             dCustomer.Name = "dCustomer";
             dCustomer.ReadOnly = true;
@@ -2013,6 +2017,7 @@
             bSearchLog.TabIndex = 43;
             bSearchLog.Text = "Search";
             bSearchLog.UseVisualStyleBackColor = true;
+            bSearchLog.Click += bSearchLog_Click;
             // 
             // tSearchLog
             // 
@@ -2025,11 +2030,11 @@
             // 
             label67.AutoSize = true;
             label67.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label67.Location = new Point(628, 228);
+            label67.Location = new Point(639, 233);
             label67.Name = "label67";
-            label67.Size = new Size(196, 23);
+            label67.Size = new Size(134, 23);
             label67.TabIndex = 41;
-            label67.Text = "Enter branch name:";
+            label67.Text = "Enter TC No:";
             // 
             // label51
             // 
@@ -2045,10 +2050,11 @@
             // 
             dLog.AllowUserToAddRows = false;
             dLog.AllowUserToDeleteRows = false;
+            dLog.AllowUserToResizeColumns = false;
+            dLog.AllowUserToResizeRows = false;
             dLog.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dLog.BackgroundColor = Color.White;
             dLog.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dLog.Enabled = false;
             dLog.Location = new Point(348, 299);
             dLog.Name = "dLog";
             dLog.ReadOnly = true;
@@ -2079,6 +2085,7 @@
             bSearchTransaction.TabIndex = 42;
             bSearchTransaction.Text = "Search";
             bSearchTransaction.UseVisualStyleBackColor = true;
+            bSearchTransaction.Click += bSearchTransaction_Click;
             // 
             // tSearchTransaction
             // 
@@ -2101,10 +2108,11 @@
             // 
             dTransaction.AllowUserToAddRows = false;
             dTransaction.AllowUserToDeleteRows = false;
+            dTransaction.AllowUserToResizeColumns = false;
+            dTransaction.AllowUserToResizeRows = false;
             dTransaction.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dTransaction.BackgroundColor = Color.White;
             dTransaction.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dTransaction.Enabled = false;
             dTransaction.Location = new Point(334, 301);
             dTransaction.Name = "dTransaction";
             dTransaction.ReadOnly = true;
@@ -2128,11 +2136,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1902, 1033);
-            Controls.Add(pLog);
             Controls.Add(pTransactions);
             Controls.Add(pClient);
-            Controls.Add(pBranch);
             Controls.Add(pStaff);
+            Controls.Add(pBranch);
+            Controls.Add(pLog);
             Controls.Add(pSolbar);
             Name = "Admin_Form";
             Text = "Admin_Form";

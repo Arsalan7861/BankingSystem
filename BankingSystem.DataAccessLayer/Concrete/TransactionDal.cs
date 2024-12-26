@@ -16,5 +16,14 @@ namespace BankingSystem.DataAccessLayer.Concrete
         public TransactionDal(string connectionString) : base(connectionString)
         {
         }
+
+        public List<Transaction> SearchTransaction(string customerTc)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                var query = "SELECT * FROM transaction WHERE transactionfromtc LIKE @CustomerTc OR transactiontotc LIKE @CustomerTc";
+                return connection.Query<Transaction>(query, new { CustomerTc = $"%{customerTc}%" }).ToList();
+            }
+        }
     }
 }

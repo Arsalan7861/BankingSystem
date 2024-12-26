@@ -53,6 +53,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             return _staffDal.GetManagerByTc(managerTc);
         }
 
+        public List<Staff> TSearchStaff(string staffTc)
+        {
+            return _staffDal.SearchStaff(staffTc);
+        }
+
         public void TUpdate(Staff entity)
         {
             throw new NotImplementedException();

@@ -47,6 +47,15 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
+        public List<Staff> SearchStaff(string staffTc)
+        {
+            using (var connection = new NpgsqlConnection(_connectionString))
+            {
+                var query = "SELECT * FROM staff WHERE stafftc LIKE @Tc";
+                return connection.Query<Staff>(query, new { Tc = $"%{staffTc}%" }).ToList();
+            }
+        }
+
         public void UpdateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email)
         {
             using (var connection = new NpgsqlConnection(_connectionString))

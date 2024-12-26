@@ -48,6 +48,11 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
+        public List<Branch> TSearchBranch(string branchName)
+        {
+            return _branchDal.SearchBranch(branchName);
+        }
+
         public void TUpdate(Branch entity)
         {
             throw new NotImplementedException();

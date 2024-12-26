@@ -34,6 +34,12 @@
             label2 = new Label();
             label1 = new Label();
             pCustomer = new Panel();
+            pSeeAllCustomer = new Panel();
+            bSearchCustomer = new Button();
+            tSearchCustomer = new TextBox();
+            label64 = new Label();
+            dCustomer = new DataGridView();
+            label48 = new Label();
             pCreateCustomer = new Panel();
             tCreatePassword = new TextBox();
             label3 = new Label();
@@ -64,22 +70,16 @@
             label47 = new Label();
             cUpdateCustomerTc = new ComboBox();
             label36 = new Label();
-            pSeeAllCustomer = new Panel();
-            dCustomer = new DataGridView();
-            label48 = new Label();
             pCustomerSolBar = new Panel();
             button2 = new Button();
             button1 = new Button();
             bCreateCustomer = new Button();
-            bSearchCustomer = new Button();
-            tSearchCustomer = new TextBox();
-            label64 = new Label();
             panel1.SuspendLayout();
             pCustomer.SuspendLayout();
-            pCreateCustomer.SuspendLayout();
-            pUpdateCustomer.SuspendLayout();
             pSeeAllCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dCustomer).BeginInit();
+            pCreateCustomer.SuspendLayout();
+            pUpdateCustomer.SuspendLayout();
             pCustomerSolBar.SuspendLayout();
             SuspendLayout();
             // 
@@ -151,6 +151,73 @@
             pCustomer.Name = "pCustomer";
             pCustomer.Size = new Size(1738, 1029);
             pCustomer.TabIndex = 1;
+            // 
+            // pSeeAllCustomer
+            // 
+            pSeeAllCustomer.Controls.Add(bSearchCustomer);
+            pSeeAllCustomer.Controls.Add(tSearchCustomer);
+            pSeeAllCustomer.Controls.Add(label64);
+            pSeeAllCustomer.Controls.Add(dCustomer);
+            pSeeAllCustomer.Controls.Add(label48);
+            pSeeAllCustomer.Location = new Point(164, 0);
+            pSeeAllCustomer.Name = "pSeeAllCustomer";
+            pSeeAllCustomer.Size = new Size(1574, 1025);
+            pSeeAllCustomer.TabIndex = 61;
+            // 
+            // bSearchCustomer
+            // 
+            bSearchCustomer.FlatStyle = FlatStyle.Flat;
+            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bSearchCustomer.Location = new Point(890, 204);
+            bSearchCustomer.Name = "bSearchCustomer";
+            bSearchCustomer.Size = new Size(94, 29);
+            bSearchCustomer.TabIndex = 42;
+            bSearchCustomer.Text = "Search";
+            bSearchCustomer.UseVisualStyleBackColor = true;
+            bSearchCustomer.Click += bSearchCustomer_Click;
+            // 
+            // tSearchCustomer
+            // 
+            tSearchCustomer.Location = new Point(685, 206);
+            tSearchCustomer.Name = "tSearchCustomer";
+            tSearchCustomer.Size = new Size(183, 27);
+            tSearchCustomer.TabIndex = 41;
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label64.Location = new Point(483, 206);
+            label64.Name = "label64";
+            label64.Size = new Size(193, 23);
+            label64.TabIndex = 40;
+            label64.Text = "Enter customer TC:";
+            // 
+            // dCustomer
+            // 
+            dCustomer.AllowUserToAddRows = false;
+            dCustomer.AllowUserToDeleteRows = false;
+            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dCustomer.BackgroundColor = Color.White;
+            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dCustomer.Enabled = false;
+            dCustomer.Location = new Point(191, 291);
+            dCustomer.Name = "dCustomer";
+            dCustomer.ReadOnly = true;
+            dCustomer.RowHeadersVisible = false;
+            dCustomer.RowHeadersWidth = 51;
+            dCustomer.Size = new Size(1144, 580);
+            dCustomer.TabIndex = 39;
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label48.Location = new Point(586, 129);
+            label48.Name = "label48";
+            label48.Size = new Size(382, 40);
+            label48.TabIndex = 38;
+            label48.Text = "SEE ALL CUSTOMER";
             // 
             // pCreateCustomer
             // 
@@ -452,44 +519,6 @@
             label36.TabIndex = 37;
             label36.Text = "UPDATE CUSTOMER";
             // 
-            // pSeeAllCustomer
-            // 
-            pSeeAllCustomer.Controls.Add(bSearchCustomer);
-            pSeeAllCustomer.Controls.Add(tSearchCustomer);
-            pSeeAllCustomer.Controls.Add(label64);
-            pSeeAllCustomer.Controls.Add(dCustomer);
-            pSeeAllCustomer.Controls.Add(label48);
-            pSeeAllCustomer.Location = new Point(164, 0);
-            pSeeAllCustomer.Name = "pSeeAllCustomer";
-            pSeeAllCustomer.Size = new Size(1574, 1025);
-            pSeeAllCustomer.TabIndex = 61;
-            // 
-            // dCustomer
-            // 
-            dCustomer.AllowUserToAddRows = false;
-            dCustomer.AllowUserToDeleteRows = false;
-            dCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dCustomer.BackgroundColor = Color.White;
-            dCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dCustomer.Enabled = false;
-            dCustomer.Location = new Point(191, 291);
-            dCustomer.Name = "dCustomer";
-            dCustomer.ReadOnly = true;
-            dCustomer.RowHeadersVisible = false;
-            dCustomer.RowHeadersWidth = 51;
-            dCustomer.Size = new Size(1144, 580);
-            dCustomer.TabIndex = 39;
-            // 
-            // label48
-            // 
-            label48.AutoSize = true;
-            label48.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label48.Location = new Point(586, 129);
-            label48.Name = "label48";
-            label48.Size = new Size(382, 40);
-            label48.TabIndex = 38;
-            label48.Text = "SEE ALL CUSTOMER";
-            // 
             // pCustomerSolBar
             // 
             pCustomerSolBar.BackColor = Color.FromArgb(224, 224, 224);
@@ -540,34 +569,6 @@
             bCreateCustomer.UseVisualStyleBackColor = true;
             bCreateCustomer.Click += bCreateCustomer_Click;
             // 
-            // bSearchCustomer
-            // 
-            bSearchCustomer.FlatStyle = FlatStyle.Flat;
-            bSearchCustomer.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bSearchCustomer.Location = new Point(890, 204);
-            bSearchCustomer.Name = "bSearchCustomer";
-            bSearchCustomer.Size = new Size(94, 29);
-            bSearchCustomer.TabIndex = 42;
-            bSearchCustomer.Text = "Search";
-            bSearchCustomer.UseVisualStyleBackColor = true;
-            // 
-            // tSearchCustomer
-            // 
-            tSearchCustomer.Location = new Point(685, 206);
-            tSearchCustomer.Name = "tSearchCustomer";
-            tSearchCustomer.Size = new Size(183, 27);
-            tSearchCustomer.TabIndex = 41;
-            // 
-            // label64
-            // 
-            label64.AutoSize = true;
-            label64.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label64.Location = new Point(483, 206);
-            label64.Name = "label64";
-            label64.Size = new Size(193, 23);
-            label64.TabIndex = 40;
-            label64.Text = "Enter customer TC:";
-            // 
             // Pbo_form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -581,13 +582,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             pCustomer.ResumeLayout(false);
+            pSeeAllCustomer.ResumeLayout(false);
+            pSeeAllCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCreateCustomer.ResumeLayout(false);
             pCreateCustomer.PerformLayout();
             pUpdateCustomer.ResumeLayout(false);
             pUpdateCustomer.PerformLayout();
-            pSeeAllCustomer.ResumeLayout(false);
-            pSeeAllCustomer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dCustomer).EndInit();
             pCustomerSolBar.ResumeLayout(false);
             ResumeLayout(false);
         }

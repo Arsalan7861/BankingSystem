@@ -9,5 +9,6 @@ namespace BankingSystem.BusinessLayer.Abstract
 {
     public interface ITransactionService : IGenericService<Transaction>
     {
+        List<Transaction> TSearchTransaction(string customerTc);
     }
 }

@@ -9,5 +9,6 @@ namespace BankingSystem.DataAccessLayer.Abstract
 {
     public interface ITransactionDal : IGenericDal<Transaction>
     {
+        List<Transaction> SearchTransaction(string customerTc);
     }
 }
