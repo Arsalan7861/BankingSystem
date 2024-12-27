@@ -97,11 +97,23 @@ namespace bankaprojesiform
             this.Hide();
         }
 
-        private void bCreateAccount_Click(object sender, EventArgs e)
+        private void bCreateCusAccount_Click(object sender, EventArgs e)
         {
-            if (tCreateFName.Text == "" || tCreateLName.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "")
+            if (tCreateTc.Text == "" || tCreateFName.Text == "" || tCreateLName.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Please fill in all fields!");
+                return;
+            }
+
+            if (!tCreateTc.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("TC must be numeric!");
+                return;
+            }
+
+            if (!tCreatePhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be numeric!");
                 return;
             }
 
@@ -156,6 +168,12 @@ namespace bankaprojesiform
                 return;
             }
 
+            if (!tUpdateCusPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be numeric!");
+                return;
+            }
+
             var customerTc = cUpdateCustomerTc.SelectedItem.ToString().Split(':')[1].Trim();
             var fname = tUpdateCusFirstName.Text;
             var lname = tUpdateCusLastName.Text;
@@ -165,6 +183,7 @@ namespace bankaprojesiform
 
             _customerService.TUpdateCustomer(customerTc, fname, lname, password, phone, address, _pboTc);
             MessageBox.Show("Customer Updated Successfully.");
+            cUpdateCustomerTc.SelectedItem = null;
             tUpdateCusFirstName.Text = "";
             tUpdateCusLastName.Text = "";
             tUpdateCusPass.Text = "";

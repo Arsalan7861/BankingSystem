@@ -1,6 +1,7 @@
 ﻿using BankingSystem.BusinessLayer.Abstract;
 using BankingSystem.BusinessLayer.Concrete;
 using BankingSystem.DataAccessLayer.Concrete;
+using BankingSystem.EntityLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -71,6 +72,7 @@ namespace bankaprojesiform
             cmbStaffBranch.Items.Clear();
             cmbUSelBranch.Items.Clear();
             cDelSelBranch.Items.Clear();
+            cmbUStaffBranch.Items.Clear();
             foreach (var branch in branches)
             {
                 cmbUSelectBranch.Items.Add($"ID: {branch.Branchid}, Name: {branch.Branchname}");
@@ -94,8 +96,8 @@ namespace bankaprojesiform
             dgvStaffs.ClearSelection();// clear selection of data grid view
 
             // show staffs in combo boxes
-            cmbUStaff.Items.Clear();
-            cDelSelStaff.Items.Clear();
+            cmbCusStaffTc.Items.Clear();
+            cmbUpdateCusStaffTc.Items.Clear();
             foreach (var staff in staffs)
             {
                 cmbCusStaffTc.Items.Add($"TC: {staff.Stafftc}");
@@ -302,10 +304,21 @@ namespace bankaprojesiform
 
         private void btnCreateBranch_Click(object sender, EventArgs e)
         {
-            if (tBranchCity.Text == "" && tBranchName.Text == "" && tBranchPostCode.Text == "" && tBranchStreet.Text == "")
+            if (tBranchCity.Text == "" || tBranchName.Text == "" || tBranchPostCode.Text == "" || tBranchStreet.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
                 return;
+            }
+
+            if(tBranchCity.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("City name cannot contain numbers!");
+                return;
+            }
+
+            if (!tBranchPostCode.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Post code must contain only numbers!");
             }
 
             var city = tBranchCity.Text;
@@ -340,10 +353,21 @@ namespace bankaprojesiform
 
         private void bUBranch_Click(object sender, EventArgs e)
         {
-            if (tBranchCity.Text == "" && tBranchName.Text == "" && tBranchPostCode.Text == "" && tBranchStreet.Text == "" && cmbUSelectBranch.Text == "")
+            if (tUBranchCity.Text == "" || tUBranchName.Text == "" || tUBranchPostCode.Text == "" || tUBranchStreet.Text == "" || cmbUSelectBranch.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
                 return;
+            }
+
+            if (tUBranchCity.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("City name cannot contain numbers!");
+                return;
+            }
+
+            if (!tUBranchPostCode.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Post code must contain only numbers!");
             }
 
             var id = Convert.ToInt32(cmbUSelectBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
@@ -380,11 +404,31 @@ namespace bankaprojesiform
 
         private void btnCreateStaff_Click(object sender, EventArgs e)
         {
-            if (txtStaffTc.Text == "" && txtStaffFName.Text == "" && txtStaffLName.Text == "" && txtStaffPassword.Text == "" && cmbStaffPosition.Text == "" && txtStaffPhoneNo.Text == "" && cmbStaffBranch.Text == "" && txtStaffAddress.Text == "" && txtStaffEmail.Text == "")
+            if (txtStaffTc.Text == "" || txtStaffFName.Text == "" || txtStaffLName.Text == "" || txtStaffPassword.Text == "" || cmbStaffPosition.Text == "" || txtStaffPhoneNo.Text == "" || cmbStaffBranch.Text == "" || txtStaffAddress.Text == "" || txtStaffEmail.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
                 return;
             }
+
+            if (!txtStaffTc.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("TC must contain only numbers!");
+                return;
+            }
+
+            if (!txtStaffPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain only numbers!");
+                return;
+            }
+
+            if(!txtStaffEmail.Text.Contains("@") && !txtStaffEmail.Text.EndsWith(".com"))
+            {
+                MessageBox.Show("Email address should contain @ and should end with .com!");
+                return;
+            }
+
+
             var tc = txtStaffTc.Text;
             var fName = txtStaffFName.Text;
             var lName = txtStaffLName.Text;
@@ -415,6 +459,18 @@ namespace bankaprojesiform
             if (cmbUStaff.Text == "" || txtUStaffFName.Text == "" || txtUStaffLName.Text == "" || txtUStaffPassword.Text == "" || cmbUStaffPosition.Text == "" || txtUStaffPhoneNo.Text == "" || cmbUSelBranch.Text == "" || txtUStaffAddress.Text == "" || txtUStaffEmail.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
+                return;
+            }
+
+            if (!txtUStaffPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain only numbers!");
+                return;
+            }
+
+            if (!txtUStaffEmail.Text.Contains("@") && !txtUStaffEmail.Text.EndsWith(".com"))
+            {
+                MessageBox.Show("Email address should contain @ and should end with .com!");
                 return;
             }
 
@@ -527,9 +583,21 @@ namespace bankaprojesiform
 
         private void bCreateCus_Click(object sender, EventArgs e)
         {
-            if (txtCustomerTc.Text == "" && tCusFName.Text == "" && tCusLName.Text == "" && tCusPass.Text == "" && tCusPhoneNo.Text == "" && tCusAddress.Text == "" && cmbCusStaffTc.Text == "")
+            if (txtCustomerTc.Text == "" || tCusFName.Text == "" || tCusLName.Text == "" || tCusPass.Text == "" || tCusPhoneNo.Text == "" || tCusAddress.Text == "" || cmbCusStaffTc.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
+                return;
+            }
+
+            if (!txtCustomerTc.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("TC must contain only numbers!");
+                return;
+            }
+
+            if (!tCusPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain only numbers!");
                 return;
             }
 
@@ -581,9 +649,15 @@ namespace bankaprojesiform
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            if (cUpdateCustomerTC.Text == "" && tUpdateCusFirstName.Text == "" && tUpdateCusLastName.Text == "" && tUpdateCusPass.Text == "" && tUpdateCusPhoneNo.Text == "" && tUpdateCusAddress.Text == "" && cmbUpdateCusStaffTc.Text == "")
+            if (cUpdateCustomerTC.Text == "" || tUpdateCusFirstName.Text == "" || tUpdateCusLastName.Text == "" || tUpdateCusPass.Text == "" || tUpdateCusPhoneNo.Text == "" || tUpdateCusAddress.Text == "" || cmbUpdateCusStaffTc.Text == "")
             {
                 MessageBox.Show("Please fill in all fields!");
+                return;
+            }
+
+            if (!tUpdateCusPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must contain only numbers!");
                 return;
             }
 

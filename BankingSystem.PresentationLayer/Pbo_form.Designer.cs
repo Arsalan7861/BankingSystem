@@ -48,7 +48,7 @@
             tCreateTc = new TextBox();
             tCreateLName = new TextBox();
             tCreateFName = new TextBox();
-            bCreateAccount = new Button();
+            bCreateCusAccount = new Button();
             label11 = new Label();
             label10 = new Label();
             label9 = new Label();
@@ -143,8 +143,8 @@
             // 
             // pCustomer
             // 
-            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pCreateCustomer);
+            pCustomer.Controls.Add(pSeeAllCustomer);
             pCustomer.Controls.Add(pUpdateCustomer);
             pCustomer.Controls.Add(pCustomerSolBar);
             pCustomer.Location = new Point(160, 0);
@@ -228,7 +228,7 @@
             pCreateCustomer.Controls.Add(tCreateTc);
             pCreateCustomer.Controls.Add(tCreateLName);
             pCreateCustomer.Controls.Add(tCreateFName);
-            pCreateCustomer.Controls.Add(bCreateAccount);
+            pCreateCustomer.Controls.Add(bCreateCusAccount);
             pCreateCustomer.Controls.Add(label11);
             pCreateCustomer.Controls.Add(label10);
             pCreateCustomer.Controls.Add(label9);
@@ -292,21 +292,21 @@
             tCreateFName.Size = new Size(213, 27);
             tCreateFName.TabIndex = 20;
             // 
-            // bCreateAccount
+            // bCreateCusAccount
             // 
-            bCreateAccount.Anchor = AnchorStyles.Top;
-            bCreateAccount.BackColor = Color.FromArgb(76, 175, 80);
-            bCreateAccount.FlatAppearance.BorderSize = 0;
-            bCreateAccount.FlatStyle = FlatStyle.Flat;
-            bCreateAccount.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            bCreateAccount.ForeColor = Color.White;
-            bCreateAccount.Location = new Point(694, 758);
-            bCreateAccount.Name = "bCreateAccount";
-            bCreateAccount.Size = new Size(216, 44);
-            bCreateAccount.TabIndex = 19;
-            bCreateAccount.Text = "Create Account";
-            bCreateAccount.UseVisualStyleBackColor = false;
-            bCreateAccount.Click += bCreateAccount_Click;
+            bCreateCusAccount.Anchor = AnchorStyles.Top;
+            bCreateCusAccount.BackColor = Color.FromArgb(76, 175, 80);
+            bCreateCusAccount.FlatAppearance.BorderSize = 0;
+            bCreateCusAccount.FlatStyle = FlatStyle.Flat;
+            bCreateCusAccount.Font = new Font("Century", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            bCreateCusAccount.ForeColor = Color.White;
+            bCreateCusAccount.Location = new Point(694, 758);
+            bCreateCusAccount.Name = "bCreateCusAccount";
+            bCreateCusAccount.Size = new Size(216, 44);
+            bCreateCusAccount.TabIndex = 19;
+            bCreateCusAccount.Text = "Create Account";
+            bCreateCusAccount.UseVisualStyleBackColor = false;
+            bCreateCusAccount.Click += bCreateCusAccount_Click;
             // 
             // label11
             // 
@@ -577,7 +577,7 @@
             Controls.Add(pCustomer);
             Controls.Add(panel1);
             Name = "Pbo_form";
-            Text = "Pbo_form";
+            Text = "Pbo";
             Load += Pbo_form_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -610,7 +610,7 @@
         private TextBox tCreateTc;
         private TextBox tCreateLName;
         private TextBox tCreateFName;
-        private Button bCreateAccount;
+        private Button bCreateCusAccount;
         private Label label11;
         private Label label10;
         private Label label9;

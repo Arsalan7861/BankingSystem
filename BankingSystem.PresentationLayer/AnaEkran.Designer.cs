@@ -1491,7 +1491,7 @@
             Controls.Add(pOverview_Main);
             Controls.Add(panel1);
             Name = "AnaEkran";
-            Text = "AnaEkran";
+            Text = "Main Page";
             Load += AnaEkran_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

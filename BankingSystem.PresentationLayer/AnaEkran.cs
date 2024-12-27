@@ -249,6 +249,18 @@ namespace bankaprojesiform
                 return;
             }
 
+            if (decimal.Parse(tCreditInitialBalance.Text) < 0)
+            {
+                MessageBox.Show("Initial balance cannot be less than 0.");
+                return;
+            }
+
+            if (tCreditInitialBalance.Text.Any(x => !char.IsDigit(x)) && !tCreditInitialBalance.Text.Contains('.'))
+            {
+                MessageBox.Show("Initial balance must be a number.");
+                return;
+            }
+
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             if (tCreditPassword.Text != customer.Customerpassword)
             {
@@ -307,6 +319,18 @@ namespace bankaprojesiform
             if (tDemandInitialBalance.Text == "" || tDemandPassword.Text == "")
             {
                 MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            if (decimal.Parse(tDemandInitialBalance.Text) < 0)
+            {
+                MessageBox.Show("Initial balance cannot be less than 0.");
+                return;
+            }
+
+            if (tDemandInitialBalance.Text.Any(x => !char.IsDigit(x)) && !tDemandInitialBalance.Text.Contains('.'))
+            {
+                MessageBox.Show("Initial balance must be a number.");
                 return;
             }
 
@@ -409,6 +433,12 @@ namespace bankaprojesiform
                 return;
             }
 
+            if(!tInformationPhone.Text.Any(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be a number.");
+                return;
+            }
+
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             customer.Customerfname = tInformationName.Text;
             customer.Customerlname = tInformationSurname.Text;
@@ -444,6 +474,30 @@ namespace bankaprojesiform
             if (tReciverIban.Text == "" || tSendAmount.Text == "")
             {
                 MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+
+            if(tReciverIban.Text.Any(char.IsLetter))
+            {
+                MessageBox.Show("IBAN must be numeric.");
+                return;
+            }
+
+            if (decimal.Parse(tSendAmount.Text) < 0)
+            {
+                MessageBox.Show("Amount cannot be less than 0.");
+                return;
+            }
+
+            if (!tSendAmount.Text.Any(char.IsDigit) && !tSendAmount.Text.Contains('.'))
+            {
+                MessageBox.Show("Amount must be a number.");
+                return;
+            }
+
+            if (tReciverIban.Text == _customerTc)
+            {
+                MessageBox.Show("You cannot send money to yourself.");
                 return;
             }
 

@@ -160,6 +160,24 @@ namespace bankaprojesiform
                 return;
             }
 
+            if(!tCreateStaffTc.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("TC must be numeric");
+                return;
+            }
+
+            if (!tCreateStaffPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be numeric");
+                return;
+            }
+
+            if (!tCreateStaffEmail.Text.Contains("@") && !tCreateStaffEmail.Text.EndsWith(".com"))
+            {
+                MessageBox.Show("Email must contain '@' and end with '.com'!");
+                return;
+            }
+
             var staffs = _staffService.TGetAll();
             foreach (var staff in staffs)
             {
@@ -233,6 +251,18 @@ namespace bankaprojesiform
                 return;
             }
 
+            if (!tUpdStaffPhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be numeric");
+                return;
+            }
+
+            if (!tUpdStaffEmail.Text.Contains("@") && !tUpdStaffEmail.Text.EndsWith(".com"))
+            {
+                MessageBox.Show("Email must contain '@' and end with '.com'!");
+                return;
+            }
+
             var tc = cUpdateStaffSel.Text.Split(':')[1].Trim();
             var fname = tUpdStaffFirstName.Text;
             var lname = tUpdStaffLName.Text;
@@ -245,6 +275,7 @@ namespace bankaprojesiform
 
             _staffService.TUpdateStaff(tc, fname, lname, password, position, phone, branchId, address, email);
             MessageBox.Show("Staff updated successfully");
+            cUpdateStaffSel.SelectedItem = null;
             tUpdStaffFirstName.Text = "";
             tUpdStaffLName.Text = "";
             tUpdStaffPassword.Text = "";

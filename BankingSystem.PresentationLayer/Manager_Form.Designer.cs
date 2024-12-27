@@ -882,7 +882,7 @@
             Controls.Add(pLog);
             Controls.Add(pSolBar);
             Name = "Manager_Form";
-            Text = "Manager_Form";
+            Text = "Manager";
             Load += Manager_Form_Load;
             pSolBar.ResumeLayout(false);
             pSolBar.PerformLayout();

@@ -366,7 +366,7 @@
             Controls.Add(pRegister);
             ForeColor = SystemColors.ActiveCaptionText;
             Name = "CreateAccount_Form";
-            Text = "Buton1";
+            Text = "Create Account";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             pLogIn.ResumeLayout(false);

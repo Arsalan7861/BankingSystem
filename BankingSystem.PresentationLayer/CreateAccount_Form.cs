@@ -48,70 +48,81 @@ namespace bankaprojesiform
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            var tc = txtLoginTc.Text;// sending tc to anaekran
-
-            // checking if the fields are empty
-            if (txtLoginTc.Text == "" || txtLoginPass.Text == "")
+            try
             {
-                MessageBox.Show("Please fill in all fields");
-                return;
-            }
+                var tc = txtLoginTc.Text;// sending tc to anaekran
 
-            var counter = 0;
-            // checking if the customer is in the database
-            var customers = _customerService.TGetAll();
-            foreach (var customer in customers)
-            {
-                if (customer.Customertc == txtLoginTc.Text && customer.Customerpassword == txtLoginPass.Text)
+                // checking if the fields are empty
+                if (txtLoginTc.Text == "" || txtLoginPass.Text == "")
                 {
-                    counter++;
-                    MessageBox.Show("Login Successful");
-                    AnaEkran anaEkran = new AnaEkran(_connectionString, tc);
+                    MessageBox.Show("Please fill in all fields");
+                    return;
+                }
+
+                var counter = 0;
+                // checking if the customer is in the database
+                var customers = _customerService.TGetAll();
+                foreach (var customer in customers)
+                {
+                    if (customer.Customertc == txtLoginTc.Text && customer.Customerpassword == txtLoginPass.Text)
+                    {
+                        counter++;
+                        MessageBox.Show("Login Successful", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        AnaEkran anaEkran = new AnaEkran(_connectionString, tc);
+                        this.Hide();
+                        anaEkran.Show();
+                        break;
+                    }
+                }
+
+                // checking if the user is admin
+                if (txtLoginTc.Text == "admin" && txtLoginPass.Text == "123")
+                {
+                    MessageBox.Show("Login Successful", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Admin_Form admin = new Admin_Form(_connectionString, tc);
                     this.Hide();
-                    anaEkran.Show();
-                    break;
+                    admin.Show();
+                    return;
                 }
-            }
 
-            // checking if the user is admin
-            if (txtLoginTc.Text == "admin" && txtLoginPass.Text == "123")
-            {
-                Admin_Form admin = new Admin_Form(_connectionString, tc);
-                this.Hide();
-                admin.Show();               
-                return;
-            }
-
-            // checking if the user is admin, manager or pbo
-            var staffs = _staffService.TGetAll();
-            if (staffs.Any(staffs => staffs.Stafftc == txtLoginTc.Text))
-            {
-                foreach (var staff in staffs)
+                // checking if the user is admin, manager or pbo
+                var staffs = _staffService.TGetAll();
+                if (staffs.Any(staffs => staffs.Stafftc == txtLoginTc.Text))
                 {
-                    if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "manager")
+                    foreach (var staff in staffs)
                     {
-                        Manager_Form manager = new Manager_Form(_connectionString, tc);
-                        this.Hide();
-                        manager.Show();
-                        counter++;
-                        break;
-                    }
-                    else if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "pbo")
-                    {
-                        Pbo_form pbo = new Pbo_form(_connectionString, tc);
-                        this.Hide();
-                        pbo.Show();
-                        counter++;
-                        break;
+                        if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "manager")
+                        {
+                            MessageBox.Show("Login Successful", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Manager_Form manager = new Manager_Form(_connectionString, tc);
+                            this.Hide();
+                            manager.Show();
+                            counter++;
+                            break;
+                        }
+                        else if (staff.Stafftc == txtLoginTc.Text && staff.Staffpassword == txtLoginPass.Text && staff.Staffposition.ToLower() == "pbo")
+                        {
+                            MessageBox.Show("Login Successful", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Pbo_form pbo = new Pbo_form(_connectionString, tc);
+                            this.Hide();
+                            pbo.Show();
+                            counter++;
+                            break;
+                        }
                     }
                 }
-            }            
 
-            if (counter == 0)
+                if (counter == 0)
+                {
+                    MessageBox.Show("Invalid TC or Password!");
+                    txtLoginTc.Text = "";
+                    txtLoginPass.Text = "";
+                }
+            }
+            catch (Exception)
             {
-                MessageBox.Show("Invalid TC or Password!");
-                txtLoginTc.Text = "";
-                txtLoginPass.Text = "";
+                MessageBox.Show("An error occured, please try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -129,7 +140,7 @@ namespace bankaprojesiform
                 return;
             }
             _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "24352345");
-            MessageBox.Show("Account Created Successfully");
+            MessageBox.Show("Account Created Successfully", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             pRegister.Hide();
             pLogIn.Show();

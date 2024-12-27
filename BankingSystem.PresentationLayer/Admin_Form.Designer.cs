@@ -2143,7 +2143,7 @@
             Controls.Add(pLog);
             Controls.Add(pSolbar);
             Name = "Admin_Form";
-            Text = "Admin_Form";
+            Text = "Admin";
             Load += Admin_Form_Load;
             pSolbar.ResumeLayout(false);
             pSolbar.PerformLayout();
