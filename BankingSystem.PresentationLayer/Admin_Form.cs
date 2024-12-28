@@ -306,19 +306,20 @@ namespace bankaprojesiform
         {
             if (tBranchCity.Text == "" || tBranchName.Text == "" || tBranchPostCode.Text == "" || tBranchStreet.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if(tBranchCity.Text.Any(char.IsDigit))
             {
-                MessageBox.Show("City name cannot contain numbers!");
+                MessageBox.Show("City name cannot contain numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tBranchPostCode.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Post code must contain only numbers!");
+                MessageBox.Show("Post code must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             var city = tBranchCity.Text;
@@ -327,7 +328,7 @@ namespace bankaprojesiform
             var name = tBranchName.Text;
 
             _branchService.TCreateBranch(city, street, postCode, name);
-            MessageBox.Show("Branch Created Successfully.");
+            MessageBox.Show("Branch Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tBranchCity.Text = "";
             tBranchStreet.Text = "";
             tBranchPostCode.Text = "";
@@ -355,19 +356,20 @@ namespace bankaprojesiform
         {
             if (tUBranchCity.Text == "" || tUBranchName.Text == "" || tUBranchPostCode.Text == "" || tUBranchStreet.Text == "" || cmbUSelectBranch.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (tUBranchCity.Text.Any(char.IsDigit))
             {
-                MessageBox.Show("City name cannot contain numbers!");
+                MessageBox.Show("City name cannot contain numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tUBranchPostCode.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Post code must contain only numbers!");
+                MessageBox.Show("Post code must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
             var id = Convert.ToInt32(cmbUSelectBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
@@ -376,7 +378,7 @@ namespace bankaprojesiform
             var postCode = tUBranchPostCode.Text;
             var name = tUBranchName.Text;
             _branchService.TUpdateBranch(id, city, street, postCode, name);
-            MessageBox.Show("Branch Updated Successfully.");
+            MessageBox.Show("Branch Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tUBranchCity.Text = "";
             tUBranchName.Text = "";
             tUBranchPostCode.Text = "";
@@ -390,13 +392,13 @@ namespace bankaprojesiform
         {
             if (cmbDSelectBranch.Text == "")
             {
-                MessageBox.Show("Please select a branch to delete!");
+                MessageBox.Show("Please select a branch to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var id = Convert.ToInt32(cmbDSelectBranch.Text.Split(',')[0].Trim().Split(':')[1].Trim());
             _branchService.TDeleteBranch(id);
-            MessageBox.Show("Branch Deleted Successfully.");
+            MessageBox.Show("Branch Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cmbDSelectBranch.Text = "";
 
             LoadData();
@@ -406,28 +408,34 @@ namespace bankaprojesiform
         {
             if (txtStaffTc.Text == "" || txtStaffFName.Text == "" || txtStaffLName.Text == "" || txtStaffPassword.Text == "" || cmbStaffPosition.Text == "" || txtStaffPhoneNo.Text == "" || cmbStaffBranch.Text == "" || txtStaffAddress.Text == "" || txtStaffEmail.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!txtStaffTc.Text.All(char.IsDigit))
             {
-                MessageBox.Show("TC must contain only numbers!");
+                MessageBox.Show("TC must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!txtStaffPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must contain only numbers!");
+                MessageBox.Show("Phone number must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if(!txtStaffEmail.Text.Contains("@") && !txtStaffEmail.Text.EndsWith(".com"))
+            if(!txtStaffEmail.Text.Contains("@") || !txtStaffEmail.Text.EndsWith(".com"))
             {
-                MessageBox.Show("Email address should contain @ and should end with .com!");
+                MessageBox.Show("Email address should contain @ and should end with .com!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            var staffs = _staffService.TGetAll();
+            if (staffs.Any(x => x.Stafftc == txtStaffTc.Text))
+            {
+                MessageBox.Show("Staff with this TC already exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             var tc = txtStaffTc.Text;
             var fName = txtStaffFName.Text;
@@ -440,17 +448,16 @@ namespace bankaprojesiform
             var email = txtStaffEmail.Text;
 
             _staffService.TCreateStaff(tc, fName, lName, password, position, phone, branchId, address, email);
-            MessageBox.Show("Staff Created Successfully.");
+            MessageBox.Show("Staff Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtStaffTc.Text = "";
             txtStaffFName.Text = "";
             txtStaffLName.Text = "";
             txtStaffPassword.Text = "";
-            cmbStaffPosition.Text = "";
+            cmbStaffPosition.SelectedItem = null;
             txtStaffPhoneNo.Text = "";
             cmbStaffBranch.Text = "";
             txtStaffAddress.Text = "";
             txtStaffEmail.Text = "";
-
             LoadData();
         }
 
@@ -458,19 +465,19 @@ namespace bankaprojesiform
         {
             if (cmbUStaff.Text == "" || txtUStaffFName.Text == "" || txtUStaffLName.Text == "" || txtUStaffPassword.Text == "" || cmbUStaffPosition.Text == "" || txtUStaffPhoneNo.Text == "" || cmbUSelBranch.Text == "" || txtUStaffAddress.Text == "" || txtUStaffEmail.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!txtUStaffPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must contain only numbers!");
+                MessageBox.Show("Phone number must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!txtUStaffEmail.Text.Contains("@") && !txtUStaffEmail.Text.EndsWith(".com"))
+            if (!txtUStaffEmail.Text.Contains("@") || !txtUStaffEmail.Text.EndsWith(".com"))
             {
-                MessageBox.Show("Email address should contain @ and should end with .com!");
+                MessageBox.Show("Email address should contain @ and should end with .com!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -485,12 +492,12 @@ namespace bankaprojesiform
             var email = txtUStaffEmail.Text;
 
             _staffService.TUpdateStaff(tc, fName, lName, password, position, phone, branchId, address, email);
-            MessageBox.Show("Staff Updated Successfully.");
+            MessageBox.Show("Staff Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cmbUStaff.Text = "";
             txtUStaffFName.Text = "";
             txtUStaffLName.Text = "";
             txtUStaffPassword.Text = "";
-            cmbUStaffPosition.Text = "";
+            cmbUStaffPosition.SelectedItem = null;
             txtUStaffPhoneNo.Text = "";
             cmbUSelBranch.Text = "";
             txtUStaffAddress.Text = "";
@@ -567,13 +574,13 @@ namespace bankaprojesiform
         {
             if (cDelSelStaff.Text == "")
             {
-                MessageBox.Show("Please select a staff to delete!");
+                MessageBox.Show("Please select a staff to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var staffTc = cDelSelStaff.Text.Split(':')[1].Trim();
             _staffService.TDeleteStaff(staffTc);
-            MessageBox.Show("Staff Deleted Successfully.");
+            MessageBox.Show("Staff Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cDelSelStaff.Text = "";
             cDelSelStaff.Items.Clear();
             cDelSelBranch.Text = "";
@@ -585,26 +592,26 @@ namespace bankaprojesiform
         {
             if (txtCustomerTc.Text == "" || tCusFName.Text == "" || tCusLName.Text == "" || tCusPass.Text == "" || tCusPhoneNo.Text == "" || tCusAddress.Text == "" || cmbCusStaffTc.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!txtCustomerTc.Text.All(char.IsDigit))
             {
-                MessageBox.Show("TC must contain only numbers!");
+                MessageBox.Show("TC must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tCusPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must contain only numbers!");
+                MessageBox.Show("Phone number must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customers = _customerService.TGetAll();
             if (customers.Any(x => x.Customertc == txtCustomerTc.Text))
             {
-                MessageBox.Show("Customer with this TC already exists!");
+                MessageBox.Show("Customer with this TC already exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -617,7 +624,7 @@ namespace bankaprojesiform
             var staffTc = cmbCusStaffTc.Text.Split(':')[1].Trim();
 
             _customerService.TCreateCustomer(tc, fname, lname, password, phone, address, staffTc);
-            MessageBox.Show("Customer Created Successfully.");
+            MessageBox.Show("Customer Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtCustomerTc.Text = "";
             tCusFName.Text = "";
             tCusLName.Text = "";
@@ -651,13 +658,13 @@ namespace bankaprojesiform
         {
             if (cUpdateCustomerTC.Text == "" || tUpdateCusFirstName.Text == "" || tUpdateCusLastName.Text == "" || tUpdateCusPass.Text == "" || tUpdateCusPhoneNo.Text == "" || tUpdateCusAddress.Text == "" || cmbUpdateCusStaffTc.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tUpdateCusPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must contain only numbers!");
+                MessageBox.Show("Phone number must contain only numbers!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -670,7 +677,7 @@ namespace bankaprojesiform
             var staffTc = cmbUpdateCusStaffTc.Text.Split(':')[1].Trim();
 
             _customerService.TUpdateCustomer(customerTc, fname, lname, password, phone, address, staffTc);
-            MessageBox.Show("Customer Updated Successfully.");
+            MessageBox.Show("Customer Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cUpdateCustomerTC.Text = "";
             tUpdateCusFirstName.Text = "";
             tUpdateCusLastName.Text = "";
@@ -686,14 +693,14 @@ namespace bankaprojesiform
         {
             if (cDelCustomer.Text == "")
             {
-                MessageBox.Show("Please select a customer to delete!");
+                MessageBox.Show("Please select a customer to delete!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customerTc = cDelCustomer.Text.Split(':')[1].Trim();
 
             _customerService.TDeleteCustomer(customerTc);
-            MessageBox.Show("Customer Deleted Successfully.");
+            MessageBox.Show("Customer Deleted Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             cDelCustomer.Text = "";
 
             LoadData();

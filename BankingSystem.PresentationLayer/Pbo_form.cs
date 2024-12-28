@@ -101,19 +101,19 @@ namespace bankaprojesiform
         {
             if (tCreateTc.Text == "" || tCreateFName.Text == "" || tCreateLName.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "")
             {
-                MessageBox.Show("Please fill in all fields!");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tCreateTc.Text.All(char.IsDigit))
             {
-                MessageBox.Show("TC must be numeric!");
+                MessageBox.Show("TC must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tCreatePhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be numeric!");
+                MessageBox.Show("Phone number must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -129,13 +129,13 @@ namespace bankaprojesiform
             {
                 if (customer.Customertc == customerTc)
                 {
-                    MessageBox.Show("Customer already exists.");
+                    MessageBox.Show("Customer already exists.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
 
             _customerService.TCreateCustomer(customerTc, fname, lname, password, phone, address, _pboTc);
-            MessageBox.Show("Customer Created Successfully.");
+            MessageBox.Show("Customer Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tCreateTc.Text = "";
             tCreateFName.Text = "";
             tCreateLName.Text = "";
@@ -164,13 +164,13 @@ namespace bankaprojesiform
         {
             if (tUpdateCusFirstName.Text == "" || tUpdateCusLastName.Text == "" || tUpdateCusPass.Text == "" || tUpdateCusPhoneNo.Text == "" || tUpdateCusAddress.Text == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tUpdateCusPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be numeric!");
+                MessageBox.Show("Phone number must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -182,8 +182,7 @@ namespace bankaprojesiform
             var address = tUpdateCusAddress.Text;
 
             _customerService.TUpdateCustomer(customerTc, fname, lname, password, phone, address, _pboTc);
-            MessageBox.Show("Customer Updated Successfully.");
-            cUpdateCustomerTc.SelectedItem = null;
+            MessageBox.Show("Customer Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tUpdateCusFirstName.Text = "";
             tUpdateCusLastName.Text = "";
             tUpdateCusPass.Text = "";

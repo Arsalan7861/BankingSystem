@@ -245,26 +245,26 @@ namespace bankaprojesiform
         {
             if (tCreditInitialBalance.Text == "" || tCreditPassword.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-
-            if (decimal.Parse(tCreditInitialBalance.Text) < 0)
-            {
-                MessageBox.Show("Initial balance cannot be less than 0.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (tCreditInitialBalance.Text.Any(x => !char.IsDigit(x)) && !tCreditInitialBalance.Text.Contains('.'))
             {
-                MessageBox.Show("Initial balance must be a number.");
+                MessageBox.Show("Initial balance must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.Parse(tCreditInitialBalance.Text) < 0)
+            {
+                MessageBox.Show("Initial balance cannot be less than 0!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             if (tCreditPassword.Text != customer.Customerpassword)
             {
-                MessageBox.Show("Password is Incorrect!");
+                MessageBox.Show("Password is Incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -273,7 +273,7 @@ namespace bankaprojesiform
             {
                 if (account.Accounttype == "Credit")
                 {
-                    MessageBox.Show("You already have a credit account.");
+                    MessageBox.Show("You already have a credit account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tCreditInitialBalance.Text = "";
                     tCreditPassword.Text = "";
                     return;
@@ -286,7 +286,7 @@ namespace bankaprojesiform
             var iban = GenerateUniqueIban();
             SessionContext.StaffTc = customer.Stafftc;// Set the session staff tc
             _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
-            MessageBox.Show("Credit Account Created Successfully");
+            MessageBox.Show("Credit Account Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tCreditInitialBalance.Text = "";
             tCreditPassword.Text = "";
 
@@ -318,26 +318,26 @@ namespace bankaprojesiform
         {
             if (tDemandInitialBalance.Text == "" || tDemandPassword.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
-                return;
-            }
-
-            if (decimal.Parse(tDemandInitialBalance.Text) < 0)
-            {
-                MessageBox.Show("Initial balance cannot be less than 0.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (tDemandInitialBalance.Text.Any(x => !char.IsDigit(x)) && !tDemandInitialBalance.Text.Contains('.'))
             {
-                MessageBox.Show("Initial balance must be a number.");
+                MessageBox.Show("Initial balance must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.Parse(tDemandInitialBalance.Text) < 0)
+            {
+                MessageBox.Show("Initial balance cannot be less than 0!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             if (tDemandPassword.Text != customer.Customerpassword)
             {
-                MessageBox.Show("Password is Incorrect!");
+                MessageBox.Show("Password is Incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -346,7 +346,7 @@ namespace bankaprojesiform
             {
                 if (account.Accounttype == "Demand Deposit")
                 {
-                    MessageBox.Show("You already have a demand deposit account.");
+                    MessageBox.Show("You already have a demand deposit account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     tDemandInitialBalance.Text = "";
                     tDemandPassword.Text = "";
                     return;
@@ -359,7 +359,7 @@ namespace bankaprojesiform
             SessionContext.StaffTc = customer.Stafftc;// Set the session staff tc
             var iban = GenerateUniqueIban();
             _accountService.TcreateBankAccount(_customerTc, accountType, initialBalance, iban, currency);
-            MessageBox.Show("Demand Deposit Account Created Successfully");
+            MessageBox.Show("Demand Deposit Account Created Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tDemandInitialBalance.Text = "";
             tDemandPassword.Text = "";
 
@@ -370,14 +370,14 @@ namespace bankaprojesiform
         {
             if (cmbAccCloseReqAccountType.SelectedItem == null || tAccCloseReqPass.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customer = _customerService.TGetCustomerByTc(_customerTc);
             if (tAccCloseReqPass.Text != customer.Customerpassword)
             {
-                MessageBox.Show("Password is Incorrect!");
+                MessageBox.Show("Password is Incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -391,7 +391,7 @@ namespace bankaprojesiform
             {
                 _accountService.TDeleteAccountByTcAndType(_customerTc, "Demand Deposit");
             }
-            MessageBox.Show("Account Closed Successfully");
+            MessageBox.Show("Account Closed Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tAccCloseReqPass.Text = "";
             cmbAccCloseReqAccountType.SelectedItem = null;
             LoadData();
@@ -401,14 +401,14 @@ namespace bankaprojesiform
         {
             if (tOldPass.Text == "" || tNewPass.Text == "" || tNewPassAgain.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var customer = _customerService.TGetCustomerByTc(_customerTc);
-            if (tNewPass.Text != tNewPassAgain.Text && tNewPass.Text == "")
+            if (tNewPass.Text != tNewPassAgain.Text)
             {
-                MessageBox.Show("New Passwords do not match!");
+                MessageBox.Show("New Passwords do not match!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -416,11 +416,14 @@ namespace bankaprojesiform
             {
                 customer.Customerpassword = tNewPass.Text;
                 _customerService.TUpdateCustomer(customer.Customertc, customer.Customerfname, customer.Customerlname, customer.Customerpassword, customer.Customerphone, customer.Customeraddress, customer.Stafftc);
-                MessageBox.Show("Password Changed Successfully.");
+                MessageBox.Show("Password Changed Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tOldPass.Text = "";
+                tNewPass.Text = "";
+                tNewPassAgain.Text = "";
             }
             else
             {
-                MessageBox.Show("Old Password is Incorrect!");
+                MessageBox.Show("Old Password is Incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LoadData();
         }
@@ -429,13 +432,13 @@ namespace bankaprojesiform
         {
             if (tInformationName.Text == "" || tInformationSurname.Text == "" || tInformationAddress.Text == "" || tInformationPhone.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if(!tInformationPhone.Text.Any(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be a number.");
+                MessageBox.Show("Phone number must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -447,12 +450,12 @@ namespace bankaprojesiform
             if (customer.Customerpassword == tInformationPass.Text)
             {
                 _customerService.TUpdateCustomer(customer.Customertc, customer.Customerfname, customer.Customerlname, customer.Customerpassword, customer.Customerphone, customer.Customeraddress, customer.Stafftc);
-                MessageBox.Show("Information Updated Successfully.");
+                MessageBox.Show("Information Updated Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tInformationPass.Text = "";
             }
             else
             {
-                MessageBox.Show("Password is Incorrect!");
+                MessageBox.Show("Password is Incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             LoadData();
         }
@@ -473,31 +476,31 @@ namespace bankaprojesiform
         {
             if (tReciverIban.Text == "" || tSendAmount.Text == "")
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if(tReciverIban.Text.Any(char.IsLetter))
             {
-                MessageBox.Show("IBAN must be numeric.");
-                return;
-            }
-
-            if (decimal.Parse(tSendAmount.Text) < 0)
-            {
-                MessageBox.Show("Amount cannot be less than 0.");
+                MessageBox.Show("IBAN must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tSendAmount.Text.Any(char.IsDigit) && !tSendAmount.Text.Contains('.'))
             {
-                MessageBox.Show("Amount must be a number.");
+                MessageBox.Show("Amount must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.Parse(tSendAmount.Text) < 0)
+            {
+                MessageBox.Show("Amount cannot be less than 0!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (tReciverIban.Text == _customerTc)
             {
-                MessageBox.Show("You cannot send money to yourself.");
+                MessageBox.Show("You cannot send money to yourself!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -508,7 +511,7 @@ namespace bankaprojesiform
             var customers = _customerService.TGetAll();
             if (customers.All(x => x.Customertc != recipientIban))
             {
-                MessageBox.Show("There is no customer with this IBAN!");
+                MessageBox.Show("There is no customer with this IBAN!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -516,12 +519,19 @@ namespace bankaprojesiform
             var accounts = _accountService.TGetAccountByTc(_customerTc);
             if (accounts.All(x => x.Accounttype != "Demand Deposit"))
             {
-                MessageBox.Show("You do not have a demand deposit account.");
+                MessageBox.Show("You do not have a demand deposit account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var account = accounts.First(x => x.Accounttype == "Demand Deposit");
+            if(account.Accountbalance < amount)
+            {
+                MessageBox.Show("You do not have enough money in your account!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
             _accountService.TsendMoney(_customerTc, recipientIban, amount);
-            MessageBox.Show("Money Sent Successfully.");
+            MessageBox.Show("Money Sent Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tReciverIban.Text = "";
             tSendAmount.Text = "";
 

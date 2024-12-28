@@ -55,7 +55,7 @@ namespace bankaprojesiform
                 // checking if the fields are empty
                 if (txtLoginTc.Text == "" || txtLoginPass.Text == "")
                 {
-                    MessageBox.Show("Please fill in all fields");
+                    MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -114,7 +114,7 @@ namespace bankaprojesiform
 
                 if (counter == 0)
                 {
-                    MessageBox.Show("Invalid TC or Password!");
+                    MessageBox.Show("Invalid TC or Password!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtLoginTc.Text = "";
                     txtLoginPass.Text = "";
                 }
@@ -136,9 +136,22 @@ namespace bankaprojesiform
         {
             if (tCreateTc.Text == "" || tCreateName.Text == "" || tCreateSurname.Text == "" || tCreatePassword.Text == "" || tCreatePhoneNo.Text == "" || tCreateAddress.Text == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            if (!tCreateTc.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("TC must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!tCreatePhoneNo.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("Phone number must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "24352345");
             MessageBox.Show("Account Created Successfully", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

@@ -67,8 +67,8 @@ namespace bankaprojesiform
             dLog.DataSource = logs;
             dLog.ClearSelection(); // clear selection of the data grid view
 
-            // show branches in combo boxes
-            var branches = _branchService.TGetAll();
+            // show branches related to manager in combo boxes
+            var branches = _branchService.TGetAll().Where(x => x.Branchid == manager.Branchid).ToList();
             cCreateStaffBranchId.Items.Clear();
             cUpdStaffBranchId.Items.Clear();
             foreach (var branch in branches)
@@ -156,25 +156,25 @@ namespace bankaprojesiform
         {
             if (tCreateStaffTc.Text == "" || tCreateStaffFName.Text == "" || tCreateStaffLName.Text == "" || tCreateStaffPassword.Text == "" || tCreateStaffPhoneNo.Text == "" || tCreateStaffAddress.Text == "" || cCreateStaffPos.Text == "" || tCreateStaffEmail.Text == "" || cCreateStaffBranchId.Text == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if(!tCreateStaffTc.Text.All(char.IsDigit))
             {
-                MessageBox.Show("TC must be numeric");
+                MessageBox.Show("TC must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tCreateStaffPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be numeric");
+                MessageBox.Show("Phone number must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!tCreateStaffEmail.Text.Contains("@") && !tCreateStaffEmail.Text.EndsWith(".com"))
+            if (!tCreateStaffEmail.Text.Contains("@") || !tCreateStaffEmail.Text.EndsWith(".com"))
             {
-                MessageBox.Show("Email must contain '@' and end with '.com'!");
+                MessageBox.Show("Email must contain '@' and end with '.com'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -183,7 +183,7 @@ namespace bankaprojesiform
             {
                 if (staff.Stafftc == tCreateStaffTc.Text)
                 {
-                    MessageBox.Show("Staff already exists");
+                    MessageBox.Show("Staff already exists!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }
@@ -199,7 +199,7 @@ namespace bankaprojesiform
             var staffemail = tCreateStaffEmail.Text;
 
             _staffService.TCreateStaff(stafftc, staffname, staffsurname, staffpassword, staffposition, staffphone, staffbranchid, staffaddress, staffemail);
-            MessageBox.Show("Staff created successfully");
+            MessageBox.Show("Staff created successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tCreateStaffTc.Text = "";
             tCreateStaffFName.Text = "";
             tCreateStaffLName.Text = "";
@@ -207,6 +207,7 @@ namespace bankaprojesiform
             tCreateStaffPhoneNo.Text = "";
             tCreateStaffAddress.Text = "";
             tCreateStaffEmail.Text = "";
+            cCreateStaffPos.SelectedItem = null;
 
             LoadData();
         }
@@ -215,13 +216,13 @@ namespace bankaprojesiform
         {
             if (cDelSelStaff.Text == "")
             {
-                MessageBox.Show("Please select a staff!");
+                MessageBox.Show("Please select a staff!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             var staffTc = cDelSelStaff.Text.Split(':')[1].Trim();
             _staffService.TDeleteStaff(staffTc);
-            MessageBox.Show("Staff deleted successfully");
+            MessageBox.Show("Staff deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LoadData();
         }
@@ -247,19 +248,19 @@ namespace bankaprojesiform
         {
             if (cUpdateStaffSel.Text == "" || tUpdStaffFirstName.Text == "" || tUpdStaffLName.Text == "" || tUpdStaffPassword.Text == "" || tUpdStaffPhoneNo.Text == "" || tUpdStaffAddress.Text == "" || cUpdStaffPos.Text == "" || tUpdStaffEmail.Text == "" || cUpdStaffBranchId.Text == "")
             {
-                MessageBox.Show("Please fill in all fields");
+                MessageBox.Show("Please fill in all fields!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (!tUpdStaffPhoneNo.Text.All(char.IsDigit))
             {
-                MessageBox.Show("Phone number must be numeric");
+                MessageBox.Show("Phone number must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            if (!tUpdStaffEmail.Text.Contains("@") && !tUpdStaffEmail.Text.EndsWith(".com"))
+            if (!tUpdStaffEmail.Text.Contains('@') || !tUpdStaffEmail.Text.EndsWith(".com"))
             {
-                MessageBox.Show("Email must contain '@' and end with '.com'!");
+                MessageBox.Show("Email must contain '@' and end with '.com'!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -274,14 +275,14 @@ namespace bankaprojesiform
             var branchId = int.Parse(cUpdStaffBranchId.Text.Split(',')[0].Trim().Split(':')[1].Trim());
 
             _staffService.TUpdateStaff(tc, fname, lname, password, position, phone, branchId, address, email);
-            MessageBox.Show("Staff updated successfully");
-            cUpdateStaffSel.SelectedItem = null;
+            MessageBox.Show("Staff updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tUpdStaffFirstName.Text = "";
             tUpdStaffLName.Text = "";
             tUpdStaffPassword.Text = "";
             tUpdStaffPhoneNo.Text = "";
             tUpdStaffAddress.Text = "";
             tUpdStaffEmail.Text = "";
+            cUpdStaffPos.SelectedItem = null;
 
             LoadData();
         }

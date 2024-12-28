@@ -35,6 +35,27 @@
             label2 = new Label();
             label1 = new Label();
             pStaff = new Panel();
+            pCreateStaff = new Panel();
+            tCreateStaffEmail = new TextBox();
+            label6 = new Label();
+            cCreateStaffBranchId = new ComboBox();
+            label5 = new Label();
+            tCreateStaffTc = new TextBox();
+            label4 = new Label();
+            tCreateStaffPassword = new TextBox();
+            label3 = new Label();
+            btnCreateStaff = new Button();
+            cCreateStaffPos = new ComboBox();
+            tCreateStaffAddress = new TextBox();
+            tCreateStaffPhoneNo = new TextBox();
+            tCreateStaffLName = new TextBox();
+            tCreateStaffFName = new TextBox();
+            label22 = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            label17 = new Label();
             pSeeAllStaff = new Panel();
             bSearchStaff = new Button();
             tSearchStaff = new TextBox();
@@ -67,27 +88,6 @@
             cUpdateStaffSel = new ComboBox();
             label25 = new Label();
             label23 = new Label();
-            pCreateStaff = new Panel();
-            tCreateStaffEmail = new TextBox();
-            label6 = new Label();
-            cCreateStaffBranchId = new ComboBox();
-            label5 = new Label();
-            tCreateStaffTc = new TextBox();
-            label4 = new Label();
-            tCreateStaffPassword = new TextBox();
-            label3 = new Label();
-            btnCreateStaff = new Button();
-            cCreateStaffPos = new ComboBox();
-            tCreateStaffAddress = new TextBox();
-            tCreateStaffPhoneNo = new TextBox();
-            tCreateStaffLName = new TextBox();
-            tCreateStaffFName = new TextBox();
-            label22 = new Label();
-            label21 = new Label();
-            label20 = new Label();
-            label19 = new Label();
-            label18 = new Label();
-            label17 = new Label();
             pStaffBar = new Panel();
             bSeeStaff = new Button();
             bDeleteStaff = new Button();
@@ -101,11 +101,11 @@
             dLog = new DataGridView();
             pSolBar.SuspendLayout();
             pStaff.SuspendLayout();
+            pCreateStaff.SuspendLayout();
             pSeeAllStaff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dSeeAllStaff).BeginInit();
             pDeleteStaff.SuspendLayout();
             pUpdateStaff.SuspendLayout();
-            pCreateStaff.SuspendLayout();
             pStaffBar.SuspendLayout();
             pLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dLog).BeginInit();
@@ -185,15 +185,225 @@
             // 
             // pStaff
             // 
-            pStaff.Controls.Add(pSeeAllStaff);
-            pStaff.Controls.Add(pDeleteStaff);
             pStaff.Controls.Add(pUpdateStaff);
             pStaff.Controls.Add(pCreateStaff);
+            pStaff.Controls.Add(pSeeAllStaff);
+            pStaff.Controls.Add(pDeleteStaff);
             pStaff.Controls.Add(pStaffBar);
             pStaff.Location = new Point(187, 1);
             pStaff.Name = "pStaff";
             pStaff.Size = new Size(1716, 1030);
             pStaff.TabIndex = 1;
+            // 
+            // pCreateStaff
+            // 
+            pCreateStaff.Controls.Add(tCreateStaffEmail);
+            pCreateStaff.Controls.Add(label6);
+            pCreateStaff.Controls.Add(cCreateStaffBranchId);
+            pCreateStaff.Controls.Add(label5);
+            pCreateStaff.Controls.Add(tCreateStaffTc);
+            pCreateStaff.Controls.Add(label4);
+            pCreateStaff.Controls.Add(tCreateStaffPassword);
+            pCreateStaff.Controls.Add(label3);
+            pCreateStaff.Controls.Add(btnCreateStaff);
+            pCreateStaff.Controls.Add(cCreateStaffPos);
+            pCreateStaff.Controls.Add(tCreateStaffAddress);
+            pCreateStaff.Controls.Add(tCreateStaffPhoneNo);
+            pCreateStaff.Controls.Add(tCreateStaffLName);
+            pCreateStaff.Controls.Add(tCreateStaffFName);
+            pCreateStaff.Controls.Add(label22);
+            pCreateStaff.Controls.Add(label21);
+            pCreateStaff.Controls.Add(label20);
+            pCreateStaff.Controls.Add(label19);
+            pCreateStaff.Controls.Add(label18);
+            pCreateStaff.Controls.Add(label17);
+            pCreateStaff.Location = new Point(202, 4);
+            pCreateStaff.Name = "pCreateStaff";
+            pCreateStaff.Size = new Size(1508, 1023);
+            pCreateStaff.TabIndex = 3;
+            // 
+            // tCreateStaffEmail
+            // 
+            tCreateStaffEmail.Location = new Point(658, 679);
+            tCreateStaffEmail.Name = "tCreateStaffEmail";
+            tCreateStaffEmail.Size = new Size(200, 27);
+            tCreateStaffEmail.TabIndex = 27;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label6.Location = new Point(481, 681);
+            label6.Name = "label6";
+            label6.Size = new Size(117, 23);
+            label6.TabIndex = 26;
+            label6.Text = "Staff Email";
+            // 
+            // cCreateStaffBranchId
+            // 
+            cCreateStaffBranchId.DropDownStyle = ComboBoxStyle.DropDownList;
+            cCreateStaffBranchId.FormattingEnabled = true;
+            cCreateStaffBranchId.Location = new Point(658, 732);
+            cCreateStaffBranchId.Name = "cCreateStaffBranchId";
+            cCreateStaffBranchId.Size = new Size(200, 28);
+            cCreateStaffBranchId.TabIndex = 25;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label5.Location = new Point(491, 737);
+            label5.Name = "label5";
+            label5.Size = new Size(107, 23);
+            label5.TabIndex = 24;
+            label5.Text = "Branch ID";
+            // 
+            // tCreateStaffTc
+            // 
+            tCreateStaffTc.Location = new Point(658, 315);
+            tCreateStaffTc.Name = "tCreateStaffTc";
+            tCreateStaffTc.Size = new Size(200, 27);
+            tCreateStaffTc.TabIndex = 23;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label4.Location = new Point(509, 315);
+            label4.Name = "label4";
+            label4.Size = new Size(89, 23);
+            label4.TabIndex = 22;
+            label4.Text = "Staff TC";
+            // 
+            // tCreateStaffPassword
+            // 
+            tCreateStaffPassword.Location = new Point(658, 622);
+            tCreateStaffPassword.Name = "tCreateStaffPassword";
+            tCreateStaffPassword.Size = new Size(200, 27);
+            tCreateStaffPassword.TabIndex = 21;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label3.Location = new Point(448, 624);
+            label3.Name = "label3";
+            label3.Size = new Size(150, 23);
+            label3.TabIndex = 20;
+            label3.Text = "Staff Password";
+            // 
+            // btnCreateStaff
+            // 
+            btnCreateStaff.BackColor = Color.FromArgb(76, 175, 80);
+            btnCreateStaff.FlatAppearance.BorderSize = 0;
+            btnCreateStaff.FlatStyle = FlatStyle.Flat;
+            btnCreateStaff.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            btnCreateStaff.ForeColor = Color.White;
+            btnCreateStaff.Location = new Point(618, 827);
+            btnCreateStaff.Name = "btnCreateStaff";
+            btnCreateStaff.Size = new Size(248, 49);
+            btnCreateStaff.TabIndex = 19;
+            btnCreateStaff.Text = "CREATE STAFF";
+            btnCreateStaff.UseVisualStyleBackColor = false;
+            btnCreateStaff.Click += btnCreateStaff_Click;
+            // 
+            // cCreateStaffPos
+            // 
+            cCreateStaffPos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cCreateStaffPos.FormattingEnabled = true;
+            cCreateStaffPos.Items.AddRange(new object[] { "Pbo" });
+            cCreateStaffPos.Location = new Point(658, 465);
+            cCreateStaffPos.Name = "cCreateStaffPos";
+            cCreateStaffPos.Size = new Size(200, 28);
+            cCreateStaffPos.TabIndex = 10;
+            // 
+            // tCreateStaffAddress
+            // 
+            tCreateStaffAddress.Location = new Point(658, 567);
+            tCreateStaffAddress.Name = "tCreateStaffAddress";
+            tCreateStaffAddress.Size = new Size(200, 27);
+            tCreateStaffAddress.TabIndex = 9;
+            // 
+            // tCreateStaffPhoneNo
+            // 
+            tCreateStaffPhoneNo.Location = new Point(658, 517);
+            tCreateStaffPhoneNo.Name = "tCreateStaffPhoneNo";
+            tCreateStaffPhoneNo.Size = new Size(200, 27);
+            tCreateStaffPhoneNo.TabIndex = 8;
+            // 
+            // tCreateStaffLName
+            // 
+            tCreateStaffLName.Location = new Point(658, 411);
+            tCreateStaffLName.Name = "tCreateStaffLName";
+            tCreateStaffLName.Size = new Size(200, 27);
+            tCreateStaffLName.TabIndex = 7;
+            // 
+            // tCreateStaffFName
+            // 
+            tCreateStaffFName.Location = new Point(658, 360);
+            tCreateStaffFName.Name = "tCreateStaffFName";
+            tCreateStaffFName.Size = new Size(200, 27);
+            tCreateStaffFName.TabIndex = 6;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label22.Location = new Point(463, 569);
+            label22.Name = "label22";
+            label22.Size = new Size(135, 23);
+            label22.TabIndex = 5;
+            label22.Text = "Staff Address";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label21.Location = new Point(447, 521);
+            label21.Name = "label21";
+            label21.Size = new Size(151, 23);
+            label21.TabIndex = 4;
+            label21.Text = "Staff Phone No";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label20.Location = new Point(462, 470);
+            label20.Name = "label20";
+            label20.Size = new Size(136, 23);
+            label20.TabIndex = 3;
+            label20.Text = "Staff Position";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label19.Location = new Point(434, 415);
+            label19.Name = "label19";
+            label19.Size = new Size(164, 23);
+            label19.TabIndex = 2;
+            label19.Text = "Staff Last Name";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label18.Location = new Point(430, 360);
+            label18.Name = "label18";
+            label18.Size = new Size(168, 23);
+            label18.TabIndex = 1;
+            label18.Text = "Staff First Name";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
+            label17.Location = new Point(652, 220);
+            label17.Name = "label17";
+            label17.Size = new Size(207, 40);
+            label17.TabIndex = 0;
+            label17.Text = "Create Staff";
             // 
             // pSeeAllStaff
             // 
@@ -531,216 +741,6 @@
             label23.TabIndex = 1;
             label23.Text = "Update Staff";
             // 
-            // pCreateStaff
-            // 
-            pCreateStaff.Controls.Add(tCreateStaffEmail);
-            pCreateStaff.Controls.Add(label6);
-            pCreateStaff.Controls.Add(cCreateStaffBranchId);
-            pCreateStaff.Controls.Add(label5);
-            pCreateStaff.Controls.Add(tCreateStaffTc);
-            pCreateStaff.Controls.Add(label4);
-            pCreateStaff.Controls.Add(tCreateStaffPassword);
-            pCreateStaff.Controls.Add(label3);
-            pCreateStaff.Controls.Add(btnCreateStaff);
-            pCreateStaff.Controls.Add(cCreateStaffPos);
-            pCreateStaff.Controls.Add(tCreateStaffAddress);
-            pCreateStaff.Controls.Add(tCreateStaffPhoneNo);
-            pCreateStaff.Controls.Add(tCreateStaffLName);
-            pCreateStaff.Controls.Add(tCreateStaffFName);
-            pCreateStaff.Controls.Add(label22);
-            pCreateStaff.Controls.Add(label21);
-            pCreateStaff.Controls.Add(label20);
-            pCreateStaff.Controls.Add(label19);
-            pCreateStaff.Controls.Add(label18);
-            pCreateStaff.Controls.Add(label17);
-            pCreateStaff.Location = new Point(202, 4);
-            pCreateStaff.Name = "pCreateStaff";
-            pCreateStaff.Size = new Size(1508, 1023);
-            pCreateStaff.TabIndex = 3;
-            // 
-            // tCreateStaffEmail
-            // 
-            tCreateStaffEmail.Location = new Point(658, 679);
-            tCreateStaffEmail.Name = "tCreateStaffEmail";
-            tCreateStaffEmail.Size = new Size(200, 27);
-            tCreateStaffEmail.TabIndex = 27;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label6.Location = new Point(481, 681);
-            label6.Name = "label6";
-            label6.Size = new Size(117, 23);
-            label6.TabIndex = 26;
-            label6.Text = "Staff Email";
-            // 
-            // cCreateStaffBranchId
-            // 
-            cCreateStaffBranchId.DropDownStyle = ComboBoxStyle.DropDownList;
-            cCreateStaffBranchId.FormattingEnabled = true;
-            cCreateStaffBranchId.Location = new Point(658, 732);
-            cCreateStaffBranchId.Name = "cCreateStaffBranchId";
-            cCreateStaffBranchId.Size = new Size(200, 28);
-            cCreateStaffBranchId.TabIndex = 25;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label5.Location = new Point(491, 737);
-            label5.Name = "label5";
-            label5.Size = new Size(107, 23);
-            label5.TabIndex = 24;
-            label5.Text = "Branch ID";
-            // 
-            // tCreateStaffTc
-            // 
-            tCreateStaffTc.Location = new Point(658, 315);
-            tCreateStaffTc.Name = "tCreateStaffTc";
-            tCreateStaffTc.Size = new Size(200, 27);
-            tCreateStaffTc.TabIndex = 23;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label4.Location = new Point(509, 315);
-            label4.Name = "label4";
-            label4.Size = new Size(89, 23);
-            label4.TabIndex = 22;
-            label4.Text = "Staff TC";
-            // 
-            // tCreateStaffPassword
-            // 
-            tCreateStaffPassword.Location = new Point(658, 622);
-            tCreateStaffPassword.Name = "tCreateStaffPassword";
-            tCreateStaffPassword.Size = new Size(200, 27);
-            tCreateStaffPassword.TabIndex = 21;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label3.Location = new Point(448, 624);
-            label3.Name = "label3";
-            label3.Size = new Size(150, 23);
-            label3.TabIndex = 20;
-            label3.Text = "Staff Password";
-            // 
-            // btnCreateStaff
-            // 
-            btnCreateStaff.BackColor = Color.FromArgb(76, 175, 80);
-            btnCreateStaff.FlatAppearance.BorderSize = 0;
-            btnCreateStaff.FlatStyle = FlatStyle.Flat;
-            btnCreateStaff.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            btnCreateStaff.ForeColor = Color.White;
-            btnCreateStaff.Location = new Point(618, 827);
-            btnCreateStaff.Name = "btnCreateStaff";
-            btnCreateStaff.Size = new Size(248, 49);
-            btnCreateStaff.TabIndex = 19;
-            btnCreateStaff.Text = "CREATE BRANCH";
-            btnCreateStaff.UseVisualStyleBackColor = false;
-            btnCreateStaff.Click += btnCreateStaff_Click;
-            // 
-            // cCreateStaffPos
-            // 
-            cCreateStaffPos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cCreateStaffPos.FormattingEnabled = true;
-            cCreateStaffPos.Items.AddRange(new object[] { "Pbo" });
-            cCreateStaffPos.Location = new Point(658, 465);
-            cCreateStaffPos.Name = "cCreateStaffPos";
-            cCreateStaffPos.Size = new Size(200, 28);
-            cCreateStaffPos.TabIndex = 10;
-            // 
-            // tCreateStaffAddress
-            // 
-            tCreateStaffAddress.Location = new Point(658, 567);
-            tCreateStaffAddress.Name = "tCreateStaffAddress";
-            tCreateStaffAddress.Size = new Size(200, 27);
-            tCreateStaffAddress.TabIndex = 9;
-            // 
-            // tCreateStaffPhoneNo
-            // 
-            tCreateStaffPhoneNo.Location = new Point(658, 517);
-            tCreateStaffPhoneNo.Name = "tCreateStaffPhoneNo";
-            tCreateStaffPhoneNo.Size = new Size(200, 27);
-            tCreateStaffPhoneNo.TabIndex = 8;
-            // 
-            // tCreateStaffLName
-            // 
-            tCreateStaffLName.Location = new Point(658, 411);
-            tCreateStaffLName.Name = "tCreateStaffLName";
-            tCreateStaffLName.Size = new Size(200, 27);
-            tCreateStaffLName.TabIndex = 7;
-            // 
-            // tCreateStaffFName
-            // 
-            tCreateStaffFName.Location = new Point(658, 360);
-            tCreateStaffFName.Name = "tCreateStaffFName";
-            tCreateStaffFName.Size = new Size(200, 27);
-            tCreateStaffFName.TabIndex = 6;
-            // 
-            // label22
-            // 
-            label22.AutoSize = true;
-            label22.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label22.Location = new Point(463, 569);
-            label22.Name = "label22";
-            label22.Size = new Size(135, 23);
-            label22.TabIndex = 5;
-            label22.Text = "Staff Address";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label21.Location = new Point(447, 521);
-            label21.Name = "label21";
-            label21.Size = new Size(151, 23);
-            label21.TabIndex = 4;
-            label21.Text = "Staff Phone No";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label20.Location = new Point(462, 470);
-            label20.Name = "label20";
-            label20.Size = new Size(136, 23);
-            label20.TabIndex = 3;
-            label20.Text = "Staff Position";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label19.Location = new Point(434, 415);
-            label19.Name = "label19";
-            label19.Size = new Size(164, 23);
-            label19.TabIndex = 2;
-            label19.Text = "Staff Last Name";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Century", 12F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label18.Location = new Point(430, 360);
-            label18.Name = "label18";
-            label18.Size = new Size(168, 23);
-            label18.TabIndex = 1;
-            label18.Text = "Staff First Name";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Century", 19.8000011F, FontStyle.Underline, GraphicsUnit.Point, 162);
-            label17.Location = new Point(652, 220);
-            label17.Name = "label17";
-            label17.Size = new Size(207, 40);
-            label17.TabIndex = 0;
-            label17.Text = "Create Staff";
-            // 
             // pStaffBar
             // 
             pStaffBar.BackColor = Color.FromArgb(224, 224, 224);
@@ -887,6 +887,8 @@
             pSolBar.ResumeLayout(false);
             pSolBar.PerformLayout();
             pStaff.ResumeLayout(false);
+            pCreateStaff.ResumeLayout(false);
+            pCreateStaff.PerformLayout();
             pSeeAllStaff.ResumeLayout(false);
             pSeeAllStaff.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dSeeAllStaff).EndInit();
@@ -894,8 +896,6 @@
             pDeleteStaff.PerformLayout();
             pUpdateStaff.ResumeLayout(false);
             pUpdateStaff.PerformLayout();
-            pCreateStaff.ResumeLayout(false);
-            pCreateStaff.PerformLayout();
             pStaffBar.ResumeLayout(false);
             pLog.ResumeLayout(false);
             pLog.PerformLayout();
