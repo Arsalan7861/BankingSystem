@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingSystem.BusinessLayer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingSystem.PresentationLayer", "BankingSystem.PresentationLayer\BankingSystem.PresentationLayer.csproj", "{8CC7B4EE-863C-4EE6-9285-9E2B0D687550}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseQueries", "DataBaseQueries", "{7ABD9B16-B39A-4340-BC96-ACE7FA80BF35}"
+	ProjectSection(SolutionItems) = preProject
+		G:\My Drive\Üniversite\5. Dönem\BMT-311-VERİTABANI YÖNETİM SİSTEMLERİ\Proje\BankingSystemQueries.sql = G:\My Drive\Üniversite\5. Dönem\BMT-311-VERİTABANI YÖNETİM SİSTEMLERİ\Proje\BankingSystemQueries.sql
+		G:\My Drive\Üniversite\5. Dönem\BMT-311-VERİTABANI YÖNETİM SİSTEMLERİ\Proje\BankingSystemTableQueries.sql = G:\My Drive\Üniversite\5. Dönem\BMT-311-VERİTABANI YÖNETİM SİSTEMLERİ\Proje\BankingSystemTableQueries.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
