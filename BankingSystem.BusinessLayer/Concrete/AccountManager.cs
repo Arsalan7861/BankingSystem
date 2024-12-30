@@ -44,11 +44,6 @@ namespace BankingSystem.BusinessLayer.Concrete
             _accountDal.DeleteBankAccount(accountId);
         }
 
-        public void TdepositMoney(string customerTc, decimal amount)
-        {
-            _accountDal.DepositMoney(customerTc, amount);
-        }
-
         public List<Account> TGetAccountByTc(string customerTc)
         {
             return _accountDal.GetAccountByTc(customerTc);
@@ -72,11 +67,6 @@ namespace BankingSystem.BusinessLayer.Concrete
         public void TUpdate(Account entity)
         {
             _accountDal.Update(entity);
-        }
-
-        public void TwithdrawMoney(string customerTc, decimal amount)
-        {
-            _accountDal.WithdrawMoney(customerTc, amount);
         }
     }
 }

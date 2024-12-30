@@ -70,16 +70,6 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public void DepositMoney(string customerTc, decimal amount)
-        {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                var query = "SELECT deposit_money(@customerTc, @amount)";
-                connection.Execute(query, new { customerTc, amount });
-            }
-        }
-
         public List<Account> GetAccountByTc(string customerTc)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
@@ -97,16 +87,6 @@ namespace BankingSystem.DataAccessLayer.Concrete
                 connection.Open();
                 var query = "SELECT send_money(@senderTc, @receiverTc, @amount)";
                 connection.Execute(query, new { senderTc, receiverTc, amount });
-            }
-        }
-
-        public void WithdrawMoney(string customerTc, decimal amount)
-        {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-                var query = "SELECT withdraw_money(@customerTc, @amount)";
-                connection.Execute(query, new { customerTc, amount });
             }
         }
     }
