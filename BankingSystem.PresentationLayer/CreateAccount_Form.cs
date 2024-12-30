@@ -19,6 +19,7 @@ namespace bankaprojesiform
         private readonly ICustomerService _customerService;
         private readonly string _connectionString;
         private readonly IStaffService _staffService;
+        private readonly IBranchService _branchService;
 
         public CreateAccount_Form(string connectionString)
         {
@@ -27,6 +28,7 @@ namespace bankaprojesiform
             InitializeComponent();
             this.FormClosed += CreateAccount_Form_FormClosed;
             _staffService = new StaffManager(new StaffDal(connectionString));
+            _branchService = new BranchManager(new BranchDal(connectionString));
         }
 
         private void CreateAccount_Form_FormClosed(object? sender, FormClosedEventArgs e)
@@ -152,7 +154,13 @@ namespace bankaprojesiform
                 return;
             }
 
-            _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, "24352345");
+            // At first when there is no staff and branch, a branch should be created then staff should be created the customer should have a stafftc.
+            _branchService.TCreateBranch("Ankara", "sk", "023", "Ankara");
+            var branch = _branchService.TGetAll().FirstOrDefault(x => x.Branchstreet == "sk");
+            _staffService.TCreateStaff("12121212121", "ali", "ali", "123", "Pbo", "02433434", branch.Branchid, "Ankara", "ali@gmail.com");
+            var staff = _staffService.TGetStaffByTc("12121212121");
+
+            _customerService.TCreateCustomer(tCreateTc.Text, tCreateName.Text, tCreateSurname.Text, tCreatePassword.Text, tCreatePhoneNo.Text, tCreateAddress.Text, staff.Stafftc);
             MessageBox.Show("Account Created Successfully", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             pRegister.Hide();

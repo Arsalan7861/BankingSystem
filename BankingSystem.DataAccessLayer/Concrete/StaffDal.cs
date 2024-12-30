@@ -37,7 +37,7 @@ namespace BankingSystem.DataAccessLayer.Concrete
             }
         }
 
-        public Staff GetManagerByTc(string managerTc)
+        public Staff GetStaffByTc(string managerTc)
         {
             using (var connection = new NpgsqlConnection(_connectionString))
             {

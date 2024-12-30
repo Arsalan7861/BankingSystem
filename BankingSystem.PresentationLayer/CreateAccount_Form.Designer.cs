@@ -90,6 +90,7 @@
             txtLoginTc.BackColor = SystemColors.MenuBar;
             txtLoginTc.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
             txtLoginTc.Location = new Point(873, 202);
+            txtLoginTc.MaxLength = 11;
             txtLoginTc.Name = "txtLoginTc";
             txtLoginTc.Size = new Size(216, 26);
             txtLoginTc.TabIndex = 3;

@@ -340,11 +340,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century", 15F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label1.Location = new Point(24, 23);
+            label1.Location = new Point(50, 22);
             label1.Name = "label1";
-            label1.Size = new Size(139, 29);
+            label1.Size = new Size(75, 29);
             label1.TabIndex = 0;
-            label1.Text = "Bankacılık";
+            label1.Text = "Bank";
             // 
             // pBranch
             // 

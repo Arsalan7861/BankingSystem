@@ -12,7 +12,7 @@ namespace BankingSystem.DataAccessLayer.Abstract
         void CreateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email);
         void UpdateStaff(string staffTc, string fname, string lname, string password, string position, string phone, int branchId, string address, string email);
         void DeleteStaff(string staffTc);
-        Staff GetManagerByTc(string managerTc);
+        Staff GetStaffByTc(string managerTc);
         List<Staff> SearchStaff(string staffTc);
     }
 }

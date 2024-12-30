@@ -54,7 +54,7 @@ namespace bankaprojesiform
         // Load data to show in the form
         private void LoadData()
         {
-            var manager = _staffService.TGetManagerByTc(_managerTc);// get manager by tc
+            var manager = _staffService.TGetStaffByTc(_managerTc);// get manager by tc
             var staffs = _staffService.TGetAll().Where(x => x.Branchid == manager.Branchid && x.Stafftc != manager.Stafftc).ToList();// get staffs by branch id that is belong to the manager
 
             // show logs in data grid view according to the manager's branch id
@@ -290,7 +290,7 @@ namespace bankaprojesiform
         private void bSearchLog_Click(object sender, EventArgs e)
         {
             var tc = tSearchLogTc.Text;
-            var manager = _staffService.TGetManagerByTc(_managerTc); // Get the manager by TC
+            var manager = _staffService.TGetStaffByTc(_managerTc); // Get the manager by TC
             var managerBranchId = manager.Branchid; // Get the manager's branch ID
 
             // Get all staff members in the same branch as the manager
@@ -311,7 +311,7 @@ namespace bankaprojesiform
         private void bSearchStaff_Click(object sender, EventArgs e)
         {
             var tc = tSearchStaff.Text;
-            var manager = _staffService.TGetManagerByTc(_managerTc); // Get the manager by TC
+            var manager = _staffService.TGetStaffByTc(_managerTc); // Get the manager by TC
 
             var staffs = _staffService.TSearchStaff(tc).Where(x => x.Branchid == manager.Branchid && x.Stafftc != manager.Stafftc).ToList(); // Get staff members in the same branch as the manager
 

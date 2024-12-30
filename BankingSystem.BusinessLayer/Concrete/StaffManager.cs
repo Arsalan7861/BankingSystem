@@ -48,9 +48,9 @@ namespace BankingSystem.BusinessLayer.Concrete
             throw new NotImplementedException();
         }
 
-        public Staff TGetManagerByTc(string managerTc)
+        public Staff TGetStaffByTc(string managerTc)
         {
-            return _staffDal.GetManagerByTc(managerTc);
+            return _staffDal.GetStaffByTc(managerTc);
         }
 
         public List<Staff> TSearchStaff(string staffTc)

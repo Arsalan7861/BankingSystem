@@ -104,7 +104,7 @@ namespace bankaprojesiform
             tInformationAddress.Text = customer.Customeraddress;
             tInformationPhone.Text = customer.Customerphone;
 
-            lblWelcome.Text = $"Welcome to Bankacılık! {customer.Customerfname} {customer.Customerlname}, how can we assist you today?";
+            lblWelcome.Text = $"Welcome to Bank! {customer.Customerfname} {customer.Customerlname}, how can we assist you today?";
         }
 
         private void bLogOut_Click(object sender, EventArgs e)
@@ -494,12 +494,6 @@ namespace bankaprojesiform
                 return;
             }
 
-            if(tReciverIban.Text.Any(char.IsLetter))
-            {
-                MessageBox.Show("IBAN must be numeric!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (!tSendAmount.Text.Any(char.IsDigit) && !tSendAmount.Text.Contains('.'))
             {
                 MessageBox.Show("Amount must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -508,7 +502,7 @@ namespace bankaprojesiform
 
             if (decimal.Parse(tSendAmount.Text) > 9999999999999.99M)
             {
-                MessageBox.Show("Initial balance cannot be more than 9999999999999.99!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Amount cannot be more than 9999999999999.99!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -518,7 +512,8 @@ namespace bankaprojesiform
                 return;
             }
 
-            if (tReciverIban.Text == _customerTc)
+            var account1 = _accountService.TGetAccountByTc(_customerTc).FirstOrDefault(x => x.Accounttype == "Demand Deposit");
+            if (tReciverIban.Text == account1.Accountiban)
             {
                 MessageBox.Show("You cannot send money to yourself!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -529,7 +524,8 @@ namespace bankaprojesiform
 
             // Check if the recipient exists
             var customers = _customerService.TGetAll();
-            if (customers.All(x => x.Customertc != recipientIban))
+            var accounts1 = _accountService.TGetAll();
+            if (accounts1.All(x => x.Accountiban != recipientIban))
             {
                 MessageBox.Show("There is no customer with this IBAN!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -550,7 +546,7 @@ namespace bankaprojesiform
                 return;
             }
 
-            _accountService.TsendMoney(_customerTc, recipientIban, amount);
+            _accountService.TsendMoney(account.Accountiban, recipientIban, amount);
             MessageBox.Show("Money Sent Successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             tReciverIban.Text = "";
             tSendAmount.Text = "";
