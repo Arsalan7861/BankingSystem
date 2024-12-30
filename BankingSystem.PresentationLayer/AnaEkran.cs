@@ -255,6 +255,13 @@ namespace bankaprojesiform
                 return;
             }
 
+            if (decimal.Parse(tCreditInitialBalance.Text) > 9999999999999.99M)
+            {
+                MessageBox.Show("Initial balance cannot be more than 9999999999999.99!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tCreditInitialBalance.Text = "";
+                return;
+            }
+
             if (decimal.Parse(tCreditInitialBalance.Text) < 0)
             {
                 MessageBox.Show("Initial balance cannot be less than 0!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -325,6 +332,13 @@ namespace bankaprojesiform
             if (tDemandInitialBalance.Text.Any(x => !char.IsDigit(x)) && !tDemandInitialBalance.Text.Contains('.'))
             {
                 MessageBox.Show("Initial balance must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.Parse(tDemandInitialBalance.Text) > 9999999999999.99M)
+            {
+                MessageBox.Show("Initial balance cannot be more than 9999999999999.99!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tDemandInitialBalance.Text = "";
                 return;
             }
 
@@ -489,6 +503,12 @@ namespace bankaprojesiform
             if (!tSendAmount.Text.Any(char.IsDigit) && !tSendAmount.Text.Contains('.'))
             {
                 MessageBox.Show("Amount must be a number!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.Parse(tSendAmount.Text) > 9999999999999.99M)
+            {
+                MessageBox.Show("Initial balance cannot be more than 9999999999999.99!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
