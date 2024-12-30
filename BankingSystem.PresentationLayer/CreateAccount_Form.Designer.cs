@@ -129,11 +129,11 @@
             label2.Anchor = AnchorStyles.Top;
             label2.AutoSize = true;
             label2.Font = new Font("Century", 9F, FontStyle.Regular, GraphicsUnit.Point, 162);
-            label2.Location = new Point(930, 181);
+            label2.Location = new Point(904, 181);
             label2.Name = "label2";
-            label2.Size = new Size(110, 18);
+            label2.Size = new Size(157, 18);
             label2.TabIndex = 6;
-            label2.Text = "T.C Kimlik No";
+            label2.Text = "T.C Identification No";
             // 
             // label3
             // 
