@@ -1245,6 +1245,7 @@
             // txtStaffTc
             // 
             txtStaffTc.Location = new Point(659, 304);
+            txtStaffTc.MaxLength = 11;
             txtStaffTc.Name = "txtStaffTc";
             txtStaffTc.Size = new Size(200, 27);
             txtStaffTc.TabIndex = 23;
@@ -1580,6 +1581,7 @@
             // txtCustomerTc
             // 
             txtCustomerTc.Location = new Point(754, 328);
+            txtCustomerTc.MaxLength = 11;
             txtCustomerTc.Name = "txtCustomerTc";
             txtCustomerTc.Size = new Size(271, 27);
             txtCustomerTc.TabIndex = 49;

@@ -253,6 +253,7 @@
             // tCreateTc
             // 
             tCreateTc.Location = new Point(873, 402);
+            tCreateTc.MaxLength = 11;
             tCreateTc.Name = "tCreateTc";
             tCreateTc.Size = new Size(216, 27);
             tCreateTc.TabIndex = 10;
