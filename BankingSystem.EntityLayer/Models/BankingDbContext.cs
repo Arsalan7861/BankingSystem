@@ -29,13 +29,7 @@ public partial class BankingDbContext : DbContext
 
     public virtual DbSet<PboViewTransaction> PboViewTransactions { get; set; }
 
-    public virtual DbSet<Staff> Staff { get; set; }
-
-    public virtual DbSet<TellerViewAccount> TellerViewAccounts { get; set; }
-
-    public virtual DbSet<TellerViewCustomer> TellerViewCustomers { get; set; }
-
-    public virtual DbSet<TellerViewTransaction> TellerViewTransactions { get; set; }
+    public virtual DbSet<Staff> Staff { get; set; }   
 
     public virtual DbSet<Transaction> Transactions { get; set; }
 
